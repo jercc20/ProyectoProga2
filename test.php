@@ -2,4 +2,5 @@
 echo "TEST";
 echo "ola k ase";
 echo "test2";
+echo "test3";
 ?>
