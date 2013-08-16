@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+<persistence-unit name="sistemaGalerias" transaction-type="RESOURCE_LOCAL">
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sistema_galerias" />
+	<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+	<property name="javax.persistence.jdbc.user" value="root" />
+	<property name="javax.persistence.jdbc.password" value="root" />
+
+	<property name="eclipselink.jdbc.batch-writing" value="JDBC" />
+	<property name="eclipselink.persistence-context.flush-mode"
+value="COMMIT" />
+
+	<property name="eclipselink.jdbc.connections.initial" value="1" />
+	<property name="eclipselink.jdbc.connections.min" value="64" />
+	<property name="eclipselink.jdbc.connections.max" value="64" />
+
+	<property name="eclipselink.cache.size.default" value="1000" />
+
+	<property name="eclipselink.ddl-generation" value="create-tables" />
+
+	<property name="eclipselink.logging.level" value="FINE" />
+	<property name="eclipselink.logging.thread" value="false" />
+	<property name="eclipselink.logging.session" value="false" />
+	<property name="eclipselink.logging.exceptions" value="false" />
+	<property name="eclipselink.logging.timestamp" value="false" />
+</persistence-unit>
+</persistence>
