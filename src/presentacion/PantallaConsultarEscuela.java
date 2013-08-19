@@ -1,4 +1,4 @@
-package capaPresentacionLocal;
+package presentacion;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,8 +12,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import capaLogica.Escuela;
-import capaLogica.Gestor;
+import logica.Escuela;
+import logica.Gestor;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

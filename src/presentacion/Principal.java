@@ -1,4 +1,4 @@
-package capaPresentacionLocal;
+package presentacion;
 
 import javax.swing.SwingUtilities;
 

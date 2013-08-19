@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="TAdquisiciones")
 
-public class Propietario implements Serializable {
+public abstract class Propietario implements Serializable {
 	
 private static final long serialVersionUID = -436540065081698326L;
 	

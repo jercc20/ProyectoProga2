@@ -1,4 +1,4 @@
-package capaPresentacionLocal;
+package presentacion;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,8 +9,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
-import capaLogica.Galeria;
-import capaLogica.Gestor;
+import logica.Galeria;
+import logica.Gestor;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -109,12 +109,12 @@ public class PantallaActualizarGaleria extends JFrame {
 		
 		txtNombreEncargado = new JTextField();
 		txtNombreEncargado.setBounds(147, 133, 86, 20);
-		txtNombreEncargado.setText( galeria.getNombreEncargado() );
+		txtNombreEncargado.setText( galeria.getEncargado() );
 		contentPane.add(txtNombreEncargado);
 		
 		txtArea = new JTextField();
 		txtArea.setBounds(147, 158, 86, 20);
-		txtArea.setText( galeria.getArea() );
+		txtArea.setText( galeria.getMetrosCuadrados() );
 		contentPane.add(txtArea);
 		
 		btnCancel = new JButton("Cancel");

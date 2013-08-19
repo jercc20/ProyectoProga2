@@ -1,4 +1,4 @@
-package capaPresentacionLocal;
+package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

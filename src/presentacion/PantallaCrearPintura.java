@@ -1,6 +1,6 @@
-package capaPresentacionLocal;
+package presentacion;
 
-import capaLogica.Gestor;
+import logica.Gestor;
 
 import java.awt.EventQueue;
 

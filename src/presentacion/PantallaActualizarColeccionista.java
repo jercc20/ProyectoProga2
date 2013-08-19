@@ -9,29 +9,34 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
+import logica.Coleccionista;
 import logica.Gestor;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
-public class PantallaCrearGaleria extends JFrame {
+public class PantallaActualizarColeccionista extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtId;
 	private JTextField txtNombre;
 	private JTextField txtDireccion;
 	private JTextField txtTelefono;
-	private JTextField txtFechaInauguracion;
-	private JTextField txtNombreEncargado;
-	private JTextField txtArea;
+	private JTextField txtFechaInicio;
 	private JButton btnCancel;
+	private JButton btnActualizar;
+	private JButton btnBorrar;
+	
+	private Coleccionista coleccionista;
 
-	public PantallaCrearGaleria() {
+	public PantallaActualizarColeccionista( Coleccionista pColeccionista ) {
+		
+		coleccionista = pColeccionista;
 		
 		setResizable(false);
-		setTitle("Crear Galer\u00EDa");
-		setBounds(100, 100, 339, 265);
+		setTitle("Actualizar Galer\u00EDa");
+		setBounds(100, 100, 339, 222);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -58,70 +63,37 @@ public class PantallaCrearGaleria extends JFrame {
 		lblTelefono.setBounds(54, 86, 83, 14);
 		contentPane.add(lblTelefono);
 		
-		JLabel lblFechaInauguracion = new JLabel("Fecha de inauguraci\u00F3n");
-		lblFechaInauguracion.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaInauguracion.setBounds(0, 111, 137, 14);
-		contentPane.add(lblFechaInauguracion);
-		
-		JLabel lblNombreEncargado = new JLabel("Nombre del encargado");
-		lblNombreEncargado.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombreEncargado.setBounds(0, 136, 137, 14);
-		contentPane.add(lblNombreEncargado);
-		
-		JLabel lblArea = new JLabel("\u00C1rea");
-		lblArea.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblArea.setBounds(91, 161, 46, 14);
-		contentPane.add(lblArea);
+		JLabel lblFechaInicio = new JLabel("Fecha de inicio");
+		lblFechaInicio.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblFechaInicio.setBounds(0, 111, 137, 14);
+		contentPane.add(lblFechaInicio);
 		
 		txtId = new JTextField();
-		//txtId.setEditable(false);
+		txtId.setEditable(false);
 		txtId.setBounds(147, 8, 86, 20);
+		txtId.setText( String.valueOf( coleccionista.getId() ) );
 		contentPane.add(txtId);
-		txtId.setColumns(10);
 		
 		txtNombre = new JTextField();
 		txtNombre.setBounds(147, 33, 86, 20);
+		txtNombre.setText( coleccionista.getNombre() );
 		contentPane.add(txtNombre);
-		txtNombre.setColumns(10);
 		
 		txtDireccion = new JTextField();
 		txtDireccion.setBounds(147, 58, 86, 20);
+		txtDireccion.setText( coleccionista.getDireccion() );
 		contentPane.add(txtDireccion);
-		txtDireccion.setColumns(10);
 		
 		txtTelefono = new JTextField();
 		txtTelefono.setBounds(147, 83, 86, 20);
+		txtTelefono.setText( coleccionista.getTelefono() );
 		contentPane.add(txtTelefono);
-		txtTelefono.setColumns(10);
 		
-		txtFechaInauguracion = new JTextField();
-		txtFechaInauguracion.setBounds(147, 108, 86, 20);
-		contentPane.add(txtFechaInauguracion);
-		txtFechaInauguracion.setColumns(10);
-		
-		txtNombreEncargado = new JTextField();
-		txtNombreEncargado.setBounds(147, 133, 86, 20);
-		contentPane.add(txtNombreEncargado);
-		txtNombreEncargado.setColumns(10);
-		
-		txtArea = new JTextField();
-		txtArea.setBounds(147, 158, 86, 20);
-		contentPane.add(txtArea);
-		txtArea.setColumns(10);
-		
-		JButton btnCrear = new JButton("Crear");
-		btnCrear.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Gestor.crearGaleria(Integer.parseInt( txtId.getText() ), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInauguracion.getText(), txtNombreEncargado.getText(), txtArea.getText());
-					JOptionPane.showMessageDialog( null, "La galeria ha sido creada exitosamente!" );
-				} catch (Exception e1) {
-					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
-				}
-			}
-		});
-		btnCrear.setBounds(234, 203, 89, 23);
-		contentPane.add(btnCrear);
+		txtFechaInicio = new JTextField();
+		lblFechaInicio.setLabelFor(txtFechaInicio);
+		txtFechaInicio.setBounds(147, 108, 86, 20);
+		txtFechaInicio.setText( coleccionista.getFechaInicio() );
+		contentPane.add(txtFechaInicio);
 		
 		btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
@@ -129,8 +101,37 @@ public class PantallaCrearGaleria extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnCancel.setBounds(135, 203, 89, 23);
+		btnCancel.setBounds(36, 160, 89, 23);
 		contentPane.add(btnCancel);
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Gestor.actualizarColeccionista(coleccionista.getId(), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInicio.getText());
+					JOptionPane.showMessageDialog( null, "El coleccionista ha sido actualiza exitosamente!" );
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
+				}
+			}
+		});
+		btnActualizar.setBounds(234, 160, 89, 23);
+		contentPane.add(btnActualizar);
+		
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Gestor.borrarColeccionista(coleccionista.getId());
+					JOptionPane.showMessageDialog( null, "El coleccionista ha sido eliminada exitosamente.");
+					setVisible(false);
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog( null, "Hubo un error");
+				}
+			}
+		});
+		btnBorrar.setBounds(135, 160, 89, 23);
+		contentPane.add(btnBorrar);
 	}
 
 }

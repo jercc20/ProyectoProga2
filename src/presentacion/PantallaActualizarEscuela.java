@@ -1,4 +1,4 @@
-package capaPresentacionLocal;
+package presentacion;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,8 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
-import capaLogica.Escuela;
-import capaLogica.Gestor;
+import logica.Escuela;
+import logica.Gestor;
 
 import java.awt.SystemColor;
 import java.sql.SQLException;
@@ -78,12 +78,12 @@ public class PantallaActualizarEscuela extends JFrame {
 		
 		txtPais = new JTextField();
 		txtPais.setBounds(101, 62, 109, 20);
-		txtPais.setText( escuela.getPais() );
+		txtPais.setText( escuela.getPaisOrigen() );
 		contentPane.add(txtPais);
 		
 		txtFecha = new JTextField();
 		txtFecha.setBounds(101, 87, 109, 20);
-		txtFecha.setText( escuela.getFecha() );
+		txtFecha.setText( escuela.getFechaOrigen() );
 		contentPane.add(txtFecha);
 		
 		JButton btnCancelar = new JButton("Cancel");

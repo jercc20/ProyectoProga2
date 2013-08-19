@@ -1,7 +1,7 @@
-package capaPresentacionLocal;
+package presentacion;
 
-import capaLogica.Gestor;
-import capaLogica.Mecenas;
+import logica.Gestor;
+import logica.Mecenas;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

@@ -1,4 +1,4 @@
-package capaPresentacionLocal;
+package presentacion;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,8 +14,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
-import capaLogica.Gestor;
-import capaLogica.Pintor;
+import logica.Gestor;
+import logica.Pintor;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -122,7 +122,7 @@ public class PantallaActualizarPintor extends JFrame {
 		
 		txtPaisNacimiento = new JTextField();
 		txtPaisNacimiento.setBounds(150, 108, 139, 20);
-		txtPaisNacimiento.setText( pPintor.getPaisNacimiento() );
+		txtPaisNacimiento.setText( pPintor.getNacionalidad() );
 		contentPane.add(txtPaisNacimiento);
 		
 		txtFechaNacimiento = new JTextField();

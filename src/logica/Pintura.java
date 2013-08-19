@@ -44,10 +44,10 @@ private static final long serialVersionUID = -436540065081698326L;
 	private String tecnica;
 	
 	@Column(name="condicionActual")
-	private String condicionActual;
+	private int condicionActual;
 	
 	@Column(name="esFamosa")
-	private String esFamosa;
+	private int esFamosa;
 	
 	@Column(name="historia")
 	private String	historia;
@@ -73,7 +73,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pidPintor:Identificador del pintor que elaboró la pintura.
 	 */	
 	public Pintura(String pcodigo, String pnombre, String pdimensiones, String pfechaCreacion, String ptiempoTardado,
-			String ptecnica, String pcondicionActual, String pesFamosa, String phistoria, String pidPintor) {
+			String ptecnica, int pcondicionActual, int pesFamosa, String phistoria, String pidPintor) {
 		setCodigo(pcodigo);
 		setNombre(pnombre);
 		setDimensiones(pdimensiones);
@@ -188,7 +188,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Getter
 	 * @return condicionActual
 	 */
-	public String getCondicionActual() {
+	public int getCondicionActual() {
 		return condicionActual;
 	}
 	
@@ -196,7 +196,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Setter
 	 * @param pcondicionActual: Condición actual de la pintura (excelente, buena, regular o mala).
 	 */
-	public void setCondicionActual(String pcondicionActual) {
+	public void setCondicionActual(int pcondicionActual) {
 		condicionActual = pcondicionActual;
 	}
 	
@@ -204,7 +204,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Getter
 	 * @return esFamosa
 	 */
-	public String getEsFamosa() {
+	public int getEsFamosa() {
 		return esFamosa;
 	}
 	
@@ -212,7 +212,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Setter
 	 * @param pesFamosa: Indicador si es una pintura muy famosa.
 	 */
-	public void setEsFamosa(String pesFamosa) {
+	public void setEsFamosa(int pesFamosa) {
 		esFamosa = pesFamosa;
 	}
 	

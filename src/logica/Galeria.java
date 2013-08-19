@@ -59,13 +59,13 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Getter
 	 * @return fechaInaguracion
 	 */
-	public String getFechaInaguracion() {
+	public String getFechaInauguracion() {
 		return fechaInaguracion;
 	}
 	
 	/**
 	 * Setter
-	 * @param pfechaInicio: Fecha de inaguración de la galería.
+	 * @param pfechaInauguracion: Fecha de inaguración de la galería.
 	 */
 	public void setFechaInaguracion(String pfechaInaguracion) {
 		fechaInaguracion = pfechaInaguracion;

@@ -1,4 +1,4 @@
-package capaPresentacionLocal;
+package presentacion;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,12 +12,11 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import capaLogica.Gestor;
-import capaLogica.Pintura;
+import logica.Gestor;
+import logica.Pintura;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.sql.SQLException;
 
 public class PantallaConsultarPintura extends JFrame {
 

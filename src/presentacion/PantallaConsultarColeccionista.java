@@ -12,22 +12,22 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import logica.Coleccionista;
 import logica.Gestor;
-import logica.Mecenas;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PantallaConsultarMecenas extends JFrame {
+public class PantallaConsultarColeccionista extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtId;
 
-	public PantallaConsultarMecenas() {
+	public PantallaConsultarColeccionista() {
 		setBackground(SystemColor.inactiveCaptionBorder);
 		setResizable(false);
-		setTitle("Consultar Mecenas");
+		setTitle("Consultar Coleccionista");
 		setBounds(100, 100, 311, 131);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
@@ -46,14 +46,15 @@ public class PantallaConsultarMecenas extends JFrame {
 		txtNombre.setBounds(122, 8, 117, 20);
 		txtNombre.setEditable(false);
 		contentPane.add(txtNombre);
+		txtNombre.setColumns(10);
 		
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Mecenas mecenas = Gestor.consultarMecenas(Integer.parseInt( txtId.getText() ));
-					PantallaActualizarMecenas pantallaMecenas = new PantallaActualizarMecenas( mecenas );
-					pantallaMecenas.setVisible(true);
+					Coleccionista coleccionista = Gestor.consultarColeccionista(Integer.parseInt( txtId.getText() ));
+					PantallaActualizarColeccionista pantallaColeccionista = new PantallaActualizarColeccionista( coleccionista );
+					pantallaColeccionista.setVisible(true);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "No se ha podido encontrar por el id indicado");
 				}
@@ -72,6 +73,7 @@ public class PantallaConsultarMecenas extends JFrame {
 		lblPorId.setLabelFor(txtId);
 		txtId.setBounds(122, 33, 117, 20);
 		contentPane.add(txtId);
+		txtId.setColumns(10);
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {

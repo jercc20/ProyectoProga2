@@ -1,7 +1,4 @@
-package capaPresentacionLocal;
-
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+package presentacion;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,8 +12,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import capaLogica.Gestor;
-import capaLogica.Pintor;
+import logica.Gestor;
+import logica.Pintor;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -27,25 +24,6 @@ public class PantallaConsultarPintor extends JFrame {
 	private JTextField txtNombre;
 	private JTextField txtId;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PantallaConsultarPintor frame = new PantallaConsultarPintor();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public PantallaConsultarPintor() {
 		setBackground(SystemColor.inactiveCaptionBorder);
 		setResizable(false);
