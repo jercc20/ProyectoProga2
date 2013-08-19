@@ -14,7 +14,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name="TAdquisiciones")
+@Table(name="TColeccionistas")
 
 public class Coleccionista extends Propietario implements Serializable{
 	
@@ -24,7 +24,7 @@ public class Coleccionista extends Propietario implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
 	
-	@Column(name="fechaAdquisicion")
+	@Column(name="fechaInicio")
 	private String fechaInicio;
 	
 	/**

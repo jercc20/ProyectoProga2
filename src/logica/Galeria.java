@@ -14,7 +14,7 @@ import javax.persistence.*;
 import java.util.Vector;
 
 @Entity
-@Table(name="TAdquisiciones")
+@Table(name="TGalerias")
 
 public class Galeria extends Propietario implements Serializable {
 	

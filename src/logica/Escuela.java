@@ -15,7 +15,7 @@ import javax.persistence.*;
 import java.util.Vector;
 
 @Entity
-@Table(name="TEscuela")
+@Table(name="TEscuelas")
 
 public class Escuela implements Serializable {
 	

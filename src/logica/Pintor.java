@@ -15,7 +15,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name="TAdquisiciones")
+@Table(name="TPintores")
 
 public class Pintor implements Serializable {
 	

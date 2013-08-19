@@ -14,7 +14,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name="TAdquisiciones")
+@Table(name="TMecenas")
 
 public class Mecenas implements Serializable{
 	

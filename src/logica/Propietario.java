@@ -14,7 +14,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name="TAdquisiciones")
+@Table(name="TPropietarios")
 
 public abstract class Propietario implements Serializable {
 	

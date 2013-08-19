@@ -13,7 +13,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name="TAdquisiciones")
+@Table(name="TMecenazgo")
 
 public class Mecenazgo implements Serializable {
 	
@@ -35,10 +35,8 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Column(name="idMecenas")
 	private String	idMecenas;
 	
-	@Column(name="pintor")
-	private Pintor	pintor;
-	
-	/*private Mecenas	mecenas;*/
+	/*private Pintor	pintor;
+	private Mecenas	mecenas;*/
 	
 	/**
 	 * Constructor
