@@ -22,6 +22,7 @@ public class principal_test {
 		DAOPersona.update( p3 );
 		System.out.println( "Id generado y agregado a la instancia:" +  p.getId() );
 		DAOPersona.delete( p );
+		
 	}
 
 }

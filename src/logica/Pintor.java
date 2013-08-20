@@ -14,8 +14,8 @@ import java.util.Vector;
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
-@Table(name="TPintores")
+//@Entity
+//@Table(name="TPintores")
 
 public class Pintor implements Serializable {
 	

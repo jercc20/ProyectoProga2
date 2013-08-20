@@ -12,8 +12,8 @@ package logica;
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
-@Table(name="TAdquisiciones")
+//@Entity
+//@Table(name="TAdquisiciones")
 
 public class Adquisicion implements Serializable {
 	

@@ -38,11 +38,11 @@ public class DAOEscuela {
 	 * Busca una instancia en la tabla de escuela usando el nombre de la escuela.
 	 * @param pnombre: Nombre de la escuela.
 	 */	
-	public static Escuela buscar(String pnombre){
+	public static Escuela buscar(int pid){
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		Escuela escuela = null;
 		try{
-			escuela = em.find(Escuela.class, pnombre);
+			escuela = em.find(Escuela.class, pid);
 		}
 		catch (Exception ex){
 			System.out.println("Error");

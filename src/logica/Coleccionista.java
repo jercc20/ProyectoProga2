@@ -13,8 +13,8 @@ import java.util.Vector;
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
-@Table(name="TColeccionistas")
+//@Entity
+//@Table(name="TColeccionistas")
 
 public class Coleccionista extends Propietario implements Serializable{
 	

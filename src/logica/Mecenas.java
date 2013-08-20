@@ -13,8 +13,8 @@ import java.util.Vector;
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
-@Table(name="TMecenas")
+//@Entity
+//@Table(name="TMecenas")
 
 public class Mecenas implements Serializable{
 	

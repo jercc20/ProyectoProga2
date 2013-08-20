@@ -13,8 +13,8 @@ import java.util.Vector;
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
-@Table(name="TPropietarios")
+//@Entity
+//@Table(name="TPropietarios")
 
 public abstract class Propietario implements Serializable {
 	

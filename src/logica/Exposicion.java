@@ -13,8 +13,8 @@ import javax.persistence.*;
 
 import java.util.Vector;
 
-@Entity
-@Table(name="TExposiciones")
+//@Entity
+//@Table(name="TExposiciones")
 
 public class Exposicion implements Serializable{
 	

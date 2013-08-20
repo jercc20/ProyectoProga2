@@ -24,6 +24,7 @@ public class Escuela implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
+	private int id;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -41,6 +42,13 @@ public class Escuela implements Serializable {
 	
 	/**
 	 * Constructor
+	 */
+	public Escuela(){
+		
+	}
+	
+	/**
+	 * Constructor
 	 * @param pnombre: Nombre de la escuela.
 	 * @param ppais: País donde apareció la escuela.
 	 * @param pfecha: Fecha cuando apareció la escuela.
@@ -52,6 +60,21 @@ public class Escuela implements Serializable {
 		setFechaOrigen(pfecha);
 		setCaracteristicas(pcaracteristicas);
 		/*listaPintores = null;*/
+	}
+	/**
+	 * Getter
+	 * @return id
+	 */
+	public int getId() {
+		return id;
+	}
+	
+	/**
+	 * Setter
+	 * @param pid: Id de la escuela.
+	 */
+	public void setId(int pid) {
+		id = pid;
 	}
 	
 	/**
