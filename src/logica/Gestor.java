@@ -62,7 +62,7 @@ public class Gestor {
 	}
 	
 	
-	public static Mecenazgo crearMecenazgo(int pIdMecenas, int pIdPintor, String pFechaInicio, String pFechaFin) throws Exception{
+	public static Mecenazgo crearMecenazgo(String pFechaInicio, String pFechaFin, int pIdMecenas, int pIdPintor) throws Exception{
 		Mecenazgo mecenazgo = (new DAOMecenazgo()).crear(pIdMecenas, pIdPintor, pFechaInicio, pFechaFin);
 		return mecenazgo;
 	}
