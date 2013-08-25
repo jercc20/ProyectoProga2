@@ -9,23 +9,21 @@
 package logica;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
+import java.sql.Date;
 import java.util.Vector;
 
-//@Entity
-//@Table(name="TGalerias")
+@Entity
+@Table(name="TGalerias")
 
 public class Galeria extends Propietario implements Serializable {
 	
 private static final long serialVersionUID = -436540065081698326L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
-	
-	@Column(name="fechaInaguracion")
-	private String fechaInaguracion;
+	@Column(name="fecha_inaguracion")
+	private Date fechaInaguracion;
 	
 	@Column(name="encargado")
 	private String encargado;
@@ -34,6 +32,13 @@ private static final long serialVersionUID = -436540065081698326L;
 	private String metrosCuadrados;
 	
 	/*private Vector	listaExposiciones;*/
+	
+	/**
+	 * Constructor
+	 */
+	private Galeria(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -52,7 +57,6 @@ private static final long serialVersionUID = -436540065081698326L;
 		setFechaInaguracion(pfechaInaguracion);
 		setEncargado(pencargado);
 		setMetrosCuadrados(pmetrosCuadrados);
-		/*listaExposiciones = null;*/
 	}
 	
 	/**
@@ -60,7 +64,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @return fechaInaguracion
 	 */
 	public String getFechaInauguracion() {
-		return fechaInaguracion;
+		return fechaInaguracion.toString();
 	}
 	
 	/**
@@ -68,6 +72,14 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pfechaInauguracion: Fecha de inaguración de la galería.
 	 */
 	public void setFechaInaguracion(String pfechaInaguracion) {
+		fechaInaguracion = Date.valueOf(pfechaInaguracion);
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaInauguracion: Fecha de inaguración de la galería.
+	 */
+	public void setFechaInaguracion(Date pfechaInaguracion) {
 		fechaInaguracion = pfechaInaguracion;
 	}
 	
