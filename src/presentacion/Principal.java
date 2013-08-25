@@ -41,7 +41,18 @@ public class Principal {
 		//DAOPintor.actualizar( p3 );
 		//System.out.println( p3.getEscuela().getNombre() );
 		//System.out.println( p3.getMaestros().size() );
-		//DAOPintor.borrar( p1 );		
+		//DAOPintor.borrar( p1 );
+		
+		//Mecenas
+		//Mecenas m1= new Mecenas("mece1", "nombre Mecenas", "cr", "sj", "2014-09-08");
+		//DAOMecenas.crear( m1 );
+		//Mecenas m2 = new Mecenas("mece2", "nombre Mecenas", "cr", "sj", "2014-09-08");
+		//DAOMecenas.crear( m2 );
+		//Mecenas m3 = DAOMecenas.buscar("mece2");
+		//System.out.println( m3.getNombre() );
+		//m3.setNombre("name_update");
+		//DAOMecenas.actualizar( m3 );
+		//DAOMecenas.borrar( m1 );
 		
 		/*END*/
 		

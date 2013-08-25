@@ -9,21 +9,21 @@
 
 package logica;
 
+import java.sql.Date;
 import java.util.Vector;
 import java.io.Serializable;
+
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="TMecenas")
+@Entity
+@Table(name="TMecenas")
 
 public class Mecenas implements Serializable{
 	
 private static final long serialVersionUID = -436540065081698326L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
-	
 	@Column(name="id")
 	private String id;
 	
@@ -33,13 +33,21 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Column(name="nacionalidad")
 	private String nacionalidad;
 	
-	@Column(name="ciudadNacimiento")
+	@Column(name="ciudad_nacimiento")
 	private String ciudadNacimiento;
 	
-	@Column(name="fechaMuerte")
-	private String fechaMuerte;
+	//Format = yyyy-mm-dd
+	@Column(name="fecha_muerte")
+	private Date fechaMuerte;
 	
-	/*private Vector  		listaMecenazgos;*/
+	/*private Vector listaMecenazgos;*/
+	
+	/**
+	 * Constructor
+	 */
+	private Mecenas(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -56,7 +64,6 @@ private static final long serialVersionUID = -436540065081698326L;
 		setNacionalidad(pnacionalidad);
 		setCiudadNacimiento(pciudadNacimiento);
 		setFechaMuerte(pfechaMuerte);
-		/*listaMecenazgos = null;*/
 	}
 	
 	/**
@@ -125,10 +132,10 @@ private static final long serialVersionUID = -436540065081698326L;
 	
 	/**
 	 * Getter
-	 * @return fechaAdquisicion
+	 * @return fechaMuerte
 	 */
 	public String getFechaMuerte() {
-		return fechaMuerte;
+		return fechaMuerte.toString();
 	}
 	
 	/**
@@ -136,6 +143,14 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pfechaMuerte: Fecha de fallecimiento del mecenas.
 	 */
 	public void setFechaMuerte(String pfechaMuerte) {
+		fechaMuerte = Date.valueOf(pfechaMuerte);
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaMuerte: Fecha de fallecimiento del mecenas.
+	 */
+	public void setFechaMuerte(Date pfechaMuerte) {
 		fechaMuerte = pfechaMuerte;
 	}
 	
