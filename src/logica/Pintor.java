@@ -10,55 +10,58 @@
 
 package logica;
 
+import java.sql.Date;
 import java.util.Vector;
 import java.io.Serializable;
+
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="TPintores")
+@Entity
+@Table(name="TPintores")
 
 public class Pintor implements Serializable {
 	
 private static final long serialVersionUID = -436540065081698326L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
-	
 	@Column(name="id")
 	private String id;
 	
 	@Column(name="nombre")
 	private String nombre;
 	
-	@Column(name="nombreArtistico")
+	@Column(name="nombre_artistico")
 	private String nombreArtistico;
 	
 	@Column(name="nacionalidad")
 	private String nacionalidad;
 	
-	@Column(name="ciudadNacimiento")
+	@Column(name="ciudad_nacimiento")
 	private String ciudadNacimiento;
 	
-	@Column(name="fechaNacimiento")
-	private String fechaNacimiento;
+	//Format = yyyy-mm-dd
+	@Column(name="fecha_nacimiento")
+	private Date fechaNacimiento;
 	
-	@Column(name="fechaMuerte")
-	private String fechaMuerte;
+	//Format = yyyy-mm-dd
+	@Column(name="fecha_muerte")
+	private Date fechaMuerte;
 	
 	@Column(name="tipo")
 	private String tipo;
 	
-	@Column(name="idMaestro")
-	private String	idMaestro;
-	
-	@Column(name="nombreEscuela")
-	private String	nombreEscuela;
+	@Column(name="id_escuela")
+	private int	nombreEscuela;
 	
 	/*private Pintor maestro;
 	private Vector	listaMecenazgos;
 	private Vector	listaPinturas;
 	private Escuela escuela;*/
+	
+	public Pintor(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -74,7 +77,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pnombreEscuela: Nombre de la escuela del pintor si es que la tiene.
 	 */	
 	public Pintor(String pid, String pnombre, String pnombreArtistico,	String pnacionalidad, String pciudadNacimiento,
-			String pfechaNacimiento,	String pfechaMuerte, String ptipo, String pidMaestro, String pnombreEscuela) {
+			String pfechaNacimiento, String pfechaMuerte, String ptipo, int pnombreEscuela) {
 		setId(pid);
 		setNombre(pnombre);
 		setNombreArtistico(pnombreArtistico);
@@ -83,7 +86,6 @@ private static final long serialVersionUID = -436540065081698326L;
 		setFechaNacimiento(pfechaNacimiento);
 		setFechaMuerte(pfechaMuerte);
 		setTipo(ptipo);
-		setIdMaestro(pidMaestro);
 		setNombreEscuela(pnombreEscuela);
 		/*maestro = null;
 		listaMecenazgos = null;
@@ -176,7 +178,15 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @return fechaNacimiento
 	 */
 	public String getFechaNacimiento() {
-		return fechaNacimiento;
+		return fechaNacimiento.toString();
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaNacimiento: Fecha de nacimiento del pintor.
+	 */
+	public void setFechaNacimiento(Date pfechaNacimiento) {
+		fechaNacimiento = pfechaNacimiento;
 	}
 	
 	/**
@@ -184,7 +194,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pfechaNacimiento: Fecha de nacimiento del pintor.
 	 */
 	public void setFechaNacimiento(String pfechaNacimiento) {
-		fechaNacimiento = pfechaNacimiento;
+		fechaNacimiento = Date.valueOf(pfechaNacimiento);
 	}
 	
 	/**
@@ -192,7 +202,15 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @return fechaMuerte
 	 */
 	public String getFechaMuerte() {
-		return fechaMuerte;
+		return fechaMuerte.toString();
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaMuerte: Fecha de fallecimiento del pintor.
+	 */
+	public void setFechaMuerte(Date pfechaMuerte) {
+		fechaMuerte = pfechaMuerte;
 	}
 	
 	/**
@@ -200,7 +218,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pfechaMuerte: Fecha de fallecimiento del pintor.
 	 */
 	public void setFechaMuerte(String pfechaMuerte) {
-		fechaMuerte = pfechaMuerte;
+		fechaMuerte = Date.valueOf(pfechaMuerte);
 	}
 	
 	/**
@@ -221,25 +239,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	
 	/**
 	 * Getter
-	 * @return idMaestro
-	 */
-	public String getIdMaestro() {
-		return idMaestro;
-	}
-	
-	/**
-	 * Setter
-	 * @param pidMaestro: Identificador del maestro del pintor si es que lo tiene.
-	 */
-	public void setIdMaestro(String pidMaestro) {
-		idMaestro = pidMaestro;
-	}
-	
-	/**
-	 * Getter
 	 * @return nombreEscuela
 	 */
-	public String getNombreEscuela() {
+	public int getNombreEscuela() {
 		return nombreEscuela;
 	}
 	
@@ -247,7 +249,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Setter
 	 * @param pnombreEscuela: Nombre de la escuela del pintor si es que la tiene.
 	 */
-	public void setNombreEscuela(String pnombreEscuela) {
+	public void setNombreEscuela(int pnombreEscuela) {
 		nombreEscuela = pnombreEscuela;
 	}
 	
