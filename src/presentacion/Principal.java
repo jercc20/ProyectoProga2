@@ -63,6 +63,14 @@ public class Principal {
 		//DAOMecenazgo.actualizar(me1);
 		//DAOMecenazgo.borrar(me1);
 		
+		//Pintura
+		//Pintura pi1 = new Pintura("pin2", "pintura", "100x100", "1975-10-10", "2h", "Tec", 2, 1, "historia", DAOPintor.buscar("pint1"));
+		//DAOPintura.crear(pi1);
+		//Pintura pi2 = DAOPintura.buscar("pin1");
+		//pi2.setDimensiones("120x140");
+		//DAOPintura.actualizar(pi2);
+		//DAOPintura.borrar(pi1);
+		
 		/*END*/
 		
 		/*SwingUtilities.invokeLater(new Runnable(){

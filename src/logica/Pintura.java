@@ -10,21 +10,21 @@
 
 package logica;
 
+import java.sql.Date;
 import java.util.Vector;
 import java.io.Serializable;
+
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="TPinturas")
+@Entity
+@Table(name="TPinturas")
 
 public class Pintura implements Serializable{
 	
 private static final long serialVersionUID = -436540065081698326L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
-	
 	@Column(name="codigo")
 	private String codigo;
 	
@@ -34,30 +34,38 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Column(name="dimensiones")
 	private String dimensiones;
 	
-	@Column(name="fechaCreacion")
-	private String	fechaCreacion;
+	//Format = yyyy-mm-dd
+	@Column(name="fecha_creacion")
+	private Date fechaCreacion;
 	
-	@Column(name="tiempoTardado")
+	@Column(name="tiempo_tardado")
 	private String tiempoTardado;
 	
 	@Column(name="tecnica")
 	private String tecnica;
 	
-	@Column(name="condicionActual")
+	@Column(name="condicion_actual")
 	private int condicionActual;
 	
-	@Column(name="esFamosa")
+	@Column(name="es_famosa")
 	private int esFamosa;
 	
 	@Column(name="historia")
 	private String	historia;
 	
-	@Column(name="idPintor")
-	private String	idPintor;
+	@ManyToOne
+	@JoinColumn(name="id_pintor")
+	private Pintor pintor;
 	
-	/*private Pintor pintor;
-	private Vector	listaAdquisiciones;
+	/*private Vector	listaAdquisiciones;
 	private Exposicion exposicion;*/
+	
+	/**
+	 * Constructor
+	 */
+	public Pintura(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -70,10 +78,10 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pcondicionActual: Condición actual de la pintura (excelente, buena, regular o mala).
 	 * @param pesFamosa: Indicador si es una pintura muy famosa.
 	 * @param phistoria: Breve historia de la pintura si es que la posee.
-	 * @param pidPintor:Identificador del pintor que elaboró la pintura.
+	 * @param pPintor:Pintor que elaboró la pintura.
 	 */	
 	public Pintura(String pcodigo, String pnombre, String pdimensiones, String pfechaCreacion, String ptiempoTardado,
-			String ptecnica, int pcondicionActual, int pesFamosa, String phistoria, String pidPintor) {
+			String ptecnica, int pcondicionActual, int pesFamosa, String phistoria, Pintor pPintor) {
 		setCodigo(pcodigo);
 		setNombre(pnombre);
 		setDimensiones(pdimensiones);
@@ -83,9 +91,7 @@ private static final long serialVersionUID = -436540065081698326L;
 		setCondicionActual(pcondicionActual);
 		setEsFamosa(pesFamosa);
 		setHistoria(phistoria);
-		setIdPintor(pidPintor);
-		/*pintor = null;
-		listaAdquisiciones = null;*/
+		setPintor(pPintor);
 	}
 	
 	/**
@@ -141,7 +147,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @return fechaCreacion
 	 */
 	public String getFechaCreacion() {
-		return fechaCreacion;
+		return fechaCreacion.toString();
 	}
 	
 	/**
@@ -149,6 +155,14 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pfechaCreacion: Fecha de creación de la pintura.
 	 */
 	public void setFechaCreacion(String pfechaCreacion) {
+		fechaCreacion = Date.valueOf(pfechaCreacion);
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaCreacion: Fecha de creación de la pintura.
+	 */
+	public void setFechaCreacion(Date pfechaCreacion) {
 		fechaCreacion = pfechaCreacion;
 	}
 	
@@ -234,32 +248,21 @@ private static final long serialVersionUID = -436540065081698326L;
 	
 	/**
 	 * Getter
-	 * @return idPintor
+	 * @return pintor
 	 */
-	public String getIdPintor() {
-		return idPintor;
+	public Pintor getPintor() {
+		return pintor;
 	}
 	
 	/**
 	 * Setter
-	 * pidPintor:Identificador del pintor que elaboró la pintura.
+	 * pPintor:Pintor que elaboró la pintura.
 	 */
-	public void setIdPintor(String pidPintor) {
-		idPintor = pidPintor;
+	public void setPintor(Pintor pPintor) {
+		pintor = pPintor;
 	}
 	
-	/*public Pintor getPintor() throws Exception {
-		if (pintor == null) {
-			setPintor((new MultiPintor()).buscarPintor(idPintor));
-		}
-		return pintor;
-	}
-
-	public void setPintor(Pintor ppintor){
-		pintor = ppintor;
-	}
-	
-	public Vector getListaAdquisiciones() throws Exception {
+	/*public Vector getListaAdquisiciones() throws Exception {
 		if (listaAdquisiciones == null) {
 			setListaAdquisiciones((new MultiAdquisiciones()).buscarPintura(codigo));
 		}
@@ -277,7 +280,7 @@ private static final long serialVersionUID = -436540065081698326L;
 		return exposicion;
 	}
 
-	public void setPintor(Exposicion pexposicion){
+	public void setExposicion(Exposicion pexposicion){
 		exposicion = pexposicion;
 	}*/
 
