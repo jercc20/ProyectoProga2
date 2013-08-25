@@ -139,7 +139,7 @@ public class PantallaActualizarAdquisicion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Gestor.borrarAdquisicion(adquisicion.getCodigoPintura());
-					JOptionPane.showMessageDialog( null, "La aduisicion ha sido eliminada exitosamente.");
+					JOptionPane.showMessageDialog( null, "La adquisicion ha sido eliminada exitosamente.");
 					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error");

@@ -67,9 +67,14 @@ public class Gestor {
 		return mecenazgo;
 	}
 	
-	public static String actualizarMecenazgo (int pIdMecenas, int pIdPintor, String pFechaInicio, String pFechaFin) throws Exception{
+	public static String actualizarMecenazgo (String pFechaInicio, String pFechaFin, int pIdMecenas, int pIdPintor) throws Exception{
 		(new DAOMecenazgo()).actualizar(pIdMecenas, pIdPintor, pFechaInicio, pFechaFin);
 		return "El mecenazgo ha sido actualizado.";
+	}
+	
+	public static String borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
+		(new DAOMecenazgo()).borrar(pId);
+		return "Se ha borrado el mecenazgo.";
 	}
 	
 	
