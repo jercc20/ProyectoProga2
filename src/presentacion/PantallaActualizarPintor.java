@@ -37,7 +37,7 @@ public class PantallaActualizarPintor extends JFrame {
 
 	public PantallaActualizarPintor( Pintor pPintor ) {
 		setResizable(false);
-		setTitle("Crear Pintor");
+		setTitle("Actualizar Pintor");
 		setBounds(100, 100, 381, 333);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);

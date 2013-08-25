@@ -33,7 +33,7 @@ public class PantallaActualizarMecenas extends JFrame {
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
 		setResizable(false);
-		setBounds(100, 100, 324, 216);
+		setBounds(100, 100, 324, 220);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -43,13 +43,13 @@ public class PantallaActualizarMecenas extends JFrame {
 		JLabel lblId = new JLabel("Id");
 		lblId.setDisplayedMnemonic('I');
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblId.setBounds(10, 11, 121, 14);
+		lblId.setBounds(10, 10, 121, 14);
 		contentPane.add(lblId);
 		
 		txtId = new JTextField();
 		lblId.setLabelFor(txtId);
 		txtId.setEditable( false );
-		txtId.setBounds(141, 8, 86, 20);
+		txtId.setBounds(141, 5, 86, 20);
 		txtId.setText( String.valueOf( mecenas.getId() ) );
 		contentPane.add(txtId);
 		
@@ -57,47 +57,47 @@ public class PantallaActualizarMecenas extends JFrame {
 		lblNombre.setDisplayedMnemonic('N');
 		lblNombre.setLabelFor(lblNombre);
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombre.setBounds(85, 36, 46, 14);
+		lblNombre.setBounds(85, 34, 46, 14);
 		contentPane.add(lblNombre);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(141, 33, 86, 20);
+		txtNombre.setBounds(141, 30, 86, 20);
 		txtNombre.setText( mecenas.getNombre() );
 		contentPane.add(txtNombre);
 		
 		JLabel lblPaisNacimiento = new JLabel("Pa\u00EDs de nacimiento");
 		lblPaisNacimiento.setDisplayedMnemonic('P');
 		lblPaisNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPaisNacimiento.setBounds(10, 86, 121, 14);
+		lblPaisNacimiento.setBounds(10, 58, 121, 14);
 		contentPane.add(lblPaisNacimiento);
 		
 		txtPaisNacimiento = new JTextField();
 		lblPaisNacimiento.setLabelFor(txtPaisNacimiento);
-		txtPaisNacimiento.setBounds(141, 83, 86, 20);
+		txtPaisNacimiento.setBounds(141, 55, 86, 20);
 		txtPaisNacimiento.setText( mecenas.getNacionalidad() );
 		contentPane.add(txtPaisNacimiento);
 		
 		JLabel lblCiudadNacimiento = new JLabel("Ciudad de nacimiento");
 		lblCiudadNacimiento.setDisplayedMnemonic('P');
 		lblCiudadNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCiudadNacimiento.setBounds(10, 61, 121, 14);
+		lblCiudadNacimiento.setBounds(10, 82, 121, 14);
 		contentPane.add(lblCiudadNacimiento);
 		
 		txtCiudadNacimiento = new JTextField();
 		lblCiudadNacimiento.setLabelFor(txtCiudadNacimiento);
-		txtCiudadNacimiento.setBounds(141, 58, 86, 20);
+		txtCiudadNacimiento.setBounds(141, 80, 86, 20);
 		txtCiudadNacimiento.setText( mecenas.getCiudadNacimiento() );
 		contentPane.add(txtCiudadNacimiento);
 		
 		JLabel lblFechaMuerte = new JLabel("Fecha de muerte");
 		lblFechaMuerte.setDisplayedMnemonic('F');
 		lblFechaMuerte.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaMuerte.setBounds(34, 111, 97, 14);
+		lblFechaMuerte.setBounds(34, 106, 97, 14);
 		contentPane.add(lblFechaMuerte);
 		
 		txtFechaMuerte = new JTextField();
 		lblFechaMuerte.setLabelFor(txtFechaMuerte);
-		txtFechaMuerte.setBounds(141, 108, 86, 20);
+		txtFechaMuerte.setBounds(141, 105, 86, 20);
 		txtFechaMuerte.setText( mecenas.getFechaMuerte() );
 		contentPane.add(txtFechaMuerte);
 		

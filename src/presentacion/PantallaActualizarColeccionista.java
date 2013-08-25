@@ -35,7 +35,7 @@ public class PantallaActualizarColeccionista extends JFrame {
 		coleccionista = pColeccionista;
 		
 		setResizable(false);
-		setTitle("Actualizar Galer\u00EDa");
+		setTitle("Actualizar Coleccionista");
 		setBounds(100, 100, 339, 222);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
