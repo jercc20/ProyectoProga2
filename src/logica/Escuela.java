@@ -10,8 +10,10 @@
 package logica;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
+import java.sql.Date;
 import java.util.Vector;
 
 @Entity
@@ -32,8 +34,9 @@ public class Escuela implements Serializable {
 	@Column(name="pais")
 	private String pais;
 	
+	//Format = yyyy-mm-dd
 	@Column(name="fecha")
-	private String fecha;
+	private Date fecha;
 	
 	@Column(name="caracteristicas")
 	private String caracteristicas;
@@ -114,7 +117,15 @@ public class Escuela implements Serializable {
 	 * @return fecha
 	 */
 	public String getFechaOrigen() {
-		return fecha;
+		return fecha.toString();
+	}
+	
+	/**
+	 * Setter
+	 * @param pfecha: Fecha cuando apareció la escuela.
+	 */
+	public void setFechaOrigen(Date pfechaOrigen) {
+		fecha = pfechaOrigen;
 	}
 	
 	/**
@@ -122,7 +133,7 @@ public class Escuela implements Serializable {
 	 * @param pfecha: Fecha cuando apareció la escuela.
 	 */
 	public void setFechaOrigen(String pfechaOrigen) {
-		fecha = pfechaOrigen;
+		fecha = Date.valueOf(pfechaOrigen);
 	}
 	
 	/**

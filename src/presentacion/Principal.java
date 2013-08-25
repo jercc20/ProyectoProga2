@@ -16,9 +16,9 @@ public class Principal {
 		/*TEST*/
 		
 		//Escuela
-		//Escuela e1= new Escuela("test", "cr", "10-10-2010", "testing");
+		//Escuela e1= new Escuela("test", "cr", "2010-10-10", "testing");
 		//DAOEscuela.crear( e1 );
-		//Escuela e2 = new Escuela("test2", "cr2", "11-11-2011", "testing2");
+		//Escuela e2 = new Escuela("test2", "cr2", "2011-11-11", "testing2");
 		//DAOEscuela.crear( e2 );
 		//Escuela e3 = DAOEscuela.buscar(2);
 		//System.out.println( e3.getNombre() );
