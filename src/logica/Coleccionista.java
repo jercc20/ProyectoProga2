@@ -9,23 +9,28 @@
 
 package logica;
 
+import java.sql.Date;
 import java.util.Vector;
 import java.io.Serializable;
+
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="TColeccionistas")
+@Entity
+@Table(name="TColeccionistas")
 
 public class Coleccionista extends Propietario implements Serializable{
 	
 	private static final long serialVersionUID = -436540065081698326L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
+	@Column(name="fecha_inicio")
+	private Date fechaInicio;
 	
-	@Column(name="fechaInicio")
-	private String fechaInicio;
+	/**
+	 * Constructor
+	 */
+	private Coleccionista(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -45,7 +50,7 @@ public class Coleccionista extends Propietario implements Serializable{
 	 * @return fechaInicio
 	 */
 	public String getFechaInicio() {
-		return fechaInicio;
+		return fechaInicio.toString();
 	}
 	
 	/**
@@ -53,6 +58,14 @@ public class Coleccionista extends Propietario implements Serializable{
 	 * @param pfechaInicio: Fecha de inicio como coleccionista.
 	 */
 	public void setFechaInicio(String pfechaInicio) {
+		fechaInicio = Date.valueOf(pfechaInicio);
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaInicio: Fecha de inicio como coleccionista.
+	 */
+	public void setFechaInicio(Date pfechaInicio) {
 		fechaInicio = pfechaInicio;
 	}
 }
