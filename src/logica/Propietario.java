@@ -13,22 +13,21 @@ import java.util.Vector;
 import java.io.Serializable;
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="TPropietarios")
+@Entity
+@Table(name="TPropietarios")
+@Inheritance(strategy=InheritanceType.JOINED)
 
 public abstract class Propietario implements Serializable {
 	
 private static final long serialVersionUID = -436540065081698326L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
+	@Column(name="id")
+	private String id;
 	
 	@Column(name="nombre")
 	private String nombre;
-	
-	@Column(name="id")
-	private String id;
 	
 	@Column(name="direccion")
 	private String direccion;
@@ -37,6 +36,13 @@ private static final long serialVersionUID = -436540065081698326L;
 	private String telefono;
 	
 	/*private Vector listaAdquisiciones;*/
+	
+	/**
+	 * Constructor
+	 */
+	public Propietario(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -50,7 +56,6 @@ private static final long serialVersionUID = -436540065081698326L;
 		setId(pid);
 		setDireccion(pdireccion);
 		setTelefono(ptelefono);
-		/*listaAdquisiciones = null;*/
 	}
 	
 	/**

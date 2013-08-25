@@ -72,6 +72,23 @@ public class Principal {
 		//DAOPintura.actualizar(pi2);
 		//DAOPintura.borrar(pi1);
 		
+		//Propietario - Galeria/Coleccionista
+		//Galeria g1 = new Galeria("gal", "id4", "dir", "22", "1984-02-07", "Ruiz", "200mts");
+		//DAOGaleria.crear(g1);
+		//Coleccionista c1 = new Coleccionista("cc", "id5", "dir3", "88", "2001-09-09");
+		//DAOColeccionista.crear(c1);
+		//Propietario g2 = new Galeria("gal2", "id6", "dir", "22", "1987-07-07", "Ruiz", "200mts");
+		//DAOPropietario.crear(g2);
+		//Propietario pr1 = DAOPropietario.buscar("id4");
+		//pr1.setDireccion("New dir");
+		//System.out.println(pr1);
+		//Galeria pr2 = (Galeria) DAOPropietario.buscar("id4");
+		//System.out.println(pr2);
+		//pr2.setEncargado("Encargado");
+		//DAOPropietario.actualizar(pr1);
+		//DAOPropietario.borrar(g2);
+		
+		
 		/*END*/
 		
 		/*SwingUtilities.invokeLater(new Runnable(){
