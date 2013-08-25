@@ -51,8 +51,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Column(name="tipo")
 	private String tipo;
 	
-	@Column(name="id_escuela")
-	private int	nombreEscuela;
+	@ManyToOne
+	@JoinColumn(name="id_escuela")
+	private Escuela escuela;
 	
 	/*private Pintor maestro;
 	private Vector	listaMecenazgos;
@@ -77,7 +78,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pnombreEscuela: Nombre de la escuela del pintor si es que la tiene.
 	 */	
 	public Pintor(String pid, String pnombre, String pnombreArtistico,	String pnacionalidad, String pciudadNacimiento,
-			String pfechaNacimiento, String pfechaMuerte, String ptipo, int pnombreEscuela) {
+			String pfechaNacimiento, String pfechaMuerte, String ptipo) {
 		setId(pid);
 		setNombre(pnombre);
 		setNombreArtistico(pnombreArtistico);
@@ -86,7 +87,7 @@ private static final long serialVersionUID = -436540065081698326L;
 		setFechaNacimiento(pfechaNacimiento);
 		setFechaMuerte(pfechaMuerte);
 		setTipo(ptipo);
-		setNombreEscuela(pnombreEscuela);
+		//setNombreEscuela(pnombreEscuela);
 		/*maestro = null;
 		listaMecenazgos = null;
 		listaPinturas = null;
@@ -237,22 +238,6 @@ private static final long serialVersionUID = -436540065081698326L;
 		tipo = ptipo;
 	}
 	
-	/**
-	 * Getter
-	 * @return nombreEscuela
-	 */
-	public int getNombreEscuela() {
-		return nombreEscuela;
-	}
-	
-	/**
-	 * Setter
-	 * @param pnombreEscuela: Nombre de la escuela del pintor si es que la tiene.
-	 */
-	public void setNombreEscuela(int pnombreEscuela) {
-		nombreEscuela = pnombreEscuela;
-	}
-	
 	/*public Pintor getMaestro() throws Exception {
 		if (maestro == null) {
 			setMaestro((new MultiMaestro()).bucarMaestro(idMaestro));
@@ -284,17 +269,18 @@ private static final long serialVersionUID = -436540065081698326L;
 
 	public void setListaPinturas(Vector plistaPinturas){
 		listaPinturas = plistaPinturas;
-	}
+	}*/
 	
-	public Escuela getEscuela() throws Exception {
-		if (escuela== null) {
-			setEscuela((new MultiEscuela()).buscarEscuela(nombreEscuela));
-		}
+	public Escuela getEscuela() {
 		return escuela;
 	}
 
 	public void setEscuela(Escuela pescuela){
 		escuela = pescuela;
-	}*/
+	}
+	
+	public void setEscuela(int pescuela){
+		escuela = DAOEscuela.buscar(pescuela);
+	}
 
 }

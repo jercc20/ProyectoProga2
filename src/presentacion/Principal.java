@@ -28,14 +28,17 @@ public class Principal {
 		//DAOEscuela.borrar( e1 );
 		
 		//Pintor
-		//Pintor p1 = new Pintor("pint1", "nombre", "a", "cr", "sj", "2010-10-10", "2011-11-11", "Bueno", 1);
+		//Pintor p1 = new Pintor("pint1", "nombre", "a", "cr", "sj", "2010-10-10", "2011-11-11", "Bueno");
 		//DAOPintor.crear( p1 );
-		//Pintor p2 = new Pintor("pint2", "nombre2", "a2", "cr", "sj", "1980-12-25", "2011-11-11", "Bueno", 1);
+		//Pintor p2 = new Pintor("pint2", "nombre2", "a2", "cr", "sj", "1980-12-25", "2011-11-11", "Bueno");
 		//DAOPintor.crear( p2 );
-		//Pintor p3 = DAOPintor.buscar("pint1");
+		//Pintor p3 = DAOPintor.buscar("pint2");
 		//System.out.println( p3.getId() );
 		//p3.setNombre("name_update");
+		//p3.setEscuela( DAOEscuela.buscar(1) );
+		//p3.setEscuela(1);
 		//DAOPintor.actualizar( p3 );
+		//System.out.println( p3.getEscuela().getNombre() );
 		//DAOPintor.borrar( p1 );		
 		
 		/*END*/
