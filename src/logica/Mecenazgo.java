@@ -15,7 +15,7 @@ import java.sql.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name="TMecenazgo")
+@Table(name="TMecenazgos")
 
 public class Mecenazgo implements Serializable {
 	
