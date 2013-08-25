@@ -36,9 +36,11 @@ public class Principal {
 		//System.out.println( p3.getId() );
 		//p3.setNombre("name_update");
 		//p3.setEscuela( DAOEscuela.buscar(1) );
-		//p3.setEscuela(1);
+		//System.out.println( p3.getMaestros().size() );
+		//p3.setMaestro( DAOPintor.buscar("pint3") );
 		//DAOPintor.actualizar( p3 );
 		//System.out.println( p3.getEscuela().getNombre() );
+		//System.out.println( p3.getMaestros().size() );
 		//DAOPintor.borrar( p1 );		
 		
 		/*END*/

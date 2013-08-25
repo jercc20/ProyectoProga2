@@ -11,6 +11,7 @@
 package logica;
 
 import java.sql.Date;
+import java.util.Set;
 import java.util.Vector;
 import java.io.Serializable;
 
@@ -55,10 +56,14 @@ private static final long serialVersionUID = -436540065081698326L;
 	@JoinColumn(name="id_escuela")
 	private Escuela escuela;
 	
-	/*private Pintor maestro;
-	private Vector	listaMecenazgos;
-	private Vector	listaPinturas;
-	private Escuela escuela;*/
+	@ManyToMany
+	@JoinTable(name="TMaestros",
+				joinColumns=@JoinColumn(name="id_pintor"),
+				inverseJoinColumns=@JoinColumn(name="id_maestro"))
+	private Set<Pintor> maestros;
+	
+	/*private Vector listaMecenazgos;
+	private Vector	listaPinturas;*/
 	
 	public Pintor(){
 		
@@ -87,11 +92,6 @@ private static final long serialVersionUID = -436540065081698326L;
 		setFechaNacimiento(pfechaNacimiento);
 		setFechaMuerte(pfechaMuerte);
 		setTipo(ptipo);
-		//setNombreEscuela(pnombreEscuela);
-		/*maestro = null;
-		listaMecenazgos = null;
-		listaPinturas = null;
-		escuela = null;*/
 	}
 	
 	/**
@@ -238,17 +238,19 @@ private static final long serialVersionUID = -436540065081698326L;
 		tipo = ptipo;
 	}
 	
-	/*public Pintor getMaestro() throws Exception {
-		if (maestro == null) {
-			setMaestro((new MultiMaestro()).bucarMaestro(idMaestro));
-		}
-		return maestro;
+	public Set<Pintor> getMaestros() {
+		return maestros;
 	}
 
-	public void setMaestro(Pintor pmaestro){
-		maestro = pmaestro;
+	public void setMaestro(Set<Pintor> pmaestros){
+		maestros = pmaestros;
 	}
 	
+	public void setMaestro(Pintor pmaestro){
+		maestros.add(pmaestro);
+	}
+	
+	/*
 	public Vector getListaMecenazgos() throws Exception {
 		if (listaMecenazgos == null) {
 			setListaMecenazgos((new MultiMecenas()).buscarMecenas(id));
@@ -277,10 +279,6 @@ private static final long serialVersionUID = -436540065081698326L;
 
 	public void setEscuela(Escuela pescuela){
 		escuela = pescuela;
-	}
-	
-	public void setEscuela(int pescuela){
-		escuela = DAOEscuela.buscar(pescuela);
 	}
 
 }
