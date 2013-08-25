@@ -62,8 +62,11 @@ private static final long serialVersionUID = -436540065081698326L;
 				inverseJoinColumns=@JoinColumn(name="id_maestro"))
 	private Set<Pintor> maestros;
 	
-	/*private Vector listaMecenazgos;
-	private Vector	listaPinturas;*/
+	@OneToOne
+	@JoinColumn(name="id_pintor")
+	private Set<Mecenazgo> mecenazgos;
+	
+	/*private Vector listaPinturas;*/
 	
 	public Pintor(){
 		
@@ -245,23 +248,23 @@ private static final long serialVersionUID = -436540065081698326L;
 	public void setMaestro(Set<Pintor> pmaestros){
 		maestros = pmaestros;
 	}
-	
 	public void setMaestro(Pintor pmaestro){
 		maestros.add(pmaestro);
 	}
 	
+	public Set<Mecenazgo> getMecenazgos() {
+		return mecenazgos;
+	}
+
+	public void setMecenazgos(Set<Mecenazgo> pMecenazgos){
+		mecenazgos = pMecenazgos;
+	}
+	public void setMecenzago(Mecenazgo pMecenazgo){
+		mecenazgos.add(pMecenazgo);
+	}
+	
+	
 	/*
-	public Vector getListaMecenazgos() throws Exception {
-		if (listaMecenazgos == null) {
-			setListaMecenazgos((new MultiMecenas()).buscarMecenas(id));
-		}
-		return listaMecenazgos;
-	}
-
-	public void setListaMecenazgos(Vector plistaMecenas){
-		listaMecenazgos = plistaMecenas;
-	}
-
 	public Vector getListaPinturas() throws Exception {
 		if (listaPinturas == null) {
 			setListaPinturas((new MultiPinturas()).buscarPinturas(id));

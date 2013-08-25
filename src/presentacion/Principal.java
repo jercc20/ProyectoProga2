@@ -32,7 +32,7 @@ public class Principal {
 		//DAOPintor.crear( p1 );
 		//Pintor p2 = new Pintor("pint2", "nombre2", "a2", "cr", "sj", "1980-12-25", "2011-11-11", "Bueno");
 		//DAOPintor.crear( p2 );
-		//Pintor p3 = DAOPintor.buscar("pint2");
+		Pintor p3 = DAOPintor.buscar("pint2");
 		//System.out.println( p3.getId() );
 		//p3.setNombre("name_update");
 		//p3.setEscuela( DAOEscuela.buscar(1) );
@@ -41,6 +41,7 @@ public class Principal {
 		//DAOPintor.actualizar( p3 );
 		//System.out.println( p3.getEscuela().getNombre() );
 		//System.out.println( p3.getMaestros().size() );
+		//System.out.println( p3.getMecenazgos().size() );
 		//DAOPintor.borrar( p1 );
 		
 		//Mecenas
@@ -55,7 +56,7 @@ public class Principal {
 		//DAOMecenas.borrar( m1 );
 		
 		//Mecenazgo
-		//Mecenazgo me1 = new Mecenazgo("2000-01-24", "2013-10-08", DAOPintor.buscar("pint1"), DAOMecenas.buscar("mece2"));
+		//Mecenazgo me1 = new Mecenazgo("2000-01-24", "2013-10-08", DAOPintor.buscar("pint2"), DAOMecenas.buscar("mece1"));
 		//DAOMecenazgo.crear(me1);
 		//me1.setFechaFin("2014-09-09");
 		//DAOMecenazgo.actualizar(me1);
