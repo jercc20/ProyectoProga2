@@ -66,7 +66,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	@JoinColumn(name="id_pintor")
 	private Set<Mecenazgo> mecenazgos;
 	
-	/*private Vector listaPinturas;*/
+	@OneToOne
+	@JoinColumn(name="id_pintor")
+	private Set<Pintura> pinturas;
 	
 	public Pintor(){
 		
@@ -241,6 +243,14 @@ private static final long serialVersionUID = -436540065081698326L;
 		tipo = ptipo;
 	}
 	
+	public Escuela getEscuela() {
+		return escuela;
+	}
+
+	public void setEscuela(Escuela pescuela){
+		escuela = pescuela;
+	}
+	
 	public Set<Pintor> getMaestros() {
 		return maestros;
 	}
@@ -260,25 +270,12 @@ private static final long serialVersionUID = -436540065081698326L;
 		mecenazgos = pMecenazgos;
 	}
 	
-	
-	/*
-	public Vector getListaPinturas() throws Exception {
-		if (listaPinturas == null) {
-			setListaPinturas((new MultiPinturas()).buscarPinturas(id));
-		}
-		return listaPinturas;
+	public Set<Pintura> getPinturas() {
+		return pinturas;
 	}
 
-	public void setListaPinturas(Vector plistaPinturas){
-		listaPinturas = plistaPinturas;
-	}*/
-	
-	public Escuela getEscuela() {
-		return escuela;
-	}
-
-	public void setEscuela(Escuela pescuela){
-		escuela = pescuela;
+	public void setPinturas(Set<Pintura> pPinturas){
+		pinturas = pPinturas;
 	}
 
 }
