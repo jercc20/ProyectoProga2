@@ -259,9 +259,6 @@ private static final long serialVersionUID = -436540065081698326L;
 	public void setMecenazgos(Set<Mecenazgo> pMecenazgos){
 		mecenazgos = pMecenazgos;
 	}
-	public void setMecenzago(Mecenazgo pMecenazgo){
-		mecenazgos.add(pMecenazgo);
-	}
 	
 	
 	/*
