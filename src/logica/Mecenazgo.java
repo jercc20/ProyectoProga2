@@ -10,33 +10,41 @@
 package logica;
 
 import java.io.Serializable;
+import java.sql.Date;
+
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="TMecenazgo")
+@Entity
+@Table(name="TMecenazgo")
 
 public class Mecenazgo implements Serializable {
 	
 private static final long serialVersionUID = -436540065081698326L;
 	
+	//Format = yyyy-mm-dd
+	@Column(name="fecha_inicio")
+	private Date fechaInicio;
+	
+	//Format = yyyy-mm-dd
+	@Column(name="fecha_fin")
+	private Date fechaFin;
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
+	@ManyToOne
+	@JoinColumn(name="id_pintor")
+	private Pintor pintor;
 	
-	@Column(name="fechaInicio")
-	private String fechaInicio;
+	@Id
+	@ManyToOne
+	@JoinColumn(name="id_mecenas")
+	private Mecenas	mecenas;
 	
-	@Column(name="fechaFin")
-	private String fechaFin;
-	
-	@Column(name="idPintor")
-	private String	idPintor;
-	
-	@Column(name="idMecenas")
-	private String	idMecenas;
-	
-	/*private Pintor	pintor;
-	private Mecenas	mecenas;*/
+	/**
+	 * Constructor
+	 */
+	private Mecenazgo(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -45,13 +53,11 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pidPintor: Identificador del pintor al que se le dió el mecenazgo.
 	 * @param pidMecenas: Identificador del mecenas que brindó el mecenazgo.
 	 */	
-	public Mecenazgo(String pfechaInicio, String pfechaFin, String pidPintor, String pidMecenas){
+	public Mecenazgo(String pfechaInicio, String pfechaFin, Pintor pPintor, Mecenas pMecenas){
 		setFechaInicio(pfechaInicio);
 		setFechaFin(pfechaFin);
-		setIdPintor(pidPintor);
-		setIdMecenas(pidMecenas);
-		/*pintor = null;
-		mecenas = null;*/
+		setPintor(pPintor);
+		setMecenas(pMecenas);
 	}
 	
 	/**
@@ -59,7 +65,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @return fechaInicio
 	 */
 	public String getFechaInicio() {
-		return fechaInicio;
+		return fechaInicio.toString();
 	}
 	
 	/**
@@ -67,6 +73,14 @@ private static final long serialVersionUID = -436540065081698326L;
 	 *@param pfechaInicio: Fecha de inicio del mecenazgo.
 	 */
 	public void setFechaInicio(String pfechaInicio) {
+		fechaInicio = Date.valueOf(pfechaInicio);
+	}
+	
+	/**
+	 * Setter
+	 *@param pfechaInicio: Fecha de inicio del mecenazgo.
+	 */
+	public void setFechaInicio(Date pfechaInicio) {
 		fechaInicio = pfechaInicio;
 	}
 	
@@ -75,7 +89,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @return fechaFin
 	 */
 	public String getFechaFin() {
-		return fechaFin;
+		return fechaFin.toString();
 	}
 	
 	/**
@@ -83,45 +97,18 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pfechaFin: Fecha de finalización del mecenazgo.
 	 */
 	public void setFechaFin(String pfechaFin) {
+		fechaFin = Date.valueOf(pfechaFin);
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaFin: Fecha de finalización del mecenazgo.
+	 */
+	public void setFechaFin(Date pfechaFin) {
 		fechaFin = pfechaFin;
 	}
 	
-	/**
-	 * Getter
-	 * @return idPintor
-	 */
-	public String getIdPintor() {
-		return idPintor;
-	}
-	
-	/**
-	 * Setter
-	 * @param pidPintor: Identificador del pintor al que se le dió el mecenazgo.
-	 */
-	public void setIdPintor(String pidPintor) {
-		idPintor = pidPintor;
-	}
-	
-	/**
-	 * Getter
-	 * @return idMecenas
-	 */
-	public String getIdMecenas() {
-		return idMecenas;
-	}
-	
-	/**
-	 * Setter
-	 * @param pidMecenas: Identificador del mecenas que brindó el mecenazgo.
-	 */
-	public void setIdMecenas(String pidMecenas) {
-		idMecenas = pidMecenas;
-	}
-	
-	/*public Pintor getPintor() throws Exception {
-		if (pintor == null) {
-			setPintor((new MultiPintor()).buscarPintor(idPintor));
-		}
+	public Pintor getPintor() {
 		return pintor;
 	}
 
@@ -129,15 +116,12 @@ private static final long serialVersionUID = -436540065081698326L;
 		pintor = ppintor;
 	}
 	
-	public Mecenas getMecenas() throws Exception {
-		if (mecenas == null) {
-			setMecenas((new MultiMecenas()).buscarMecenas(idMecenas));
-		}
+	public Mecenas getMecenas() {
 		return mecenas;
 	}
 
 	public void setMecenas(Mecenas pmecenas){
 		mecenas = pmecenas;
-	}*/
+	}
 
 }

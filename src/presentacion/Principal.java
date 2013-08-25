@@ -54,6 +54,13 @@ public class Principal {
 		//DAOMecenas.actualizar( m3 );
 		//DAOMecenas.borrar( m1 );
 		
+		//Mecenazgo
+		//Mecenazgo me1 = new Mecenazgo("2000-01-24", "2013-10-08", DAOPintor.buscar("pint1"), DAOMecenas.buscar("mece2"));
+		//DAOMecenazgo.crear(me1);
+		//me1.setFechaFin("2014-09-09");
+		//DAOMecenazgo.actualizar(me1);
+		//DAOMecenazgo.borrar(me1);
+		
 		/*END*/
 		
 		/*SwingUtilities.invokeLater(new Runnable(){

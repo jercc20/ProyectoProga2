@@ -35,26 +35,6 @@ public class DAOMecenazgo {
 	}
 	
 	/**
-	 * Busca una instancia en la tabla de mecenazgo usando el id del mecenas.
-	 * @param pidMecenas: id del mecenas.
-	 */	
-	public static Mecenazgo buscar(String pidMecenas){
-		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-		Mecenazgo mecenazgo = null;
-		try{
-			mecenazgo = em.find(Mecenazgo.class, pidMecenas);
-		}
-		catch (Exception ex){
-			System.out.println("Error");
-			ex.printStackTrace();
-		}
-		finally{
-			em.close();
-		}
-		return mecenazgo;
-	}
-	
-	/**
 	 * Actualiza una instancia en la tabla de mecenazgos.
 	 * @param pmecenazgo: Objeto Mecenazgo.
 	 */	
