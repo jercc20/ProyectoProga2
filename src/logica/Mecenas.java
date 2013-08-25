@@ -10,6 +10,7 @@
 package logica;
 
 import java.sql.Date;
+import java.util.Set;
 import java.util.Vector;
 import java.io.Serializable;
 
@@ -40,7 +41,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Column(name="fecha_muerte")
 	private Date fechaMuerte;
 	
-	/*private Vector listaMecenazgos;*/
+	@OneToOne
+	@JoinColumn(name="id_mecenas")
+	private Set<Mecenazgo> mecenazgos;
 	
 	/**
 	 * Constructor
@@ -154,15 +157,12 @@ private static final long serialVersionUID = -436540065081698326L;
 		fechaMuerte = pfechaMuerte;
 	}
 	
-	/*public Vector getListaMecenazgos() throws Exception {
-		if (listaMecenazgos == null) {
-			setMecenazgos((new MultiMecenazgo()).buscarMecenazgos(id));
-		}
-		return listaMecenazgos;
+	public Set<Mecenazgo> getMecenazgos() {
+		return mecenazgos;
 	}
 
-	public void setListaMecenazgos(Vector plistaMecenazgos){
-		listaMecenazgos = plistaMecenazgos;
-	}*/
+	public void setMecenazgos(Set<Mecenazgo> pMecenazgos){
+		mecenazgos = pMecenazgos;
+	}
 
 }
