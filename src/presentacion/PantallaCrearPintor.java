@@ -31,11 +31,13 @@ public class PantallaCrearPintor extends JFrame {
 	private JTextField txtFechaMuerte;
 	private JLabel lblFechaDeMuerte;
 	private JComboBox<String> cmbTipo;
+	private JTextField txtIdMaestro;
+	private JTextField txtIdEscuela;
 
 	public PantallaCrearPintor() {
 		setResizable(false);
 		setTitle("Crear Pintor");
-		setBounds(100, 100, 381, 300);
+		setBounds(100, 100, 381, 360);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -142,7 +144,7 @@ public class PantallaCrearPintor extends JFrame {
 				}
 			}
 		});
-		btnCrear.setBounds(266, 228, 89, 23);
+		btnCrear.setBounds(276, 297, 89, 23);
 		contentPane.add(btnCrear);
 		
 		JButton btnCancel = new JButton("Cancel");
@@ -151,7 +153,27 @@ public class PantallaCrearPintor extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnCancel.setBounds(167, 228, 89, 23);
+		btnCancel.setBounds(177, 297, 89, 23);
 		contentPane.add(btnCancel);
+		
+		JLabel lblIdMaestro = new JLabel("Id Maestro");
+		lblIdMaestro.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdMaestro.setDisplayedMnemonic('m');
+		lblIdMaestro.setBounds(20, 214, 120, 14);
+		contentPane.add(lblIdMaestro);
+		
+		txtIdMaestro = new JTextField();
+		txtIdMaestro.setBounds(150, 211, 139, 20);
+		contentPane.add(txtIdMaestro);
+		
+		JLabel lblIdEscuela = new JLabel("Id Escuela");
+		lblIdEscuela.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdEscuela.setDisplayedMnemonic('m');
+		lblIdEscuela.setBounds(20, 243, 120, 14);
+		contentPane.add(lblIdEscuela);
+		
+		txtIdEscuela = new JTextField();
+		txtIdEscuela.setBounds(150, 240, 139, 20);
+		contentPane.add(txtIdEscuela);
 	}
 }
