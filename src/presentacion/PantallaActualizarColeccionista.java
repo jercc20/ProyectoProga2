@@ -109,7 +109,7 @@ public class PantallaActualizarColeccionista extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Gestor.actualizarColeccionista(coleccionista.getId(), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInicio.getText());
-					JOptionPane.showMessageDialog( null, "El coleccionista ha sido actualiza exitosamente!" );
+					JOptionPane.showMessageDialog( null, "El coleccionista ha sido actualizado exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 				}
@@ -123,7 +123,7 @@ public class PantallaActualizarColeccionista extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Gestor.borrarColeccionista(coleccionista.getId());
-					JOptionPane.showMessageDialog( null, "El coleccionista ha sido eliminada exitosamente.");
+					JOptionPane.showMessageDialog( null, "El coleccionista ha sido eliminado exitosamente.");
 					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error");
