@@ -35,24 +35,11 @@ public class PantallaConsultarPintor extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblPorNombre = new JLabel("Por Nombre");
-		lblPorNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPorNombre.setDisplayedMnemonic('N');
-		lblPorNombre.setBounds(10, 11, 102, 14);
-		contentPane.add(lblPorNombre);
-		
-		txtNombre = new JTextField();
-		lblPorNombre.setLabelFor(txtNombre);
-		txtNombre.setBounds(122, 8, 117, 20);
-		txtNombre.setEditable(false);
-		contentPane.add(txtNombre);
-		txtNombre.setColumns(10);
-		
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Pintor pintor = Gestor.consultarPintor(Integer.parseInt( txtId.getText() ));
+					Pintor pintor = Gestor.consultarPintor( txtId.getText());
 					PantallaActualizarPintor pantallaPintor = new PantallaActualizarPintor( pintor );
 					pantallaPintor.setVisible(true);
 				} catch (Exception e1) {
