@@ -10,11 +10,8 @@
 package logica;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
-
 import java.sql.Date;
-import java.util.Vector;
 
 @Entity
 @Table(name="TEscuelas")
@@ -41,8 +38,6 @@ public class Escuela implements Serializable {
 	@Column(name="caracteristicas")
 	private String caracteristicas;
 	
-	/*private Vector listaPintores;*/
-	
 	/**
 	 * Constructor
 	 */
@@ -62,7 +57,6 @@ public class Escuela implements Serializable {
 		setPaisOrigen(ppais);
 		setFechaOrigen(pfecha);
 		setCaracteristicas(pcaracteristicas);
-		/*listaPintores = null;*/
 	}
 	/**
 	 * Getter
@@ -151,16 +145,5 @@ public class Escuela implements Serializable {
 	public void setCaracteristicas(String pcaracteristicas) {
 		caracteristicas = pcaracteristicas;
 	}
-	
-	/*public Vector getListaPintores() throws Exception {
-		if (listaPintores == null) {
-			setListaPintores((new MultiPintor()).buscarPintores(nombre));
-		}
-		return listaPintores;
-	}
-
-	public void setListaPintores(Pintor plistaPintores){
-		listaPintores = plistaPintores;
-	}*/
 
 }

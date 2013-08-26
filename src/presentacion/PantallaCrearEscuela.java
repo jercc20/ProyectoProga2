@@ -69,6 +69,7 @@ public class PantallaCrearEscuela extends JFrame {
 		txtPais.setColumns(10);
 		
 		txtFecha = new JTextField();
+		txtFecha.setText("yyyy-mm-dd");
 		txtFecha.setBounds(101, 86, 109, 20);
 		contentPane.add(txtFecha);
 		txtFecha.setColumns(10);
@@ -83,6 +84,7 @@ public class PantallaCrearEscuela extends JFrame {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 					e1.printStackTrace();
 				}
+				setVisible(false);
 			}
 		});
 		btnCrear.setBounds(239, 213, 81, 23);
