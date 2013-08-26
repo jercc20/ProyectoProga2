@@ -97,6 +97,7 @@ public class PantallaCrearMecenas extends JFrame {
 		txtFechaMuerte = new JTextField();
 		lblFechaMuerte.setLabelFor(txtFechaMuerte);
 		txtFechaMuerte.setBounds(141, 111, 86, 20);
+		txtFechaMuerte.setText("yyyy-mm-dd");
 		contentPane.add(txtFechaMuerte);
 		txtFechaMuerte.setColumns(10);
 		
@@ -106,6 +107,7 @@ public class PantallaCrearMecenas extends JFrame {
 				try {
 					Gestor.crearMecenas( txtId.getText(), txtNombre.getText(), txtPaisNacimiento.getText(), txtCiudadNacimiento.getText(), txtFechaMuerte.getText());
 					JOptionPane.showMessageDialog( null, "El mecenas ha sido creado exitosamente!" );
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 				} 

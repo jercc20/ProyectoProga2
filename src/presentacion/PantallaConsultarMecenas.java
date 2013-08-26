@@ -41,6 +41,7 @@ public class PantallaConsultarMecenas extends JFrame {
 					Mecenas mecenas = Gestor.consultarMecenas( txtId.getText() );
 					PantallaActualizarMecenas pantallaMecenas = new PantallaActualizarMecenas( mecenas );
 					pantallaMecenas.setVisible(true);
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "No se ha podido encontrar por el id indicado");
 				}
@@ -49,7 +50,7 @@ public class PantallaConsultarMecenas extends JFrame {
 		btnConsultar.setBounds(206, 69, 89, 23);
 		contentPane.add(btnConsultar);
 		
-		JLabel lblPorId = new JLabel("Por Id");
+		JLabel lblPorId = new JLabel("Id");
 		lblPorId.setDisplayedMnemonic('I');
 		lblPorId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPorId.setBounds(67, 26, 46, 14);
