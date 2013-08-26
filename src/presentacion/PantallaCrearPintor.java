@@ -137,7 +137,7 @@ public class PantallaCrearPintor extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.crearPintor(Integer.parseInt( txtId.getText() ), txtNombre.getText(), txtNombreArtistico.getText(), txtCiudadNacimiento.getText(), txtPaisNacimiento.getText(), txtFechaNacimiento.getText(), txtFechaMuerte.getText(), cmbTipo.getSelectedItem().toString(), 0, 0);
+					Gestor.crearPintor(Integer.parseInt( txtId.getText() ), txtNombre.getText(), txtNombreArtistico.getText(), txtCiudadNacimiento.getText(), txtPaisNacimiento.getText(), txtFechaNacimiento.getText(), txtFechaMuerte.getText(), cmbTipo.getSelectedItem().toString(), Integer.parseInt(txtIdMaestro.getText()), Integer.parseInt(txtIdEscuela.getText()));
 					JOptionPane.showMessageDialog( null, "El pintor ha sido creado exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");

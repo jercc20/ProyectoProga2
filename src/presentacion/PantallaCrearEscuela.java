@@ -27,8 +27,6 @@ public class PantallaCrearEscuela extends JFrame {
 	private JTextField txtPais;
 	private JTextField txtFecha;
 	private JTextArea txtCaracteristicas;
-	private JTextField txtId;
-	private JLabel lblId;
 
 	public PantallaCrearEscuela() {
 		setResizable(false);
@@ -79,7 +77,7 @@ public class PantallaCrearEscuela extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.crearEscuela(Integer.parseInt(txtId.getText() ), txtNombre.getText(), txtPais.getText(), txtFecha.getText(), txtCaracteristicas.getText());
+					Gestor.crearEscuela(txtNombre.getText(), txtPais.getText(), txtFecha.getText(), txtCaracteristicas.getText());
 					JOptionPane.showMessageDialog( null, "La escuela ha sido creada exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
@@ -107,15 +105,5 @@ public class PantallaCrearEscuela extends JFrame {
 		scrollPane.setViewportView(txtCaracteristicas);
 		txtCaracteristicas.setWrapStyleWord(true);
 		txtCaracteristicas.setLineWrap(true);
-		
-		txtId = new JTextField();
-		txtId.setBounds(101, 11, 109, 20);
-		contentPane.add(txtId);
-		txtId.setColumns(10);
-		
-		lblId = new JLabel("Id");
-		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblId.setBounds(45, 14, 46, 14);
-		contentPane.add(lblId);
 	}
 }

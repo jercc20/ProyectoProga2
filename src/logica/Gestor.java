@@ -4,10 +4,12 @@ import java.sql.Date;
 
 public class Gestor {
 	
-	private static DAOEscuela daoEscuela;
+	private static DAOPintor daoPintor;
 	
 	public static Pintor crearPintor(int pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo, int pIdMaestro, int pIdEscuela) throws Exception{
-		Pintor pintor = (new DAOPintor()).crear(pId, pNombre, pNombreArtistico, pCiudadNacimiento, pPaisNacimiento, pFechaNacimiento, pFechaMuerte, pTipo, pIdMaestro, pIdEscuela);
+		Pintor pintor = new Pintor(pId, pNombre, pNombreArtistico, pCiudadNacimiento, pPaisNacimiento, pFechaNacimiento, pFechaMuerte, pTipo, pIdMaestro, pIdEscuela);
+		daoPintor = new DAOPintor();
+		daoPintor.crear(pintor);
 		return pintor;
 	}
 	
@@ -125,12 +127,8 @@ public class Gestor {
 	}
 	
 	
-	public static Escuela crearEscuela(int pId, String pNombre, String pPais, String pFecha, String pCaracteristicas) throws Exception {
-		System.out.println(pCaracteristicas);
-		Escuela objEscuela = new Escuela(pId, pNombre, pPais, pFecha, pCaracteristicas);
-		daoEscuela = new DAOEscuela();
-		daoEscuela.crear(objEscuela);
-		return objEscuela;
+	public static Escuela crearEscuela( String pNombre, String pPais, String pFecha, String pCaracteristicas) throws Exception {
+		DAOEscuela.crear(( new Escuela(pNombre, pPais, pFecha, pCaracteristicas)));
 	}
 	
 	public static Escuela consultarEscuela(int pId) throws Exception {
