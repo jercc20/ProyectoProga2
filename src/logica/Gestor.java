@@ -186,11 +186,11 @@ public class Gestor {
 //	}
 //	
 //	
-//	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
-//	
-//		DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
-//		
-//	}
+	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
+	
+		DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
+		
+	}
 	
 	/////////////////////////
 	/////// Galeria /////////
@@ -311,6 +311,15 @@ public class Gestor {
 
 		DAOAdquisicion.borrar(DAOAdquisicion.buscar(pId));
 
+	}
+	
+public static void agregarMaestro (String pIdPintor, String pidMaestro) throws Exception{
+		
+		Pintor pintor = DAOPintor.buscar(pIdPintor);
+		Pintor maestro  = DAOPintor.buscar(pidMaestro);
+		pintor.setMaestro( maestro );
+		DAOPintor.actualizar( pintor );
+		
 	}
 	
 
