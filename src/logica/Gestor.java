@@ -265,5 +265,43 @@ public class Gestor {
 		
 	}
 	
+	// ///////////////////////
+	// // Adquisicion //////
+	// ///////////////////////
+	public static void crearAdquisicion(String pcodigoPintura,	String pIdPropietario, String pfechaAdquisicion,int pcondicionAdquisicion, double pcostoAdquisicion)throws Exception {
+
+		DAOAdquisicion.crear(new Adquisicion(pcodigoPintura, pIdPropietario, pfechaAdquisicion, pcondicionAdquisicion, pcondicionAdquisicion));
+
+	}
+
+	public static Adquisicion consultarAdquisicion(String pId)
+			throws Exception {
+
+		Adquisicion adquisicion = DAOAdquisicion.buscar(pId);
+		return adquisicion;
+
+	}
+
+	public static void actualizarAdquisicion(String pId, String pNombre, String pDireccion, String pTelefono, String pFechaInicio)
+			throws Exception {
+
+		Adquisicion adquisicion = DAOAdquisicion.buscar(pId);
+
+		adquisicion.setNombre(pNombre);
+		adquisicion.setDireccion(pDireccion);
+		adquisicion.setTelefono(pTelefono);
+		adquisicion.setFechaInicio(Date.valueOf(pFechaInicio));
+
+		DAOAdquisicion.actualizar(adquisicion);
+
+	}
+
+	public static void borrarAdquisicion(String pId)
+			throws java.sql.SQLException, Exception {
+
+		DAOAdquisicion.borrar(DAOAdquisicion.buscar(pId));
+
+	}
+	
 
 }
