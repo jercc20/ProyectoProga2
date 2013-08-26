@@ -91,7 +91,7 @@ public class PantallaCrearColeccionista extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.crearColeccionista(Integer.parseInt( txtId.getText() ), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInicio.getText());
+					Gestor.crearColeccionista( txtId.getText(), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInicio.getText());
 					JOptionPane.showMessageDialog( null, "El coleccionista ha sido creado exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");

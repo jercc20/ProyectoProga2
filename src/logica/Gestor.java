@@ -200,7 +200,7 @@ public class Gestor {
 	}
 	
 	
-	public static Galeria consultarGaleria(int pId) throws Exception {
+	public static Galeria consultarGaleria(String pId) throws Exception {
 	
 		Galeria galeria = DAOGaleria.buscar(pId);
 		return galeria;
@@ -208,7 +208,7 @@ public class Gestor {
 	}
 	
 	
-	public static void actualizarGaleria(int pId, String pNombre, String pDireccion, String pTelefono, String pFechaInauguracion, String pNombreEncargado, String pArea) throws Exception{
+	public static void actualizarGaleria(String pId, String pNombre, String pDireccion, String pTelefono, String pFechaInauguracion, String pNombreEncargado, String pArea) throws Exception{
 		
 		Galeria galeria = DAOGaleria.buscar(pId);
 		
@@ -224,7 +224,7 @@ public class Gestor {
 	}
 	
 	
-	public static void borrarGaleria(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarGaleria(String pId) throws java.sql.SQLException, Exception {
 	
 		DAOGaleria.borrar( DAOGaleria.buscar(pId) );
 		
@@ -240,7 +240,7 @@ public class Gestor {
 	}
 	
 	
-	public static Coleccionista consultarColeccionista(int pId) throws Exception {
+	public static Coleccionista consultarColeccionista(String pId) throws Exception {
 	
 		Coleccionista coleccionista = DAOColeccionista.buscar(pId);
 		return coleccionista;
@@ -248,7 +248,7 @@ public class Gestor {
 	}
 	
 	
-	public static void actualizarColeccionista(int pId, String pNombre, String pDireccion, String pTelefono, String pFechaInicio) throws Exception{
+	public static void actualizarColeccionista(String pId, String pNombre, String pDireccion, String pTelefono, String pFechaInicio) throws Exception{
 	
 		Coleccionista coleccionista = DAOColeccionista.buscar(pId);
 		
@@ -262,7 +262,7 @@ public class Gestor {
 	}
 	
 	
-	public static void borrarColeccionista(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarColeccionista(String pId) throws java.sql.SQLException, Exception {
 	
 		DAOColeccionista.borrar( DAOColeccionista.buscar(pId) );
 		
