@@ -71,7 +71,7 @@ public class Gestor {
 		pintor.setFechaNacimiento(pFechaNacimiento);
 		pintor.setFechaMuerte(pFechaMuerte);
 		pintor.setTipo(pTipo);
-		pintor.setEscuela( ( DAOEscuela.buscar( pIdEscuela ) ) );
+		pintor.setEscuela( DAOEscuela.buscar( pIdEscuela ) );
 		
 		DAOPintor.actualizar( pintor );
 		
@@ -87,9 +87,14 @@ public class Gestor {
 		/////////////////////////
 		/////// Pintura  /////////
 		/////////////////////////
-	public static void crearPintura(String pCodigo, String pNombre, String pidPintor, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual, int pFamosa, String pHistoria) throws Exception {
-		Pintor pintor = DAOPintor.buscar(pidPintor);
-		DAOPintura.crear( ( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pCondicionActual, pFamosa, pHistoria, pintor ) ) );
+	public static void crearPintura(String pCodigo, String pNombre, String pidPintor, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual, int pFamosa, String pIdPintor) throws Exception {
+		Pintor pintor = DAOPintor.buscar(pIdPintor);
+		if( pintor != null ){
+			DAOPintura.crear( ( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pCondicionActual, pFamosa, pintor ) ) );
+		}
+		else {
+			throw new Exception("El pintor no existe");
+		}
 	}
 	
 	public static Pintura consultarPintura(String pId) throws Exception {
@@ -100,7 +105,7 @@ public class Gestor {
 	}
 	
 	
-	public static void actualizarPintura(String pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual,  int pFamosa, String pHistoria) throws Exception{
+	public static void actualizarPintura(String pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual,  int pFamosa) throws Exception{
 		
 		Pintura pintura = DAOPintura.buscar(pCodigo);
 		
@@ -112,7 +117,6 @@ public class Gestor {
 		pintura.setTecnica(pTecnicaCreacion);
 		pintura.setCondicionActual(pCondicionActual);
 		pintura.setEsFamosa(pFamosa);
-		pintura.setHistoria(pHistoria);
 		
 		DAOPintura.actualizar(pintura);
 		

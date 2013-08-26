@@ -254,7 +254,7 @@ private static final long serialVersionUID = -436540065081698326L;
 		return maestros;
 	}
 
-	public void setMaestro(Set<Pintor> pmaestros){
+	public void setMaestros(Set<Pintor> pmaestros){
 		maestros = pmaestros;
 	}
 	public void setMaestro(Pintor pmaestro){

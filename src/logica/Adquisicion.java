@@ -10,6 +10,7 @@
 package logica;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 //@Entity
@@ -32,9 +33,17 @@ public class Adquisicion implements Serializable {
 	@Column(name="costoAdquisicion")
 	private double costoAdquisicion;
 	
+<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name="id_pintura")
 	private Pintura pintura;
+=======
+	@Column(name="historia")
+	private String	historia;
+	
+	@Column(name="codigoPintura")
+	private String	codigoPintura;
+>>>>>>> d327e7ade5b8dc51f89e0281be0c9a17227f0b90
 	
 	@ManyToOne
 	@JoinColumn(name="id_propietario")
@@ -50,12 +59,17 @@ public class Adquisicion implements Serializable {
 	 * @param pcostoAdquisicion: Costo de adquisición de la pintura.
 	 */
 	
+<<<<<<< HEAD
 	public Adquisicion(Pintura ppintura, Propietario ppropietario, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion) {
 		setPintura(ppintura);
 		setPropietario(ppropietario);
+=======
+	public Adquisicion(String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
+>>>>>>> d327e7ade5b8dc51f89e0281be0c9a17227f0b90
 		setFechaAdquisicion(pfechaAdquisicion);
 		setCondicionAdquisicion(pcondicionAdquisicion);
 		setCostoAdquisicion(pcostoAdquisicion);
+		setHistoria( pHistoria );
 		/*pintura = null;
 		propietario = null;*/
 	}
@@ -110,7 +124,27 @@ public class Adquisicion implements Serializable {
 	
 	/**
 	 * Getter
+<<<<<<< HEAD
 	 * @return condicionAdquisicion
+=======
+	 * @return historia
+	 */
+	public String getHistoria() {
+		return historia;
+	}
+	
+	/**
+	 * Setter
+	 * @param phistoria: Breve historia de la pintura si es que la posee.
+	 */
+	public void setHistoria(String phistoria) {
+		historia = phistoria;
+	}
+	
+	/**
+	 * Getter
+	 * @return codigoPintura
+>>>>>>> d327e7ade5b8dc51f89e0281be0c9a17227f0b90
 	 */
 	public int getCondicionAdquisicion() {
 		return condicionAdquisicion;

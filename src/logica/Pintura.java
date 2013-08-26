@@ -11,7 +11,6 @@
 package logica;
 
 import java.sql.Date;
-import java.util.Vector;
 import java.io.Serializable;
 
 import javax.persistence.*;
@@ -50,9 +49,6 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Column(name="es_famosa")
 	private int esFamosa;
 	
-	@Column(name="historia")
-	private String	historia;
-	
 	@ManyToOne
 	@JoinColumn(name="id_pintor")
 	private Pintor pintor;
@@ -77,11 +73,10 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param ptecnica: Técnica en la que la pintura fue elaborada.
 	 * @param pcondicionActual: Condición actual de la pintura (excelente, buena, regular o mala).
 	 * @param pesFamosa: Indicador si es una pintura muy famosa.
-	 * @param phistoria: Breve historia de la pintura si es que la posee.
 	 * @param pPintor:Pintor que elaboró la pintura.
 	 */	
 	public Pintura(String pcodigo, String pnombre, String pdimensiones, String pfechaCreacion, String ptiempoTardado,
-			String ptecnica, int pcondicionActual, int pesFamosa, String phistoria, Pintor pPintor) {
+			String ptecnica, int pcondicionActual, int pesFamosa, Pintor pPintor) {
 		setCodigo(pcodigo);
 		setNombre(pnombre);
 		setDimensiones(pdimensiones);
@@ -90,7 +85,6 @@ private static final long serialVersionUID = -436540065081698326L;
 		setTecnica(ptecnica);
 		setCondicionActual(pcondicionActual);
 		setEsFamosa(pesFamosa);
-		setHistoria(phistoria);
 		setPintor(pPintor);
 	}
 	
@@ -228,22 +222,6 @@ private static final long serialVersionUID = -436540065081698326L;
 	 */
 	public void setEsFamosa(int pesFamosa) {
 		esFamosa = pesFamosa;
-	}
-	
-	/**
-	 * Getter
-	 * @return historia
-	 */
-	public String getHistoria() {
-		return historia;
-	}
-	
-	/**
-	 * Setter
-	 * @param phistoria: Breve historia de la pintura si es que la posee.
-	 */
-	public void setHistoria(String phistoria) {
-		historia = phistoria;
 	}
 	
 	/**

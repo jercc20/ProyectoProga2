@@ -21,7 +21,6 @@ import java.awt.event.ActionEvent;
 public class PantallaConsultarEscuela extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtNombre;
 	private JTextField txtId;
 
 	public PantallaConsultarEscuela() {
@@ -51,7 +50,7 @@ public class PantallaConsultarEscuela extends JFrame {
 		btnConsultar.setBounds(206, 69, 89, 23);
 		contentPane.add(btnConsultar);
 		
-		JLabel lblPorId = new JLabel("Por Id");
+		JLabel lblPorId = new JLabel("Id");
 		lblPorId.setDisplayedMnemonic('I');
 		lblPorId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPorId.setBounds(66, 36, 46, 14);

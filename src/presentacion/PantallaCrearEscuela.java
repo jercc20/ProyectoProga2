@@ -18,7 +18,6 @@ import javax.swing.JScrollPane;
 import logica.Gestor;
 
 import java.awt.SystemColor;
-import java.sql.Date;
 
 public class PantallaCrearEscuela extends JFrame {
 
