@@ -219,7 +219,7 @@ public class PantallaActualizarPintura extends JFrame {
 			p.setVisible(true);
 		}
 		catch (Exception ex) {
-			JOptionPane.showMessageDialog(this,"Seleccione una opción de la lista.","Error",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this,"","Error",JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

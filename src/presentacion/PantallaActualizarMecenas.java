@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.sql.SQLException;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PantallaActualizarMecenas extends JFrame {
 
@@ -28,12 +30,13 @@ public class PantallaActualizarMecenas extends JFrame {
 	private JButton btnBorrar;
 	private JButton btnActualizar;
 	private Mecenas mecenas;
+	private JButton btnCrearMecenazgo;
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
 		setResizable(false);
-		setBounds(100, 100, 324, 220);
+		setBounds(100, 100, 407, 220);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -138,6 +141,28 @@ public class PantallaActualizarMecenas extends JFrame {
 		});
 		btnActualizar.setBounds(219, 154, 89, 23);
 		contentPane.add(btnActualizar);
+		
+		btnCrearMecenazgo = new JButton("Crear Mecenazgo");
+		btnCrearMecenazgo.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				btnCrearMecenazgo_mouseClicked(e);
+			}
+		});
+		btnCrearMecenazgo.setBounds(258, 54, 121, 23);
+		contentPane.add(btnCrearMecenazgo);
 	}
+	
+	
+	public void btnCrearMecenazgo_mouseClicked(MouseEvent e) {
+		try {
+			PantallaCrearMecenazgo p;
+			p = new PantallaCrearMecenazgo(txtId.getText());
+			p.setVisible(true);
+		}
+		catch (Exception ex) {
+			JOptionPane.showMessageDialog(this,"Error","Error",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
 
 }

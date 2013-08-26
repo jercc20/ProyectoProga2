@@ -25,8 +25,13 @@ public class PantallaCrearMecenazgo extends JFrame {
 	private JTextField txtIdMecenas;
 	private JTextField txtFechaInicio;
 	private JLabel lblFechaInicio;
+	
+	private String idMecenas;
 
-	public PantallaCrearMecenazgo() {
+	public PantallaCrearMecenazgo(String pid) {
+		
+		idMecenas = pid;
+		
 		setResizable(false);
 		setTitle("Crear Mecenazgo");
 		setBounds(100, 100, 336, 200);
@@ -46,7 +51,7 @@ public class PantallaCrearMecenazgo extends JFrame {
 		lblIdPintor.setBounds(45, 64, 105, 14);
 		contentPane.add(lblIdPintor);
 		
-		JLabel lblIdMecenas = new JLabel("Fecha");
+		JLabel lblIdMecenas = new JLabel("Id Mecenas");
 		lblIdMecenas.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblIdMecenas.setBounds(55, 89, 92, 14);
 		contentPane.add(lblIdMecenas);
@@ -65,6 +70,8 @@ public class PantallaCrearMecenazgo extends JFrame {
 		txtIdMecenas.setBounds(160, 86, 109, 20);
 		contentPane.add(txtIdMecenas);
 		txtIdMecenas.setColumns(10);
+		txtIdMecenas.setText(idMecenas);
+		txtIdMecenas.setEnabled(false);
 		
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
