@@ -178,19 +178,19 @@ public class Gestor {
 	}
 	
 	
-	public static String actualizarMecenazgo (String pFechaInicio, String pFechaFin, String pIdMecenas, String pIdPintor) throws Exception{
-	
-		(new DAOMecenazgo()).actualizar(pIdMecenas, pIdPintor, pFechaInicio, pFechaFin);
-		return "El mecenazgo ha sido actualizado.";
-		
-	}
-	
-	
-	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
-	
-		DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
-		
-	}
+//	public static String actualizarMecenazgo (String pFechaInicio, String pFechaFin, String pIdMecenas, String pIdPintor) throws Exception{
+//	
+//		(new DAOMecenazgo()).actualizar(pIdMecenas, pIdPintor, pFechaInicio, pFechaFin);
+//		return "El mecenazgo ha sido actualizado.";
+//		
+//	}
+//	
+//	
+//	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
+//	
+//		DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
+//		
+//	}
 	
 	/////////////////////////
 	/////// Galeria /////////

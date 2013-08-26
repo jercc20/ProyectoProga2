@@ -74,7 +74,6 @@ public class PantallaCrearGaleria extends JFrame {
 		contentPane.add(lblArea);
 		
 		txtId = new JTextField();
-		//txtId.setEditable(false);
 		txtId.setBounds(147, 8, 86, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
@@ -96,6 +95,7 @@ public class PantallaCrearGaleria extends JFrame {
 		
 		txtFechaInauguracion = new JTextField();
 		txtFechaInauguracion.setBounds(147, 108, 86, 20);
+		txtFechaInauguracion.setText("yyyy-mm-dd");
 		contentPane.add(txtFechaInauguracion);
 		txtFechaInauguracion.setColumns(10);
 		
@@ -115,6 +115,7 @@ public class PantallaCrearGaleria extends JFrame {
 				try {
 					Gestor.crearGaleria( txtId.getText(), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInauguracion.getText(), txtNombreEncargado.getText(), txtArea.getText());
 					JOptionPane.showMessageDialog( null, "La galeria ha sido creada exitosamente!" );
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 				}

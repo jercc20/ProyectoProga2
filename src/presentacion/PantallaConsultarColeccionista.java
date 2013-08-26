@@ -41,6 +41,7 @@ public class PantallaConsultarColeccionista extends JFrame {
 					Coleccionista coleccionista = Gestor.consultarColeccionista( txtId.getText() );
 					PantallaActualizarColeccionista pantallaColeccionista = new PantallaActualizarColeccionista( coleccionista );
 					pantallaColeccionista.setVisible(true);
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "No se ha podido encontrar por el id indicado");
 				}
@@ -49,7 +50,7 @@ public class PantallaConsultarColeccionista extends JFrame {
 		btnConsultar.setBounds(206, 69, 89, 23);
 		contentPane.add(btnConsultar);
 		
-		JLabel lblPorId = new JLabel("Por Id");
+		JLabel lblPorId = new JLabel("Id");
 		lblPorId.setDisplayedMnemonic('I');
 		lblPorId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPorId.setBounds(68, 26, 46, 14);
