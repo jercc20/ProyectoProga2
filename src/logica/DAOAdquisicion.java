@@ -34,6 +34,27 @@ public class DAOAdquisicion {
 	}
 	
 	/**
+	 * Busca una instancia en la tabla de adquisiciones usando el código de la pintura.
+	 * @param pcodigo: Código de la pintura.
+	 */	
+	public static Adquisicion buscar(String pcodigoPintura){
+		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+		Adquisicion adquisicion = null;
+		try{
+			adquisicion = em.find(Adquisicion.class, pcodigoPintura);
+		}
+		catch (Exception ex){
+			System.out.println("Error");
+			ex.printStackTrace();
+		}
+		finally{
+			em.close();
+		}
+		return adquisicion;
+	}
+	
+	
+	/**
 	 * Actualiza una instancia en la tabla de adquisiciones.
 	 * @param padquisicion: Objeto Adquisicion.
 	 */	

@@ -55,13 +55,45 @@ public class Adquisicion implements Serializable {
 	 * @param pcostoAdquisicion: Costo de adquisición de la pintura.
 	 */
 	
-	public Adquisicion(Propietario pPropietario, Pintura pPintura, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
-		setPropietario(pPropietario);
+	public Adquisicion(Pintura pPintura, Propietario pPropietario, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
 		setPintura(pPintura);
+		setPropietario(pPropietario);		
 		setFechaAdquisicion(pfechaAdquisicion);
 		setCondicionAdquisicion(pcondicionAdquisicion);
 		setCostoAdquisicion(pcostoAdquisicion);
 		setHistoria( pHistoria );
+	}
+	
+	/**
+	 * Getter
+	 * @return pintura
+	 */
+	public Pintura getPintura() {
+		return pintura;
+	}
+	
+	/**
+	 * Setter
+	 * @param ppintura: Pintura adquirida.
+	 */
+	public void setPintura(Pintura ppintura){
+		pintura = ppintura;
+	}
+	
+	/**
+	 * Getter
+	 * @return propietario
+	 */
+	public Propietario getPropietario() {
+		return propietario;
+	}
+	
+	/**
+	 * Setter
+	 * @param ppropietario: Propietario de la pintura.
+	 */
+	public void setPropietario(Propietario ppropietario){
+		propietario = ppropietario;
 	}
 	
 	/**
@@ -81,16 +113,7 @@ public class Adquisicion implements Serializable {
 	}
 	
 	/**
-	 * Setter
-	 * @param pfechaAdquisicion: Fecha de adquisición de la pintura.
-	 */
-	public void setFechaAdquisicion(Date pfechaAdquisicion) {
-		fechaAdquisicion = pfechaAdquisicion;
-	}
-	
-	/**
 	 * Getter
-	 * @return codigoPintura
 	 * @return condicionAdquisicion
 	 */
 	public int getCondicionAdquisicion() {
@@ -135,22 +158,6 @@ public class Adquisicion implements Serializable {
 	 */
 	public void setHistoria(String phistoria) {
 		historia = phistoria;
-	}
-
-	public Pintura getPintura() {
-		return pintura;
-	}
-
-	public void setPintura(Pintura ppintura){
-		pintura = ppintura;
-	}
-	
-	public Propietario getPropietario() {
-		return propietario;
-	}
-
-	public void setPropietario(Propietario ppropietario){
-		propietario = ppropietario;
 	}
 
 }

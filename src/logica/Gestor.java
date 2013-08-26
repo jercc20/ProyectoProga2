@@ -273,31 +273,34 @@ public class Gestor {
 	// ///////////////////////
 	// // Adquisicion //////
 	// ///////////////////////
-	public static void crearAdquisicion(String pcodigoPintura,	String pIdPropietario, String pfechaAdquisicion,int pcondicionAdquisicion, double pcostoAdquisicion)throws Exception {
+	public static void crearAdquisicion(String pcodigoPintura,	String pIdPropietario, String pfechaAdquisicion,double pcostoAdquisicion, int pcondicionAdquisicion, String pHistoria)throws Exception {
 		Pintura pintura = DAOPintura.buscar(pcodigoPintura);
 		Propietario propietario = DAOPropietario.buscar(pIdPropietario);
-		DAOAdquisicion.crear(new Adquisicion(pintura, propietario, pcodigoPintura, pIdPropietario, pfechaAdquisicion, pcondicionAdquisicion, pcondicionAdquisicion));
+		DAOAdquisicion.crear(new Adquisicion(pintura, propietario, pfechaAdquisicion, pcondicionAdquisicion, pcostoAdquisicion, pHistoria));
 
 	}
 
-	public static Adquisicion consultarAdquisicion(String pId)
+	public static Adquisicion consultarAdquisicion(String pcodigoPintura)
 			throws Exception {
 
-		Adquisicion adquisicion = DAOAdquisicion.buscar(pId);
+		Adquisicion adquisicion = DAOAdquisicion.buscar(pcodigoPintura);
 		return adquisicion;
 
 	}
 
-	public static void actualizarAdquisicion(String pcodigoPintura,String pIdPropietario, String pfechaAdquisicion,int pcondicionAdquisicion, double pcostoAdquisicion)
+	public static void actualizarAdquisicion(String pcodigoPintura,String pIdPropietario, String pfechaAdquisicion,int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria)
 			throws Exception {
 
 		Adquisicion adquisicion = DAOAdquisicion.buscar(pcodigoPintura);
+		Pintura pintura = DAOPintura.buscar(pcodigoPintura);
+		Propietario propietario = DAOPropietario.buscar(pIdPropietario);
 
-		adquisicion.setCodigoPintura(pcodigoPintura);
-		adquisicion.setIdPropietario(pIdPropietario);
+		adquisicion.setPintura(pintura);
+		adquisicion.setPropietario(propietario);
 		adquisicion.setFechaAdquisicion(pfechaAdquisicion);
 		adquisicion.setCondicionAdquisicion(pcondicionAdquisicion);
 		adquisicion.setCostoAdquisicion(pcostoAdquisicion);
+		adquisicion.setHistoria(pHistoria);
 
 		DAOAdquisicion.actualizar(adquisicion);
 
