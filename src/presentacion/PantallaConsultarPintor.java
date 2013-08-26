@@ -42,6 +42,7 @@ public class PantallaConsultarPintor extends JFrame {
 					Pintor pintor = Gestor.consultarPintor( txtId.getText());
 					PantallaActualizarPintor pantallaPintor = new PantallaActualizarPintor( pintor );
 					pantallaPintor.setVisible(true);
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "No se ha podido encontrar por el id indicado");
 				}
