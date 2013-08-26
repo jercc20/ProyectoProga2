@@ -9,7 +9,7 @@ public class Gestor {
 	}
 	
 	public static Escuela consultarEscuela(int pId) throws Exception {
-		Escuela escuela = (new DAOEscuela()).buscar(pId);
+		Escuela escuela = DAOEscuela.buscar(pId);
 		return escuela;
 	}
 	

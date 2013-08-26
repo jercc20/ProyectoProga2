@@ -35,18 +35,6 @@ public class PantallaConsultarEscuela extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblPorNombre = new JLabel("Por Nombre");
-		lblPorNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPorNombre.setDisplayedMnemonic('N');
-		lblPorNombre.setBounds(10, 11, 102, 14);
-		contentPane.add(lblPorNombre);
-		
-		txtNombre = new JTextField();
-		lblPorNombre.setLabelFor(txtNombre);
-		txtNombre.setBounds(122, 8, 117, 20);
-		txtNombre.setEditable(false);
-		contentPane.add(txtNombre);
-		
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -54,6 +42,7 @@ public class PantallaConsultarEscuela extends JFrame {
 					Escuela escuela = Gestor.consultarEscuela(Integer.parseInt( txtId.getText() ));
 					PantallaActualizarEscuela pantallaEscuela = new PantallaActualizarEscuela( escuela );
 					pantallaEscuela.setVisible(true);
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "No se ha podido encontrar por el id indicado");
 				}
