@@ -38,7 +38,7 @@ public class DAOColeccionista {
 	 * Busca una instancia en la tabla de coleccionistas usando el id del coleccionista.
 	 * @param pidColeccionista: id del coleccionista.
 	 */	
-	public static Coleccionista buscar(String pidColeccionista){
+	public static Coleccionista buscar(int pidColeccionista){
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		Coleccionista coleccionista = null;
 		try{

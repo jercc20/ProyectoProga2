@@ -84,15 +84,7 @@ public class Gestor {
 		
 	}
 	
-<<<<<<< HEAD
-	public static void crearPintura(int pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, String pFechaLlegada, int pCondicionLlegada, int pCondicionActual, double pCostoAdquirida, int pFamosa, String pHistoria) throws Exception {
-		DAOPintura.crear( ( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pCondicionActual, pFamosa, pHistoria) ) );
-		DAOAdquisicion.crear( ( new Adquisicion(pFechaLlegada, pCondicionLlegada, pCostoAdquirida) ) );
-	}
 	
-	public static Pintura consultarPintura(int pCodigo) throws Exception {
-		Pintura pintura = DAOPintura.buscar(pCodigo);
-=======
 	/////////////////////////
 	/////// Pintura /////////
 	/////////////////////////
@@ -106,14 +98,15 @@ public class Gestor {
 	public static Pintura consultarPintura(int pId) throws Exception {
 	
 		Pintura pintura = DAOPintura.buscar(pId);
->>>>>>> cambios gestor
 		return pintura;
 		
 	}
 	
-<<<<<<< HEAD
+	
 	public static void actualizarPintura(int pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual,  int pFamosa, String pHistoria) throws Exception{
+		
 		Pintura pintura = DAOPintura.buscar(pCodigo);
+		
 		pintura.setCodigo(pCodigo);
 		pintura.setNombre(pNombre);
 		pintura.setDimensiones(pDimensiones);
@@ -123,39 +116,18 @@ public class Gestor {
 		pintura.setCondicionActual(pCondicionActual);
 		pintura.setEsFamosa(pFamosa);
 		pintura.setHistoria(pHistoria);
+		
 		DAOPintura.actualizar(pintura);
+		
 	}
+	
 	
 	public static void borrarPintura(int pCodigo) throws java.sql.SQLException, Exception {
+		
 		DAOPintura.borrar(DAOPintura.buscar(pCodigo));
-=======
-	
-	public static String actualizarPintura(int pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnica, String pFechaLlegada, int pCondicionLlegada, int pCondicionActual, String pCostoAdquirida, int pFamosa, String pHistoria, int pIdGaleria, int pIdPintor) throws Exception{
-	
-		Pintura pintura = DAOPintura.buscar(pCodigo);
-		
-		setNombre(pNombre);
-		setDimensiones(pDimensiones);
-		setFechaCreacion(pFechaCreacion);
-		setTiempoTardado(pTiempoTardado);
-		setTecnica(pTecnica);
-		setCondicionActual(pCondicionActual);
-		setEsFamosa(pFamosa);
-		setHistoria(pHistoria);
-		setPintor(pPintor);
-		
-		DAOPintura.actualizar(pintura);
 		
 	}
 	
-	
-	public static String borrarPintura(int pId) throws java.sql.SQLException, Exception {
-	
-		(new DAOPintura()).borrar(pId);
-		return "Se ha borrado la pintura.";
-		
->>>>>>> cambios gestor
-	}
 	
 	/////////////////////////
 	/////// Mecenas /////////
@@ -218,8 +190,9 @@ public class Gestor {
 	/////////////////////////
 	/////// Galeria /////////
 	/////////////////////////
-	public static void crearGaleria(int pId, String pNombre, String pDireccion, String pTelefono, String pFechaInauguracion, String pNombreEncargado, String pArea) throws Exception {
-		DAOGaleria.crear(pId, pNombre, pDireccion, pTelefono, pFechaInauguracion, pNombreEncargado, pArea);
+	public static void crearGaleria(String pId, String pNombre, String pDireccion, String pTelefono, String pFechaInauguracion, String pNombreEncargado, String pArea) throws Exception {
+		
+		DAOGaleria.crear( new Galeria(pId, pNombre, pDireccion, pTelefono, pFechaInauguracion, pNombreEncargado, pArea));
 		
 	}
 	
@@ -240,44 +213,49 @@ public class Gestor {
 	}
 	
 	
-	public static String borrarGaleria(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarGaleria(int pId) throws java.sql.SQLException, Exception {
 	
-		(new DAOGaleria()).borrar(pId);
-		return "Se ha borrado la galeria.";
+		DAOGaleria.borrar( DAOGaleria.buscar(pId) );
 		
 	}
 	
 	/////////////////////////
 	//// Coleccionista //////
 	/////////////////////////
-	public static void crearColeccionista(int pId, String pNombre, String pDireccion, String pTelefono, String pFechaInicio) throws Exception {
+	public static void crearColeccionista(String pId, String pNombre, String pDireccion, String pTelefono, String pFechaInicio) throws Exception {
 	
-		DAOColeccionista.crear(pId, pNombre, pDireccion, pTelefono, pFechaInicio);
+		DAOColeccionista.crear( new Coleccionista(pId, pNombre, pDireccion, pTelefono, pFechaInicio) );
 		
 	}
 	
 	
 	public static Coleccionista consultarColeccionista(int pId) throws Exception {
 	
-		Coleccionista coleccionista = DAOGaleria.buscar(pId);
+		Coleccionista coleccionista = DAOColeccionista.buscar(pId);
 		return coleccionista;
 		
 	}
 	
 	
-	public static String actualizarColeccionista(int pId, String pNombre, String pDireccion, String pTelefono, String pFechaInicio) throws Exception{
+	public static void actualizarColeccionista(int pId, String pNombre, String pDireccion, String pTelefono, String pFechaInicio) throws Exception{
 	
-		(new DAOGaleria()).actualizar(pId, pNombre, pDireccion, pTelefono, pFechaInicio);
-		return "El coleccionista ha sido actualizado.";
+		Coleccionista coleccionista = DAOColeccionista.buscar(pId);
+		
+		coleccionista.setNombre(pNombre);
+		coleccionista.setDireccion(pDireccion);
+		coleccionista.setTelefono(pTelefono);
+		coleccionista.setFechaInicio( Date.valueOf(pFechaInicio) );
+		
+		DAOColeccionista.actualizar(coleccionista);
 		
 	}
 	
 	
-	public static String borrarColeccionista(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarColeccionista(int pId) throws java.sql.SQLException, Exception {
 	
-		(new DAOGaleria()).borrar(pId);
-		return "Se ha borrado el coleccionista.";
+		DAOColeccionista.borrar( DAOColeccionista.buscar(pId) );
 		
 	}
+	
 
 }
