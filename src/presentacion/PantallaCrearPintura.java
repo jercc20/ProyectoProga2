@@ -32,12 +32,8 @@ public class PantallaCrearPintura extends JFrame {
 	private JTextField txtFechaCreacion;
 	private JTextField txtTiempoTardado;
 	private JTextField txtTecnica;
-	private JTextField txtFechaAdquisicion;
-	private JComboBox<String> cmbCondicionAdquisicion;
 	private JComboBox<String> cmbCondicionActual;
 	private JLabel lblCondicionActual;
-	private JLabel lblCostoAdquisicion;
-	private JTextField txtCostoAdquisicion;
 	private JLabel lblFamosa;
 	private JComboBox<String> cmbFamosa;
 	private JLabel lblHistoria;
@@ -47,8 +43,8 @@ public class PantallaCrearPintura extends JFrame {
 	private JButton btnCancel;
 	
 	private Gestor gestor;
-	private JTextField txtIdPropietario;
-	private JLabel lblIdPropietario;
+	private JLabel lblIdPintor;
+	private JTextField txtIdPintor;
 
 	public PantallaCrearPintura() {
 		
@@ -97,43 +93,24 @@ public class PantallaCrearPintura extends JFrame {
 		lblTcnica.setBounds(93, 173, 46, 14);
 		contentPane.add(lblTcnica);
 		
-		JLabel lblFechaAdquisicion = new JLabel("Fecha de adquisici\u00F3n");
-		lblFechaAdquisicion.setDisplayedMnemonic('q');
-		lblFechaAdquisicion.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaAdquisicion.setBounds(11, 200, 128, 14);
-		contentPane.add(lblFechaAdquisicion);
-		
-		JLabel lblCondicionAdquisicion = new JLabel("Condici\u00F3n de adquisici\u00F3n");
-		lblCondicionAdquisicion.setDisplayedMnemonic('A');
-		lblCondicionAdquisicion.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCondicionAdquisicion.setBounds(1, 225, 138, 14);
-		contentPane.add(lblCondicionAdquisicion);
-		
 		lblCondicionActual = new JLabel("Condici\u00F3n actual");
 		lblCondicionActual.setDisplayedMnemonic('i');
 		lblCondicionActual.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCondicionActual.setLabelFor(cmbCondicionActual);
-		lblCondicionActual.setBounds(11, 250, 128, 14);
+		lblCondicionActual.setBounds(11, 201, 128, 14);
 		contentPane.add(lblCondicionActual);
-		
-		lblCostoAdquisicion = new JLabel("Costo de adquisici\u00F3n");
-		lblCostoAdquisicion.setDisplayedMnemonic('o');
-		lblCostoAdquisicion.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCostoAdquisicion.setBounds(11, 275, 128, 14);
-		contentPane.add(lblCostoAdquisicion);
-		lblCostoAdquisicion.setLabelFor(txtCostoAdquisicion);
 		
 		lblFamosa = new JLabel("Famosa");
 		lblFamosa.setDisplayedMnemonic('s');
 		lblFamosa.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFamosa.setBounds(93, 300, 46, 14);
+		lblFamosa.setBounds(93, 229, 46, 14);
 		contentPane.add(lblFamosa);
 		lblFamosa.setLabelFor(cmbFamosa);
 		
 		lblHistoria = new JLabel("Historia");
 		lblHistoria.setDisplayedMnemonic('H');
 		lblHistoria.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblHistoria.setBounds(93, 325, 46, 14);
+		lblHistoria.setBounds(93, 263, 46, 14);
 		contentPane.add(lblHistoria);
 		lblHistoria.setLabelFor(txtHistoria);
 		
@@ -173,35 +150,18 @@ public class PantallaCrearPintura extends JFrame {
 		contentPane.add(txtTecnica);
 		txtTecnica.setColumns(10);
 		
-		txtFechaAdquisicion = new JTextField();
-		lblFechaAdquisicion.setLabelFor(txtFechaAdquisicion);
-		txtFechaAdquisicion.setBounds(149, 197, 86, 20);
-		contentPane.add(txtFechaAdquisicion);
-		txtFechaAdquisicion.setColumns(10);
-		
-		cmbCondicionAdquisicion = new JComboBox<String>();
-		lblCondicionAdquisicion.setLabelFor(cmbCondicionAdquisicion);
-		cmbCondicionAdquisicion.setModel(new DefaultComboBoxModel<String>(new String[] {"Excelente", "Buena", "Regular", "Mala"}));
-		cmbCondicionAdquisicion.setBounds(149, 222, 86, 20);
-		contentPane.add(cmbCondicionAdquisicion);
-		
 		cmbCondicionActual = new JComboBox<String>();
 		cmbCondicionActual.setModel(new DefaultComboBoxModel<String>(new String[] {"Excelente", "Buena", "Regular", "Mala"}));
-		cmbCondicionActual.setBounds(149, 247, 86, 20);
+		cmbCondicionActual.setBounds(149, 198, 86, 20);
 		contentPane.add(cmbCondicionActual);
-		
-		txtCostoAdquisicion = new JTextField();
-		txtCostoAdquisicion.setBounds(149, 272, 86, 20);
-		contentPane.add(txtCostoAdquisicion);
-		txtCostoAdquisicion.setColumns(10);
 		
 		cmbFamosa = new JComboBox<String>();
 		cmbFamosa.setModel(new DefaultComboBoxModel<String>(new String[] {"S\u00ED", "No"}));
-		cmbFamosa.setBounds(149, 297, 86, 20);
+		cmbFamosa.setBounds(149, 226, 86, 20);
 		contentPane.add(cmbFamosa);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(149, 320, 177, 45);
+		scrollPane.setBounds(149, 257, 177, 45);
 		contentPane.add(scrollPane);
 		
 		txtHistoria = new JTextArea();
@@ -212,7 +172,7 @@ public class PantallaCrearPintura extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					gestor.crearPintura(Integer.parseInt( txtCodigo.getText() ), txtNombre.getText(), txtDimensiones.getText(), txtFechaCreacion.getText(), txtTiempoTardado.getText(), txtTecnica.getText(), txtFechaAdquisicion.getText(), cmbCondicionAdquisicion.getSelectedIndex(), cmbCondicionActual.getSelectedIndex(), Double.parseDouble(txtCostoAdquisicion.getText()), cmbFamosa.getSelectedIndex(), txtHistoria.getText());
+					gestor.crearPintura( txtCodigo.getText() , txtNombre.getText(), txtIdPintor.getText(), txtDimensiones.getText(), txtFechaCreacion.getText(), txtTiempoTardado.getText(), txtTecnica.getText(), cmbCondicionActual.getSelectedIndex(), cmbFamosa.getSelectedIndex(), txtHistoria.getText());
 					JOptionPane.showMessageDialog( null, "La pintura ha sido creada exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
@@ -220,7 +180,7 @@ public class PantallaCrearPintura extends JFrame {
 				}
 			}
 		});
-		btnCrear.setBounds(336, 383, 89, 23);
+		btnCrear.setBounds(336, 350, 89, 23);
 		contentPane.add(btnCrear);
 		
 		btnCancel = new JButton("Cancel");
@@ -229,19 +189,19 @@ public class PantallaCrearPintura extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnCancel.setBounds(237, 383, 89, 23);
+		btnCancel.setBounds(237, 350, 89, 23);
 		contentPane.add(btnCancel);
 		
-		txtIdPropietario = new JTextField();
-		txtIdPropietario.setColumns(10);
-		txtIdPropietario.setBounds(149, 64, 86, 20);
-		contentPane.add(txtIdPropietario);
+		lblIdPintor = new JLabel("Id Pintor");
+		lblIdPintor.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdPintor.setDisplayedMnemonic('N');
+		lblIdPintor.setBounds(93, 67, 46, 14);
+		contentPane.add(lblIdPintor);
 		
-		lblIdPropietario = new JLabel("Id Propietario");
-		lblIdPropietario.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblIdPropietario.setDisplayedMnemonic('N');
-		lblIdPropietario.setBounds(32, 67, 107, 14);
-		contentPane.add(lblIdPropietario);
+		txtIdPintor = new JTextField();
+		txtIdPintor.setColumns(10);
+		txtIdPintor.setBounds(149, 64, 86, 20);
+		contentPane.add(txtIdPintor);
 	}
 
 }

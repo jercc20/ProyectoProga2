@@ -44,9 +44,9 @@ public class Gestor {
 		return "Se ha borrado el pintor.";
 	}
 	
-	public static void crearPintura(int pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, String pFechaLlegada, int pCondicionLlegada, int pCondicionActual, double pCostoAdquirida, int pFamosa, String pHistoria) throws Exception {
-		DAOPintura.crear( ( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pCondicionActual, pFamosa, pHistoria) ) );
-		DAOAdquisicion.crear( ( new Adquisicion(pFechaLlegada, pCondicionLlegada, pCostoAdquirida) ) );
+	public static void crearPintura(String pCodigo, String pNombre, String pidPintor, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual, int pFamosa, String pHistoria) throws Exception {
+		Pintor pintor = DAOPintor.buscar(pidPintor);
+		DAOPintura.crear( ( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pCondicionActual, pFamosa, pHistoria, pintor ) ) );
 	}
 	
 	public static Pintura consultarPintura(int pCodigo) throws Exception {

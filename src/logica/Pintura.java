@@ -26,7 +26,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Id
 	@Basic(optional=false)
 	@Column(name="codigo")
-	private int codigo;
+	private String codigo;
 	
 	@Column(name="nombre")
 	private String	nombre;
@@ -80,8 +80,8 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param phistoria: Breve historia de la pintura si es que la posee.
 	 * @param pPintor:Pintor que elaboró la pintura.
 	 */	
-	public Pintura(int pcodigo, String pnombre, String pdimensiones, String pfechaCreacion, String ptiempoTardado,
-			String ptecnica, int pcondicionActual, int pesFamosa, String phistoria) {
+	public Pintura(String pcodigo, String pnombre, String pdimensiones, String pfechaCreacion, String ptiempoTardado,
+			String ptecnica, int pcondicionActual, int pesFamosa, String phistoria, Pintor pPintor) {
 		setCodigo(pcodigo);
 		setNombre(pnombre);
 		setDimensiones(pdimensiones);
@@ -91,13 +91,14 @@ private static final long serialVersionUID = -436540065081698326L;
 		setCondicionActual(pcondicionActual);
 		setEsFamosa(pesFamosa);
 		setHistoria(phistoria);
+		setPintor(pPintor);
 	}
 	
 	/**
 	 * Getter
 	 * @return codigo
 	 */
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 	
@@ -105,7 +106,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Setter
 	 * @param pcodigo: Código de la pintura.
 	 */
-	public void setCodigo(int pcodigo) {
+	public void setCodigo(String pcodigo) {
 		codigo = pcodigo;
 	}
 	
