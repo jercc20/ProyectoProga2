@@ -118,7 +118,7 @@ public class Gestor {
 	}
 	
 	
-	public static void borrarPintura(int pCodigo) throws java.sql.SQLException, Exception {
+	public static void borrarPintura(String pCodigo) throws java.sql.SQLException, Exception {
 		
 		DAOPintura.borrar(DAOPintura.buscar(pCodigo));
 		
@@ -173,7 +173,7 @@ public class Gestor {
 	}
 	
 	
-	public static String actualizarMecenazgo (String pFechaInicio, String pFechaFin, int pIdMecenas, int pIdPintor) throws Exception{
+	public static String actualizarMecenazgo (String pFechaInicio, String pFechaFin, String pIdMecenas, String pIdPintor) throws Exception{
 	
 		(new DAOMecenazgo()).actualizar(pIdMecenas, pIdPintor, pFechaInicio, pFechaFin);
 		return "El mecenazgo ha sido actualizado.";
