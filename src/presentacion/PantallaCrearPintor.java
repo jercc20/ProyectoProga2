@@ -120,10 +120,12 @@ public class PantallaCrearPintor extends JFrame {
 		contentPane.add(txtPaisNacimiento);
 		
 		txtFechaNacimiento = new JTextField();
+		txtFechaNacimiento.setText("yyyy-mm-dd");
 		txtFechaNacimiento.setBounds(150, 133, 139, 20);
 		contentPane.add(txtFechaNacimiento);
 		
 		txtFechaMuerte = new JTextField();
+		txtFechaMuerte.setText("yyyy-mm-dd");
 		txtFechaMuerte.setBounds(150, 158, 139, 20);
 		contentPane.add(txtFechaMuerte);
 		
@@ -137,8 +139,9 @@ public class PantallaCrearPintor extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.crearPintor(Integer.parseInt( txtId.getText() ), txtNombre.getText(), txtNombreArtistico.getText(), txtCiudadNacimiento.getText(), txtPaisNacimiento.getText(), txtFechaNacimiento.getText(), txtFechaMuerte.getText(), cmbTipo.getSelectedItem().toString(), Integer.parseInt(txtIdMaestro.getText()), Integer.parseInt(txtIdEscuela.getText()));
+					Gestor.crearPintor(txtId.getText(), txtNombre.getText(), txtNombreArtistico.getText(), txtCiudadNacimiento.getText(), txtPaisNacimiento.getText(), txtFechaNacimiento.getText(), txtFechaMuerte.getText(), cmbTipo.getSelectedItem().toString());
 					JOptionPane.showMessageDialog( null, "El pintor ha sido creado exitosamente!" );
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 				}
@@ -155,25 +158,6 @@ public class PantallaCrearPintor extends JFrame {
 		});
 		btnCancel.setBounds(177, 297, 89, 23);
 		contentPane.add(btnCancel);
-		
-		JLabel lblIdMaestro = new JLabel("Id Maestro");
-		lblIdMaestro.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblIdMaestro.setDisplayedMnemonic('m');
-		lblIdMaestro.setBounds(20, 214, 120, 14);
-		contentPane.add(lblIdMaestro);
-		
-		txtIdMaestro = new JTextField();
-		txtIdMaestro.setBounds(150, 211, 139, 20);
-		contentPane.add(txtIdMaestro);
-		
-		JLabel lblIdEscuela = new JLabel("Id Escuela");
-		lblIdEscuela.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblIdEscuela.setDisplayedMnemonic('m');
-		lblIdEscuela.setBounds(20, 243, 120, 14);
-		contentPane.add(lblIdEscuela);
-		
-		txtIdEscuela = new JTextField();
-		txtIdEscuela.setBounds(150, 240, 139, 20);
-		contentPane.add(txtIdEscuela);
+	
 	}
 }

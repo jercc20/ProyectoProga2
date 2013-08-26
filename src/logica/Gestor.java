@@ -22,14 +22,12 @@ public class Gestor {
 		DAOEscuela.actualizar( escuela );
 	}
 	
-	public static void borrarEscuela(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarEscuela(int pId) throws Exception {
 		DAOEscuela.borrar( DAOEscuela.buscar( pId ) );
 	}
 	
-	public static Pintor crearPintor(int pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo, int pIdMaestro, int pIdEscuela) throws Exception{
-		Pintor pintor = new Pintor(pId, pNombre, pNombreArtistico, pCiudadNacimiento, pPaisNacimiento, pFechaNacimiento, pFechaMuerte, pTipo, pIdMaestro, pIdEscuela);
-		DAOPintor.crear(pintor);
-		return pintor;
+	public static void crearPintor(String pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo) throws Exception{
+		DAOPintor.crear( ( new Pintor(pId, pNombre, pNombreArtistico, pCiudadNacimiento, pPaisNacimiento, pFechaNacimiento, pFechaMuerte, pTipo) ) );
 	}
 	
 	public static Pintor consultarPintor(int pId) throws Exception {

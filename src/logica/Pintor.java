@@ -12,7 +12,6 @@ package logica;
 
 import java.sql.Date;
 import java.util.Set;
-import java.util.Vector;
 import java.io.Serializable;
 
 import javax.persistence.*;
@@ -27,7 +26,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Id
 	@Basic(optional=false)
 	@Column(name="id")
-	private int id;
+	private String id;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -51,12 +50,6 @@ private static final long serialVersionUID = -436540065081698326L;
 	
 	@Column(name="tipo")
 	private String tipo;
-	
-	@Column(name="id_maestro")
-	private int idMaestro;
-	
-	@Column(name="id_escuela")
-	private int idEscuela;
 	
 	@ManyToOne
 	@JoinColumn(name="id_escuela")
@@ -93,7 +86,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pidMaestro: Identificador del maestro del pintor si es que lo tiene.
 	 * @param pnombreEscuela: Nombre de la escuela del pintor si es que la tiene.
 	 */	
-	public Pintor(int pid, String pnombre, String pnombreArtistico,	String pnacionalidad, String pciudadNacimiento,
+	public Pintor(String pid, String pnombre, String pnombreArtistico,	String pnacionalidad, String pciudadNacimiento,
 			String pfechaNacimiento, String pfechaMuerte, String ptipo) {
 		setId(pid);
 		setNombre(pnombre);
@@ -109,7 +102,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Getter
 	 * @return id
 	 */
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	
@@ -117,7 +110,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * Setter
 	 * @param pid: Identificador del pintor.
 	 */
-	public void setId(int pid) {
+	public void setId(String pid) {
 		id = pid;
 	}
 	
