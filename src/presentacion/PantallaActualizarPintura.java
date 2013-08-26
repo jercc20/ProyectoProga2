@@ -8,8 +8,6 @@ import java.awt.SystemColor;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -35,12 +33,10 @@ public class PantallaActualizarPintura extends JFrame {
 	private JLabel lblCondicionActual;
 	private JLabel lblFamosa;
 	private JComboBox<String> cmbFamosa;
-	private JLabel lblHistoria;
-	private JTextArea txtHistoria;
+	private JTextField txtIdPintor;
 	
 	private Pintura pintura;
 	private JButton btnCancel;
-	private JScrollPane scrollPane;
 
 	public PantallaActualizarPintura( Pintura pPintura ) {
 		
@@ -104,12 +100,12 @@ public class PantallaActualizarPintura extends JFrame {
 		contentPane.add(lblFamosa);
 		lblFamosa.setLabelFor(cmbFamosa);
 		
-		lblHistoria = new JLabel("Historia");
-		lblHistoria.setDisplayedMnemonic('H');
-		lblHistoria.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblHistoria.setBounds(92, 211, 46, 14);
-		contentPane.add(lblHistoria);
-		lblHistoria.setLabelFor(txtHistoria);
+		JLabel lblPintor = new JLabel("Id Pintor");
+		lblPintor.setDisplayedMnemonic('p');
+		lblPintor.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPintor.setBounds(67, 211, 66, 14);
+		contentPane.add(lblPintor);
+		lblPintor.setLabelFor(txtIdPintor);
 		
 		txtCodigo = new JTextField();
 		txtCodigo.setEditable(false);
@@ -164,7 +160,7 @@ public class PantallaActualizarPintura extends JFrame {
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.actualizarPintura( txtCodigo.getText(), txtNombre.getText(), txtDimensiones.getText(), txtFechaCreacion.getText(), txtTiempoTardado.getText(), txtTecnica.getText(), cmbCondicionActual.getSelectedIndex(), cmbFamosa.getSelectedIndex(), txtHistoria.getText());
+					Gestor.actualizarPintura( txtCodigo.getText(), txtNombre.getText(), txtDimensiones.getText(), txtFechaCreacion.getText(), txtTiempoTardado.getText(), txtTecnica.getText(), cmbCondicionActual.getSelectedIndex(), cmbFamosa.getSelectedIndex());
 					JOptionPane.showMessageDialog( null, "La pintura ha sido creada exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
@@ -198,13 +194,10 @@ public class PantallaActualizarPintura extends JFrame {
 		btnCancel.setBounds(145, 269, 89, 23);
 		contentPane.add(btnCancel);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(150, 206, 175, 43);
-		contentPane.add(scrollPane);
-		
-		txtHistoria = new JTextArea();
-		scrollPane.setViewportView(txtHistoria);
-		txtHistoria.setLineWrap(true);
-		txtHistoria.setText(pintura.getHistoria());
+		txtIdPintor = new JTextField();
+		txtIdPintor.setBounds(148, 211, 86, 20);
+		txtIdPintor.setEditable(false);
+		txtIdPintor.setText(pintura.getPintor().getId());
+		contentPane.add(txtIdPintor);
 	}
 }

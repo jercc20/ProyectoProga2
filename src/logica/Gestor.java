@@ -105,7 +105,7 @@ public class Gestor {
 	}
 	
 	
-	public static void actualizarPintura(String pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual,  int pFamosa, String pHistoria) throws Exception{
+	public static void actualizarPintura(String pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual,  int pFamosa) throws Exception{
 		
 		Pintura pintura = DAOPintura.buscar(pCodigo);
 		
@@ -117,7 +117,6 @@ public class Gestor {
 		pintura.setTecnica(pTecnicaCreacion);
 		pintura.setCondicionActual(pCondicionActual);
 		pintura.setEsFamosa(pFamosa);
-		pintura.setHistoria(pHistoria);
 		
 		DAOPintura.actualizar(pintura);
 		
