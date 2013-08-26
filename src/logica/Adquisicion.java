@@ -27,7 +27,7 @@ public class Adquisicion implements Serializable {
 	private String fechaAdquisicion;
 	
 	@Column(name="condicionAdquisicion")
-	private String condicionAdquisicion;
+	private int condicionAdquisicion;
 	
 	@Column(name="costoAdquisicion")
 	private double costoAdquisicion;
@@ -46,17 +46,12 @@ public class Adquisicion implements Serializable {
 	 * @param pfechaAquisicion: Fecha de adquisición de la pintura.
 	 * @param pcondicionAdquisicion: Condición en que se adquirió la pintura (excelente, buena, regular o mala).
 	 * @param pcostoAdquisicion: Costo de adquisición de la pintura.
-	 * @param pcodigoPintura: Código de la pintura adquirida.
-	 * @param pidPropietario: Identificador del propietario de la pintura adquirida.
 	 */
 	
-	public Adquisicion(String pfechaAdquisicion, String pcondicionAdquisicion, double pcostoAdquisicion,
-			String pcodigoPintura, String pidPropietario) {
+	public Adquisicion(String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion) {
 		setFechaAdquisicion(pfechaAdquisicion);
 		setCondicionAdquisicion(pcondicionAdquisicion);
 		setCostoAdquisicion(pcostoAdquisicion);
-		setCodigoPintura(pcodigoPintura);
-		setIdPropietario(pidPropietario);
 		/*pintura = null;
 		propietario = null;*/
 	}
@@ -81,7 +76,7 @@ public class Adquisicion implements Serializable {
 	 * Getter
 	 * @return condicionAdquisicion
 	 */
-	public String getCondicionAdquisicion() {
+	public int getCondicionAdquisicion() {
 		return condicionAdquisicion;
 	}
 	
@@ -89,7 +84,7 @@ public class Adquisicion implements Serializable {
 	 * Setter
 	 *  @param pcondicionAdquisicion: Condición en que se adquirió la pintura.
 	 */
-	public void setCondicionAdquisicion(String pcondicionAdquisicion) {
+	public void setCondicionAdquisicion(int pcondicionAdquisicion) {
 		condicionAdquisicion = pcondicionAdquisicion;
 	}
 	
