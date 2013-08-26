@@ -19,6 +19,7 @@ import logica.Gestor;
 
 public class PantallaCrearMecenazgo extends JFrame {
 
+	
 	private JPanel contentPane;
 	private JTextField txtFechaFinal;
 	private JTextField txtIdPintor;
