@@ -171,9 +171,9 @@ public class Gestor {
 	/////////////////////////
 	/////// Mecenazgo ///////
 	/////////////////////////
-	public static void crearMecenazgo(String pFechaInicio, String pFechaFin, String pIdMecenas, String pIdPintor) throws Exception{
+	public static void crearMecenazgo(String pFechaInicio, String pFechaFin, String pIdPintor, String pIdMecenas) throws Exception{
 	
-		DAOMecenazgo.crear( new Mecenazgo(pFechaInicio, pFechaFin, DAOPintor.buscar(pIdPintor), DAOMecenas.buscar(pIdMecenas)) );
+		DAOMecenazgo.crear( new Mecenazgo(pFechaInicio, pFechaFin, ( DAOPintor.buscar(pIdPintor) ), ( DAOMecenas.buscar(pIdMecenas) ) ) );
 		
 	}
 	

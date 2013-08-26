@@ -9,8 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -59,6 +57,7 @@ public class PantallaCrearMecenazgo extends JFrame {
 		
 		txtFechaFinal = new JTextField();
 		txtFechaFinal.setBounds(160, 36, 109, 20);
+		txtFechaFinal.setText("yyyy-mm-dd");
 		contentPane.add(txtFechaFinal);
 		txtFechaFinal.setColumns(10);
 		
@@ -79,7 +78,8 @@ public class PantallaCrearMecenazgo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Gestor.crearMecenazgo( txtFechaInicio.getText(), txtFechaFinal.getText(), txtIdPintor.getText(), txtIdMecenas.getText());
-					JOptionPane.showMessageDialog( null, "La escuela ha sido creada exitosamente!" );
+					JOptionPane.showMessageDialog( null, "El mecenazgo ha sido creado exitosamente!" );
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 				}
@@ -99,6 +99,7 @@ public class PantallaCrearMecenazgo extends JFrame {
 		
 		txtFechaInicio = new JTextField();
 		txtFechaInicio.setBounds(160, 11, 109, 20);
+		txtFechaInicio.setText("yyyy-mm-dd");
 		contentPane.add(txtFechaInicio);
 		txtFechaInicio.setColumns(10);
 		

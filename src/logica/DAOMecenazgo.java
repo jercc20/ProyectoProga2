@@ -43,7 +43,7 @@ public class DAOMecenazgo {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		Mecenazgo mecenazgo = null;
 		try{
-			mecenazgo = em.find(Mecenazgo.class, pMecenazgo.getId());
+			mecenazgo = em.find(Mecenazgo.class, pMecenazgo);
 		}
 		catch (Exception ex){
 			System.out.println("Error");
