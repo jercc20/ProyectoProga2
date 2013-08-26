@@ -32,6 +32,7 @@ public class PantallaActualizarAdquisicion extends JFrame {
 	private JTextField txtCostoAdquisicion;
 	private JButton btnActualizar;
 	private JButton btnCancel;
+	private JTextArea txtHistoria;
 	
 	private Gestor gestor;
 	private JTextField txtIdPropietario;
@@ -45,7 +46,7 @@ public class PantallaActualizarAdquisicion extends JFrame {
 		
 		setTitle("Actualizar Adquisici\u00F3n");
 		setResizable(false);
-		setBounds(100, 100, 350, 240);
+		setBounds(100, 100, 350, 319);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -104,14 +105,14 @@ public class PantallaActualizarAdquisicion extends JFrame {
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.actualizarAdquisicion(adquisicion.getCodigoPintura(), txtIdPropietario.getText(), txtFechaAdquisicion.getText(), cmbCondicionAdquisicion.getSelectedIndex(), txtCostoAdquisicion.getText());
+					Gestor.actualizarAdquisicion(adquisicion.getPintura().getCodigo(), txtIdPropietario.getText(), txtFechaAdquisicion.getText(), cmbCondicionAdquisicion.getSelectedIndex(), Double.parseDouble( txtCostoAdquisicion.getText()), txtHistoria.getText());
 					JOptionPane.showMessageDialog( null, "El coleccionista ha sido actualiza exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 				}
 			}
 		});
-		btnActualizar.setBounds(235, 177, 89, 23);
+		btnActualizar.setBounds(245, 256, 89, 23);
 		contentPane.add(btnActualizar);
 		
 		btnCancel = new JButton("Cancel");
@@ -120,7 +121,7 @@ public class PantallaActualizarAdquisicion extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnCancel.setBounds(19, 177, 89, 23);
+		btnCancel.setBounds(29, 256, 89, 23);
 		contentPane.add(btnCancel);
 		
 		txtIdPropietario = new JTextField();
@@ -138,7 +139,7 @@ public class PantallaActualizarAdquisicion extends JFrame {
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.borrarAdquisicion(adquisicion.getCodigoPintura());
+					Gestor.borrarAdquisicion(adquisicion.getPintura().getCodigo());
 					JOptionPane.showMessageDialog( null, "La adquisicion ha sido eliminada exitosamente.");
 					setVisible(false);
 				} catch (Exception e1) {
@@ -146,7 +147,21 @@ public class PantallaActualizarAdquisicion extends JFrame {
 				}
 			}
 		});
-		btnBorrar.setBounds(127, 177, 89, 23);
+		btnBorrar.setBounds(137, 256, 89, 23);
 		contentPane.add(btnBorrar);
+		
+		JLabel label = new JLabel("Historia");
+		label.setHorizontalAlignment(SwingConstants.RIGHT);
+		label.setDisplayedMnemonic('H');
+		label.setBounds(90, 166, 46, 14);
+		contentPane.add(label);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(149, 166, 177, 45);
+		contentPane.add(scrollPane);
+		
+		txtHistoria = new JTextArea();
+		txtHistoria.setLineWrap(true);
+		scrollPane.setViewportView(txtHistoria);
 	}
 }
