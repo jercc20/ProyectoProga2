@@ -84,6 +84,7 @@ public class PantallaCrearColeccionista extends JFrame {
 		
 		txtFechaInicio = new JTextField();
 		txtFechaInicio.setBounds(147, 108, 86, 20);
+		txtFechaInicio.setText("yyyy-mm-dd");
 		contentPane.add(txtFechaInicio);
 		txtFechaInicio.setColumns(10);
 		
@@ -93,6 +94,7 @@ public class PantallaCrearColeccionista extends JFrame {
 				try {
 					Gestor.crearColeccionista( txtId.getText(), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInicio.getText());
 					JOptionPane.showMessageDialog( null, "El coleccionista ha sido creado exitosamente!" );
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 				}
