@@ -83,24 +83,15 @@ public class Gestor {
 		
 	}
 	
-<<<<<<< HEAD
+		/////////////////////////
+		/////// Pintura  /////////
+		/////////////////////////
 	public static void crearPintura(String pCodigo, String pNombre, String pidPintor, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual, int pFamosa, String pHistoria) throws Exception {
 		Pintor pintor = DAOPintor.buscar(pidPintor);
 		DAOPintura.crear( ( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pCondicionActual, pFamosa, pHistoria, pintor ) ) );
-=======
-	
-	/////////////////////////
-	/////// Pintura /////////
-	/////////////////////////
-	public static void crearPintura(int pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, String pFechaLlegada, int pCondicionLlegada, int pCondicionActual, String pCostoAdquirida, int pFamosa, String pDesc, int pIdGaleria, int pIdPintor) throws Exception {
-	
-		DAOPintura.crear( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pFechaLlegada, pCondicionLlegada, pCondicionActual, pCostoAdquirida, pFamosa, pDesc) );
-		
->>>>>>> f8e09447bad4b518597f7c9324f9810a7b3949cd
 	}
 	
-	
-	public static Pintura consultarPintura(int pId) throws Exception {
+	public static Pintura consultarPintura(String pId) throws Exception {
 	
 		Pintura pintura = DAOPintura.buscar(pId);
 		return pintura;
@@ -108,7 +99,7 @@ public class Gestor {
 	}
 	
 	
-	public static void actualizarPintura(int pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual,  int pFamosa, String pHistoria) throws Exception{
+	public static void actualizarPintura(String pCodigo, String pNombre, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual,  int pFamosa, String pHistoria) throws Exception{
 		
 		Pintura pintura = DAOPintura.buscar(pCodigo);
 		

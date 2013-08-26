@@ -38,7 +38,7 @@ public class DAOPintura {
 	 * Busca una instancia en la tabla de pinturas usando el código de la pintura.
 	 * @param pcodigo: Código de la pintura.
 	 */	
-	public static Pintura buscar(int pcodigo){
+	public static Pintura buscar(String pcodigo){
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		Pintura pintura = null;
 		try{

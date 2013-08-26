@@ -43,17 +43,14 @@ public class PantallaCrearPintura extends JFrame {
 	private JButton btnCancel;
 	
 	private Gestor gestor;
-<<<<<<< HEAD
 	private JLabel lblIdPintor;
 	private JTextField txtIdPintor;
-=======
->>>>>>> f8e09447bad4b518597f7c9324f9810a7b3949cd
 
 	public PantallaCrearPintura() {
 		
 		setTitle("Crear Pintura");
 		setResizable(false);
-		setBounds(100, 100, 441, 445);
+		setBounds(100, 100, 441, 440);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -63,50 +60,50 @@ public class PantallaCrearPintura extends JFrame {
 		JLabel lblCodigo = new JLabel("C\u00F3digo");
 		lblCodigo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCodigo.setDisplayedMnemonic('C');
-		lblCodigo.setBounds(11, 42, 128, 14);
+		lblCodigo.setBounds(11, 12, 128, 14);
 		contentPane.add(lblCodigo);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setDisplayedMnemonic('N');
-		lblNombre.setBounds(93, 67, 46, 14);
+		lblNombre.setBounds(93, 38, 46, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblDimensiones = new JLabel("Dimensiones");
 		lblDimensiones.setDisplayedMnemonic('D');
 		lblDimensiones.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDimensiones.setBounds(59, 95, 80, 14);
+		lblDimensiones.setBounds(59, 90, 80, 14);
 		contentPane.add(lblDimensiones);
 		
 		JLabel lblFechaCreacion = new JLabel("Fecha de creaci\u00F3n");
 		lblFechaCreacion.setDisplayedMnemonic('F');
 		lblFechaCreacion.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaCreacion.setBounds(11, 123, 128, 14);
+		lblFechaCreacion.setBounds(11, 116, 128, 14);
 		contentPane.add(lblFechaCreacion);
 		
 		JLabel lblTiempoTardado = new JLabel("Tiempo tardado");
 		lblTiempoTardado.setDisplayedMnemonic('e');
 		lblTiempoTardado.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTiempoTardado.setBounds(21, 148, 118, 14);
+		lblTiempoTardado.setBounds(21, 142, 118, 14);
 		contentPane.add(lblTiempoTardado);
 		
 		JLabel lblTcnica = new JLabel("T\u00E9cnica");
 		lblTcnica.setDisplayedMnemonic('T');
 		lblTcnica.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTcnica.setBounds(93, 173, 46, 14);
+		lblTcnica.setBounds(93, 168, 46, 14);
 		contentPane.add(lblTcnica);
 		
 		lblCondicionActual = new JLabel("Condici\u00F3n actual");
 		lblCondicionActual.setDisplayedMnemonic('i');
 		lblCondicionActual.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCondicionActual.setLabelFor(cmbCondicionActual);
-		lblCondicionActual.setBounds(11, 201, 128, 14);
+		lblCondicionActual.setBounds(11, 194, 128, 14);
 		contentPane.add(lblCondicionActual);
 		
 		lblFamosa = new JLabel("Famosa");
 		lblFamosa.setDisplayedMnemonic('s');
 		lblFamosa.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFamosa.setBounds(93, 229, 46, 14);
+		lblFamosa.setBounds(93, 220, 46, 14);
 		contentPane.add(lblFamosa);
 		lblFamosa.setLabelFor(cmbFamosa);
 		
@@ -119,48 +116,48 @@ public class PantallaCrearPintura extends JFrame {
 		
 		txtCodigo = new JTextField();
 		lblCodigo.setLabelFor(txtCodigo);
-		txtCodigo.setBounds(149, 39, 86, 20);
+		txtCodigo.setBounds(149, 6, 86, 20);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		txtNombre = new JTextField();
 		lblNombre.setLabelFor(txtNombre);
-		txtNombre.setBounds(149, 64, 86, 20);
+		txtNombre.setBounds(149, 32, 86, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtDimensiones = new JTextField();
 		lblDimensiones.setLabelFor(txtDimensiones);
-		txtDimensiones.setBounds(149, 92, 86, 20);
+		txtDimensiones.setBounds(149, 84, 86, 20);
 		contentPane.add(txtDimensiones);
 		txtDimensiones.setColumns(10);
 		
 		txtFechaCreacion = new JTextField();
 		lblFechaCreacion.setLabelFor(txtFechaCreacion);
-		txtFechaCreacion.setBounds(149, 120, 86, 20);
+		txtFechaCreacion.setBounds(149, 110, 86, 20);
 		contentPane.add(txtFechaCreacion);
 		txtFechaCreacion.setColumns(10);
 		
 		txtTiempoTardado = new JTextField();
 		lblTiempoTardado.setLabelFor(txtTiempoTardado);
-		txtTiempoTardado.setBounds(149, 145, 86, 20);
+		txtTiempoTardado.setBounds(149, 136, 86, 20);
 		contentPane.add(txtTiempoTardado);
 		txtTiempoTardado.setColumns(10);
 		
 		txtTecnica = new JTextField();
 		lblTcnica.setLabelFor(txtTecnica);
-		txtTecnica.setBounds(149, 170, 86, 20);
+		txtTecnica.setBounds(149, 162, 86, 20);
 		contentPane.add(txtTecnica);
 		txtTecnica.setColumns(10);
 		
 		cmbCondicionActual = new JComboBox<String>();
 		cmbCondicionActual.setModel(new DefaultComboBoxModel<String>(new String[] {"Excelente", "Buena", "Regular", "Mala"}));
-		cmbCondicionActual.setBounds(149, 198, 86, 20);
+		cmbCondicionActual.setBounds(149, 188, 86, 20);
 		contentPane.add(cmbCondicionActual);
 		
 		cmbFamosa = new JComboBox<String>();
 		cmbFamosa.setModel(new DefaultComboBoxModel<String>(new String[] {"S\u00ED", "No"}));
-		cmbFamosa.setBounds(149, 226, 86, 20);
+		cmbFamosa.setBounds(149, 214, 86, 20);
 		contentPane.add(cmbFamosa);
 		
 		scrollPane = new JScrollPane();
@@ -194,20 +191,17 @@ public class PantallaCrearPintura extends JFrame {
 		});
 		btnCancel.setBounds(237, 350, 89, 23);
 		contentPane.add(btnCancel);
-<<<<<<< HEAD
 		
 		lblIdPintor = new JLabel("Id Pintor");
 		lblIdPintor.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblIdPintor.setDisplayedMnemonic('N');
-		lblIdPintor.setBounds(93, 67, 46, 14);
+		lblIdPintor.setBounds(93, 64, 46, 14);
 		contentPane.add(lblIdPintor);
 		
 		txtIdPintor = new JTextField();
 		txtIdPintor.setColumns(10);
-		txtIdPintor.setBounds(149, 64, 86, 20);
+		txtIdPintor.setBounds(149, 58, 86, 20);
 		contentPane.add(txtIdPintor);
-=======
->>>>>>> f8e09447bad4b518597f7c9324f9810a7b3949cd
 	}
 
 }
