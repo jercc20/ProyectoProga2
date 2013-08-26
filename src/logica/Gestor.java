@@ -205,10 +205,18 @@ public class Gestor {
 	}
 	
 	
-	public static String actualizarGaleria(int pId, String pNombre, String pDireccion, String pTelefono, String pFechaInauguracion, String pNombreEncargado, String pArea) throws Exception{
-	
-		(new DAOGaleria()).actualizar(pId, pNombre, pDireccion, pTelefono, pFechaInauguracion, pNombreEncargado, pArea);
-		return "La galeria ha sido actualizada.";
+	public static void actualizarGaleria(int pId, String pNombre, String pDireccion, String pTelefono, String pFechaInauguracion, String pNombreEncargado, String pArea) throws Exception{
+		
+		Galeria galeria = DAOGaleria.buscar(pId);
+		
+		galeria.setNombre(pNombre);
+		galeria.setDireccion(pDireccion);
+		galeria.setTelefono(pTelefono);
+		galeria.setFechaInaguracion( Date.valueOf(pFechaInauguracion) );
+		galeria.setEncargado(pNombreEncargado);
+		galeria.setMetrosCuadrados(pArea);
+		
+		DAOGaleria.actualizar(galeria);
 		
 	}
 	
