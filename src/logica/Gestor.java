@@ -60,7 +60,7 @@ public class Gestor {
 	}
 	
 	
-	public static void actualizarPintor (String pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo) throws Exception{
+	public static void actualizarPintor (String pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo, int pIdEscuela ) throws Exception{
 		
 		Pintor pintor = DAOPintor.buscar(pId);
 		
@@ -71,6 +71,7 @@ public class Gestor {
 		pintor.setFechaNacimiento(pFechaNacimiento);
 		pintor.setFechaMuerte(pFechaMuerte);
 		pintor.setTipo(pTipo);
+		pintor.setEscuela( ( DAOEscuela.buscar( pIdEscuela ) ) );
 		
 		DAOPintor.actualizar( pintor );
 		

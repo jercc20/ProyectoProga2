@@ -155,24 +155,11 @@ public class PantallaActualizarPintor extends JFrame {
 		JButton btnActualizar = new JButton("Actualizar");
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tipo = "";
-				switch (cmbTipo.getSelectedIndex()){
-					case 0:
-						tipo = "Famoso";
-						break;
-					case 1:
-						tipo = "Reconocido";
-						break;
-					case 2:
-						tipo = "Poco conocido";
-						break;
-				}
 				
 				try {
-					Gestor.actualizarPintor(Integer.parseInt(txtId.getText()), txtNombre.getText(), txtNombreArtistico.getText(), txtCiudadNacimiento.getText(), txtPaisNacimiento.getText(),
-							txtFechaNacimiento.getText(), txtFechaMuerte.getText(), tipo, Integer.parseInt(txtIdMaestro.getText()), Integer.parseInt(txtIdEscuela.getText()));
+					Gestor.actualizarPintor( txtId.getText(), txtNombre.getText(), txtNombreArtistico.getText(), txtCiudadNacimiento.getText(), txtPaisNacimiento.getText(),
+							txtFechaNacimiento.getText(), txtFechaMuerte.getText(), cmbTipo.getSelectedItem().toString(), Integer.parseInt(txtIdEscuela.getText()));
 					JOptionPane.showMessageDialog( null, "El pintor ha sido actualizado exitosamente.");
-					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error");
 				}
@@ -185,7 +172,7 @@ public class PantallaActualizarPintor extends JFrame {
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					try {
-						Gestor.borrarPintor(Integer.parseInt(txtId.getText()));
+						Gestor.borrarPintor( txtId.getText());
 						JOptionPane.showMessageDialog( null, "El pintor ha sido eliminado exitosamente.");
 						setVisible(false);
 					} catch (Exception e1) {
@@ -197,17 +184,6 @@ public class PantallaActualizarPintor extends JFrame {
 		btnBorrar.setBounds(177, 271, 89, 23);
 		contentPane.add(btnBorrar);
 		
-		JLabel lblIdMaestro = new JLabel("Id Maestro");
-		lblIdMaestro.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblIdMaestro.setBounds(51, 211, 89, 14);
-		contentPane.add(lblIdMaestro);
-		
-		txtIdMaestro = new JTextField();
-		lblIdMaestro.setLabelFor(txtIdMaestro);
-		txtIdMaestro.setBounds(150, 208, 139, 20);
-		contentPane.add(txtIdMaestro);
-		txtIdMaestro.setColumns(10);
-		
 		JLabel lblIdEscuela = new JLabel("Id Escuela");
 		lblIdEscuela.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblIdEscuela.setBounds(61, 236, 79, 14);
@@ -216,6 +192,14 @@ public class PantallaActualizarPintor extends JFrame {
 		txtIdEscuela = new JTextField();
 		lblIdEscuela.setLabelFor(txtIdEscuela);
 		txtIdEscuela.setBounds(150, 233, 139, 20);
+		String escuela = "";
+		if( pPintor.getEscuela() != null ){
+			escuela = Integer.toString( pPintor.getEscuela().getId() );
+		}
+		else {
+			escuela = "0";
+		}
+		txtIdEscuela.setText( escuela );
 		contentPane.add(txtIdEscuela);
 		txtIdEscuela.setColumns(10);
 	}
