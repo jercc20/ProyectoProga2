@@ -52,7 +52,7 @@ public class PantallaConsultarGaleria extends JFrame {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Galeria galeria = Gestor.consultarGaleria(Integer.parseInt( txtId.getText() ));
+					Galeria galeria = Gestor.consultarGaleria( txtId.getText() );
 					PantallaActualizarGaleria pantallaGaleria = new PantallaActualizarGaleria( galeria );
 					pantallaGaleria.setVisible(true);
 				} catch (Exception e1) {
