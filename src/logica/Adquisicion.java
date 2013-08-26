@@ -77,7 +77,19 @@ public class Adquisicion implements Serializable {
 	 * @param pfechaAdquisicion: Fecha de adquisición de la pintura.
 	 */
 	public void setFechaAdquisicion(String pfechaAdquisicion) {
+<<<<<<< HEAD
+		fechaAdquisicion = pfechaAdquisicion;
+	}
+	
+	/**
+	 * Getter
+	 * @return historia
+	 */
+	public String getHistoria() {
+		return historia;
+=======
 		fechaAdquisicion = Date.valueOf(pfechaAdquisicion);
+>>>>>>> b75e7aa0781c4889b2e9260098a68601954f3cb8
 	}
 	
 	/**
@@ -90,7 +102,11 @@ public class Adquisicion implements Serializable {
 	
 	/**
 	 * Getter
+<<<<<<< HEAD
+	 * @return codigoPintura
+=======
 	 * @return condicionAdquisicion
+>>>>>>> b75e7aa0781c4889b2e9260098a68601954f3cb8
 	 */
 	public int getCondicionAdquisicion() {
 		return condicionAdquisicion;
