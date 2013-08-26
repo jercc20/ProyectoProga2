@@ -36,6 +36,11 @@ public class Exposicion implements Serializable{
 	@JoinColumn(name="id_galeria")
 	private Galeria galeria;
 	
+	@ManyToMany
+	@JoinTable(name="TPinturasXExposicion",
+				joinColumns=@JoinColumn(name="id_exposicion"),
+				inverseJoinColumns=@JoinColumn(name="id_pintura"))
+	private Set<Pintura> pinturas;
 	
 	public Exposicion(){
 		
@@ -101,17 +106,6 @@ public class Exposicion implements Serializable{
 	public void setFechaFin(Date pfechaFin) {
 		fechaFin = pfechaFin;
 	}
-
-	/*public Vector getListaPinturas() throws Exception {
-		if (listaPinturas == null) {
-			setListaPinturas((new MultiPintura()).buscarPinturas(idGaleria));
-		}
-		return listaPinturas;
-	}
-
-	public void setListaPinturas(Vector plistaPinturas){
-		listaPinturas = plistaPinturas;
-	}*/
 	
 	public Galeria getGaleria() {
 		return galeria;
@@ -119,6 +113,17 @@ public class Exposicion implements Serializable{
 
 	public void setGaleria(Galeria pgaleria){
 		galeria = pgaleria;
+	}
+	
+	public Set<Pintura> getPinturas() {
+		return pinturas;
+	}
+
+	public void setPinturas(Set<Pintura> pPinturas){
+		pinturas = pPinturas;
+	}
+	public void setPintura(Pintura pPintura){
+		pinturas.add(pPintura);
 	}
 
 }

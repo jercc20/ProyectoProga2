@@ -110,9 +110,15 @@ public class Principal {
 		*/
 		
 		//Exposiciones
+		/*
 		Exposicion ex1 = new Exposicion("1988-10-10", "1990-10-10", DAOGaleria.buscar("id4"));
 		DAOExposicion.crear(ex1);
-		
+		Exposicion ex2 = DAOExposicion.buscar(1);
+		ex2.setPintura( DAOPintura.buscar("pin2") );
+		DAOExposicion.actualizar(ex2);
+		System.out.println( ex2.getPinturas().size() );
+		DAOExposicion.borrar(ex1);
+		*/
 		
 		//END
 		
