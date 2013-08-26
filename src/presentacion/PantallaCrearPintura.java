@@ -36,13 +36,9 @@ public class PantallaCrearPintura extends JFrame {
 	private JLabel lblCondicionActual;
 	private JLabel lblFamosa;
 	private JComboBox<String> cmbFamosa;
-	private JLabel lblHistoria;
-	private JTextArea txtHistoria;
-	private JScrollPane scrollPane;
 	private JButton btnCrear;
 	private JButton btnCancel;
-	
-	private Gestor gestor;
+
 	private JLabel lblIdPintor;
 	private JTextField txtIdPintor;
 
@@ -107,13 +103,6 @@ public class PantallaCrearPintura extends JFrame {
 		contentPane.add(lblFamosa);
 		lblFamosa.setLabelFor(cmbFamosa);
 		
-		lblHistoria = new JLabel("Historia");
-		lblHistoria.setDisplayedMnemonic('H');
-		lblHistoria.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblHistoria.setBounds(93, 263, 46, 14);
-		contentPane.add(lblHistoria);
-		lblHistoria.setLabelFor(txtHistoria);
-		
 		txtCodigo = new JTextField();
 		lblCodigo.setLabelFor(txtCodigo);
 		txtCodigo.setBounds(149, 6, 86, 20);
@@ -135,6 +124,7 @@ public class PantallaCrearPintura extends JFrame {
 		txtFechaCreacion = new JTextField();
 		lblFechaCreacion.setLabelFor(txtFechaCreacion);
 		txtFechaCreacion.setBounds(149, 110, 86, 20);
+		txtFechaCreacion.setText("yyyy-mm-dd");
 		contentPane.add(txtFechaCreacion);
 		txtFechaCreacion.setColumns(10);
 		
@@ -160,20 +150,13 @@ public class PantallaCrearPintura extends JFrame {
 		cmbFamosa.setBounds(149, 214, 86, 20);
 		contentPane.add(cmbFamosa);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(149, 257, 177, 45);
-		contentPane.add(scrollPane);
-		
-		txtHistoria = new JTextArea();
-		txtHistoria.setLineWrap(true);
-		scrollPane.setViewportView(txtHistoria);
-		
 		btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					gestor.crearPintura( txtCodigo.getText() , txtNombre.getText(), txtIdPintor.getText(), txtDimensiones.getText(), txtFechaCreacion.getText(), txtTiempoTardado.getText(), txtTecnica.getText(), cmbCondicionActual.getSelectedIndex(), cmbFamosa.getSelectedIndex(), txtHistoria.getText());
+					Gestor.crearPintura( txtCodigo.getText() , txtNombre.getText(), txtIdPintor.getText(), txtDimensiones.getText(), txtFechaCreacion.getText(), txtTiempoTardado.getText(), txtTecnica.getText(), cmbCondicionActual.getSelectedIndex(), cmbFamosa.getSelectedIndex(), txtIdPintor.getText() );
 					JOptionPane.showMessageDialog( null, "La pintura ha sido creada exitosamente!" );
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 					e1.printStackTrace();
@@ -195,7 +178,7 @@ public class PantallaCrearPintura extends JFrame {
 		lblIdPintor = new JLabel("Id Pintor");
 		lblIdPintor.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblIdPintor.setDisplayedMnemonic('N');
-		lblIdPintor.setBounds(93, 64, 46, 14);
+		lblIdPintor.setBounds(67, 64, 66, 14);
 		contentPane.add(lblIdPintor);
 		
 		txtIdPintor = new JTextField();

@@ -9,7 +9,6 @@
 package logica;
 
 import javax.persistence.*;
-import logica.*;
 
 public class DAOPintura {
 	

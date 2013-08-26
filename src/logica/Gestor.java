@@ -87,9 +87,14 @@ public class Gestor {
 		/////////////////////////
 		/////// Pintura  /////////
 		/////////////////////////
-	public static void crearPintura(String pCodigo, String pNombre, String pidPintor, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual, int pFamosa, String pHistoria) throws Exception {
-		Pintor pintor = DAOPintor.buscar(pidPintor);
-		DAOPintura.crear( ( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pCondicionActual, pFamosa, pHistoria, pintor ) ) );
+	public static void crearPintura(String pCodigo, String pNombre, String pidPintor, String pDimensiones, String pFechaCreacion, String pTiempoTardado, String pTecnicaCreacion, int pCondicionActual, int pFamosa, String pIdPintor) throws Exception {
+		Pintor pintor = DAOPintor.buscar(pIdPintor);
+		if( pintor != null ){
+			DAOPintura.crear( ( new Pintura(pCodigo, pNombre, pDimensiones, pFechaCreacion, pTiempoTardado, pTecnicaCreacion, pCondicionActual, pFamosa, pintor ) ) );
+		}
+		else {
+			throw new Exception("El pintor no existe");
+		}
 	}
 	
 	public static Pintura consultarPintura(String pId) throws Exception {
