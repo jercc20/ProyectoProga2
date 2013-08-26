@@ -28,7 +28,7 @@ public class PantallaCrearColeccionista extends JFrame {
 	public PantallaCrearColeccionista() {
 		
 		setResizable(false);
-		setTitle("Crear Galer\u00EDa");
+		setTitle("Crear Coleccionista");
 		setBounds(100, 100, 339, 216);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
