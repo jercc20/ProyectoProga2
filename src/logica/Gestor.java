@@ -47,7 +47,7 @@ public class Gestor {
 	/////////////////////////
 	public static void crearPintor(String pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo) throws Exception{
 	
-		DAOPintor.crear( new Pintor(pId, pNombre, pNombreArtistico, pCiudadNacimiento, pPaisNacimiento, pFechaNacimiento, pFechaMuerte, pTipo) );
+		DAOPintor.crear( ( new Pintor(pId, pNombre, pNombreArtistico, pCiudadNacimiento, pPaisNacimiento, pFechaNacimiento, pFechaMuerte, pTipo) ) );
 		
 	}
 	
