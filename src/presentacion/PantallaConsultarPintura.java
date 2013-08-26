@@ -53,12 +53,12 @@ public class PantallaConsultarPintura extends JFrame {
 		JLabel lblPorId = new JLabel("Codigo");
 		lblPorId.setDisplayedMnemonic('I');
 		lblPorId.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPorId.setBounds(66, 36, 46, 14);
+		lblPorId.setBounds(64, 27, 46, 14);
 		contentPane.add(lblPorId);
 		
 		txtId = new JTextField();
 		lblPorId.setLabelFor(txtId);
-		txtId.setBounds(122, 33, 117, 20);
+		txtId.setBounds(120, 24, 117, 20);
 		contentPane.add(txtId);
 		
 		JButton btnCancel = new JButton("Cancel");

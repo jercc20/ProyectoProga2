@@ -52,12 +52,12 @@ public class PantallaConsultarColeccionista extends JFrame {
 		JLabel lblPorId = new JLabel("Por Id");
 		lblPorId.setDisplayedMnemonic('I');
 		lblPorId.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPorId.setBounds(77, 25, 46, 14);
+		lblPorId.setBounds(68, 26, 46, 14);
 		contentPane.add(lblPorId);
 		
 		txtId = new JTextField();
 		lblPorId.setLabelFor(txtId);
-		txtId.setBounds(133, 22, 117, 20);
+		txtId.setBounds(124, 23, 117, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
 		

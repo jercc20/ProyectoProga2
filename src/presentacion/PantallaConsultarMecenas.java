@@ -21,7 +21,6 @@ import java.awt.event.ActionEvent;
 public class PantallaConsultarMecenas extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtNombre;
 	private JTextField txtId;
 
 	public PantallaConsultarMecenas() {
@@ -34,18 +33,6 @@ public class PantallaConsultarMecenas extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lblPorNombre = new JLabel("Por Nombre");
-		lblPorNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPorNombre.setDisplayedMnemonic('N');
-		lblPorNombre.setBounds(10, 11, 102, 14);
-		contentPane.add(lblPorNombre);
-		
-		txtNombre = new JTextField();
-		lblPorNombre.setLabelFor(txtNombre);
-		txtNombre.setBounds(122, 8, 117, 20);
-		txtNombre.setEditable(false);
-		contentPane.add(txtNombre);
 		
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
@@ -65,12 +52,12 @@ public class PantallaConsultarMecenas extends JFrame {
 		JLabel lblPorId = new JLabel("Por Id");
 		lblPorId.setDisplayedMnemonic('I');
 		lblPorId.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPorId.setBounds(66, 36, 46, 14);
+		lblPorId.setBounds(67, 26, 46, 14);
 		contentPane.add(lblPorId);
 		
 		txtId = new JTextField();
 		lblPorId.setLabelFor(txtId);
-		txtId.setBounds(122, 33, 117, 20);
+		txtId.setBounds(123, 23, 117, 20);
 		contentPane.add(txtId);
 		
 		JButton btnCancel = new JButton("Cancel");
