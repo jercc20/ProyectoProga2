@@ -186,11 +186,11 @@ public class Gestor {
 //	}
 //	
 //	
-//	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
-//	
-//		DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
-//		
-//	}
+	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
+	
+		DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
+		
+	}
 	
 	/////////////////////////
 	/////// Galeria /////////

@@ -9,6 +9,7 @@
 package logica;
 
 import javax.persistence.*;
+
 import logica.*;
 
 public class DAOMecenazgo {
@@ -32,6 +33,26 @@ public class DAOMecenazgo {
 		finally{
 			em.close();
 		}
+	}
+	
+	/**
+	 * Busca una instancia en la tabla de mecenazgos usando el id del mecenazgo.
+	 * @param pidMecenazgo: id del mecenazgo
+	 */	
+	public static Mecenazgo buscar(Mecenazgo pMecenazgo){
+		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+		Mecenazgo mecenazgo = null;
+		try{
+			mecenazgo = em.find(Mecenazgo.class, pMecenazgo.getId());
+		}
+		catch (Exception ex){
+			System.out.println("Error");
+			ex.printStackTrace();
+		}
+		finally{
+			em.close();
+		}
+		return mecenazgo;
 	}
 	
 	/**
