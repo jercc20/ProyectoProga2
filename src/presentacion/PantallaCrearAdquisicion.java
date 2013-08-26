@@ -41,8 +41,12 @@ public class PantallaCrearAdquisicion extends JFrame {
 	private JTextField txtCodigoPintura;
 	private JLabel lblIdPropietario_1;
 	private JTextField txtidPropietario;
+	
+	private String codigoPintura;
 
-	public PantallaCrearAdquisicion() {
+	public PantallaCrearAdquisicion(String pcodigoPintura) {
+		
+		codigoPintura = pcodigoPintura;
 		
 		setTitle("Crear Adquisici\u00F3n");
 		setResizable(false);
@@ -109,7 +113,7 @@ public class PantallaCrearAdquisicion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					gestor.crearAdquisicion( txtCodigoPintura.getText() , txtidPropietario.getText(), txtFechaAdquisicion.getText(), Double.parseDouble(txtCosto.getText()), cmbCondicionAdquisicion.getSelectedIndex(), txtHistoria.getText());
-					JOptionPane.showMessageDialog( null, "La pintura ha sido creada exitosamente!" );
+					JOptionPane.showMessageDialog( null, "La adquisición ha sido creada exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 					e1.printStackTrace();
@@ -137,6 +141,8 @@ public class PantallaCrearAdquisicion extends JFrame {
 		txtCodigoPintura = new JTextField();
 		txtCodigoPintura.setColumns(10);
 		txtCodigoPintura.setBounds(148, 11, 86, 20);
+		txtCodigoPintura.setText(codigoPintura);
+		txtCodigoPintura.setEnabled(false);
 		contentPane.add(txtCodigoPintura);
 		
 		lblIdPropietario_1 = new JLabel("Id Propietario");

@@ -19,6 +19,8 @@ import java.awt.event.ActionEvent;
 
 import logica.Gestor;
 import logica.Pintura;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PantallaActualizarPintura extends JFrame {
 
@@ -199,5 +201,25 @@ public class PantallaActualizarPintura extends JFrame {
 		txtIdPintor.setEditable(false);
 		txtIdPintor.setText(pintura.getPintor().getId());
 		contentPane.add(txtIdPintor);
+		
+		JButton btnCrearAdquisicion = new JButton("Crear Adquisici\u00F3n");
+		btnCrearAdquisicion.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				btnCrearAdquisicion_mouseClicked(e);
+			}
+		});
+		btnCrearAdquisicion.setBounds(261, 132, 134, 23);
+		contentPane.add(btnCrearAdquisicion);
+	}
+	
+	public void btnCrearAdquisicion_mouseClicked(MouseEvent e) {
+		try {
+			PantallaCrearAdquisicion p;
+			p = new PantallaCrearAdquisicion(txtCodigo.getText());
+			p.setVisible(true);
+		}
+		catch (Exception ex) {
+			JOptionPane.showMessageDialog(this,"Seleccione una opción de la lista.","Error",JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
