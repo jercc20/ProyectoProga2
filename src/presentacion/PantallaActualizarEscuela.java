@@ -19,7 +19,6 @@ import logica.Escuela;
 import logica.Gestor;
 
 import java.awt.SystemColor;
-import java.sql.SQLException;
 
 public class PantallaActualizarEscuela extends JFrame {
 
