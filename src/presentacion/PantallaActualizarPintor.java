@@ -32,7 +32,6 @@ public class PantallaActualizarPintor extends JFrame {
 	private JTextField txtFechaMuerte;
 	private JLabel lblFechaDeMuerte;
 	private JComboBox<String> cmbTipo;
-	private JTextField txtIdMaestro;
 	private JTextField txtIdEscuela;
 
 	public PantallaActualizarPintor( Pintor pPintor ) {

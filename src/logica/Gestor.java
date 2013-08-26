@@ -71,7 +71,7 @@ public class Gestor {
 		pintor.setFechaNacimiento(pFechaNacimiento);
 		pintor.setFechaMuerte(pFechaMuerte);
 		pintor.setTipo(pTipo);
-		pintor.setEscuela( ( DAOEscuela.buscar( pIdEscuela ) ) );
+		pintor.setEscuela( DAOEscuela.buscar( pIdEscuela ) );
 		
 		DAOPintor.actualizar( pintor );
 		

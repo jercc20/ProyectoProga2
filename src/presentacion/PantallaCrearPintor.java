@@ -31,8 +31,6 @@ public class PantallaCrearPintor extends JFrame {
 	private JTextField txtFechaMuerte;
 	private JLabel lblFechaDeMuerte;
 	private JComboBox<String> cmbTipo;
-	private JTextField txtIdMaestro;
-	private JTextField txtIdEscuela;
 
 	public PantallaCrearPintor() {
 		setResizable(false);
@@ -97,7 +95,6 @@ public class PantallaCrearPintor extends JFrame {
 		contentPane.add(lblTipo);
 		
 		txtId = new JTextField();
-		//txtId.setEditable(false);
 		lblId.setLabelFor(txtId);
 		txtId.setBounds(150, 8, 139, 20);
 		contentPane.add(txtId);
