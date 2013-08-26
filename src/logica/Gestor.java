@@ -13,14 +13,17 @@ public class Gestor {
 		return escuela;
 	}
 	
-	public static String actualizarEscuela(int pId, String pNombre, String pPais, String pFecha, String pCaracteristicas) throws Exception{
-		(new DAOEscuela()).actualizar(pId, pNombre, pPais, pFecha, pCaracteristicas);
-		return "La escuela ha sido actualizada.";
+	public static void actualizarEscuela(int pId, String pNombre, String pPais, String pFecha, String pCaracteristicas) throws Exception{
+		Escuela escuela = DAOEscuela.buscar(pId);
+		escuela.setNombre(pNombre);
+		escuela.setPaisOrigen(pPais);
+		escuela.setFechaOrigen(pFecha);
+		escuela.setCaracteristicas(pCaracteristicas);
+		DAOEscuela.actualizar( escuela );
 	}
 	
-	public static String borrarEscuela(int pId) throws java.sql.SQLException, Exception {
-		(new DAOEscuela()).borrar(pId);
-		return "Se ha borrado la escuela.";
+	public static void borrarEscuela(int pId) throws java.sql.SQLException, Exception {
+		DAOEscuela.borrar( DAOEscuela.buscar( pId ) );
 	}
 	
 	public static Pintor crearPintor(int pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo, int pIdMaestro, int pIdEscuela) throws Exception{
