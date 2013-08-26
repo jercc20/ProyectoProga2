@@ -32,11 +32,13 @@ public class Adquisicion implements Serializable {
 	@Column(name="costoAdquisicion")
 	private double costoAdquisicion;
 	
-	@Column(name="codigoPintura")
-	private String	codigoPintura;
+	@ManyToOne
+	@JoinColumn(name="id_pintura")
+	private Pintura pintura;
 	
-	@Column(name="idPropietario")
-	private String	idPropietario;
+	@ManyToOne
+	@JoinColumn(name="id_propietario")
+	private Propietario propietario;
 	
 	/*private Propietario propietario;
 	private Pintura pintura;*/
@@ -48,12 +50,46 @@ public class Adquisicion implements Serializable {
 	 * @param pcostoAdquisicion: Costo de adquisición de la pintura.
 	 */
 	
-	public Adquisicion(String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion) {
+	public Adquisicion(Pintura ppintura, Propietario ppropietario, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion) {
+		setPintura(ppintura);
+		setPropietario(ppropietario);
 		setFechaAdquisicion(pfechaAdquisicion);
 		setCondicionAdquisicion(pcondicionAdquisicion);
 		setCostoAdquisicion(pcostoAdquisicion);
 		/*pintura = null;
 		propietario = null;*/
+	}
+	
+	/**
+	 * Getter
+	 * @return pintura
+	 */
+	public Pintura getPintura() {
+		return pintura;
+	}
+	
+	/**
+	 * Setter
+	 * Pintura
+	 */
+	public void setPintura(Pintura ppintura) {
+		pintura = ppintura;
+	}
+	
+	/**
+	 * Getter
+	 * @return propietario
+	 */
+	public Propietario getPropietario() {
+		return propietario;
+	}
+	
+	/**
+	 * Setter
+	 * pPintor:Pintor que elaboró la pintura.
+	 */
+	public void setPropietario(Propietario ppropietario) {
+		propietario = ppropietario;
 	}
 	
 	/**
@@ -104,38 +140,6 @@ public class Adquisicion implements Serializable {
 		costoAdquisicion = pcostoAdquisicion;
 	}
 	
-	/**
-	 * Getter
-	 * @return codigoPintura
-	 */
-	public String getCodigoPintura() {
-		return codigoPintura;
-	}
-	
-	/**
-	 * Setter
-	 *@param pcodigoPintura: Código de la pintura adquirida.
-	 */
-	public void setCodigoPintura(String pcodigoPintura) {
-		codigoPintura = pcodigoPintura;
-	}
-	
-	/**
-	 * Getter
-	 * @return idPropietario
-	 */
-	public String getIdPropietario() {
-		return idPropietario;
-	}
-	
-	/**
-	 * Setter
-	 * @param pidPropietario: Identificador del propietario de la pintura adquirida.
-	 */
-	public void setIdPropietario(String pidPropietario) {
-		idPropietario = pidPropietario;
-	}
-
 	/*public Pintura getPintura() throws Exception {
 		if (pintura == null) {
 			setPintura((new MultiPintura()).buscarPintura(codigoPintura));
