@@ -45,14 +45,14 @@ public class Gestor {
 	/////////////////////////
 	/////// Pintor  /////////
 	/////////////////////////
-	public static void crearPintor(int pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo, int pIdMaestro, int pIdEscuela) throws Exception{
+	public static void crearPintor(String pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo) throws Exception{
 	
 		DAOPintor.crear( new Pintor(pId, pNombre, pNombreArtistico, pCiudadNacimiento, pPaisNacimiento, pFechaNacimiento, pFechaMuerte, pTipo) );
 		
 	}
 	
 	
-	public static Pintor consultarPintor(int pId) throws Exception {
+	public static Pintor consultarPintor(String pId) throws Exception {
 	
 		Pintor pintor = DAOPintor.buscar(pId);
 		return pintor;
@@ -60,13 +60,13 @@ public class Gestor {
 	}
 	
 	
-	public static void actualizarPintor (int pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo, int pIdMaestro, int pIdEscuela) throws Exception{
+	public static void actualizarPintor (String pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo) throws Exception{
 		
 		Pintor pintor = DAOPintor.buscar(pId);
 		
 		pintor.setNombre(pNombre);
-		pintor.	setNombreArtistico(pNombreArtistico);
-		pintor.	setNacionalidad(pPaisNacimiento);
+		pintor.setNombreArtistico(pNombreArtistico);
+		pintor.setNacionalidad(pPaisNacimiento);
 		pintor.setCiudadNacimiento(pCiudadNacimiento);
 		pintor.setFechaNacimiento(pFechaNacimiento);
 		pintor.setFechaMuerte(pFechaMuerte);
@@ -77,10 +77,9 @@ public class Gestor {
 	}
 	
 	
-	public static String borrarPintor(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarPintor(String pId) throws java.sql.SQLException, Exception {
 	
 		DAOPintor.borrar( DAOPintor.buscar(pId));
-		return "Se ha borrado el pintor.";
 		
 	}
 	
