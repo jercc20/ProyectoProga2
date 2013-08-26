@@ -58,8 +58,6 @@ private static final long serialVersionUID = -436540065081698326L;
 	@JoinColumn(name="id_pintura")
 	private Set<Adquisicion> adquisiciones;
 	
-	/*private Exposicion exposicion;*/
-	
 	/**
 	 * Constructor
 	 */
@@ -251,17 +249,5 @@ private static final long serialVersionUID = -436540065081698326L;
 	public void setAdquisiciones(Set<Adquisicion> pAdquisiciones){
 		adquisiciones = pAdquisiciones;
 	}
-	
-	/*
-	public Exposicion getExposicion() throws Exception {
-		if (exposicion == null) {
-			setExposicion((new MultiExposicion()).buscarExposicion(idPintor));
-		}
-		return exposicion;
-	}
-
-	public void setExposicion(Exposicion pexposicion){
-		exposicion = pexposicion;
-	}*/
 
 }
