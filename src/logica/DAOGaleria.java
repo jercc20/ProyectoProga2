@@ -38,7 +38,7 @@ public class DAOGaleria {
 	 * Busca una instancia en la tabla de galerías usando el id de la galería.
 	 * @param pidGaleria: id de la galería.
 	 */	
-	public static Galeria buscar(int pidGaleria){
+	public static Galeria buscar(String pidGaleria){
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		Galeria galeria = null;
 		try{
