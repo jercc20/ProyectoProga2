@@ -70,11 +70,12 @@ public class Principal {
 		
 		//Pintura
 		/*
-		Pintura pi1 = new Pintura("pin2", "pintura", "100x100", "1975-10-10", "2h", "Tec", 2, 1, "historia", DAOPintor.buscar("pint1"));
+		Pintura pi1 = new Pintura("pin2", "pintura", "100x100", "1975-10-10", "2h", "Tec", 2, 1, DAOPintor.buscar("pint1"));
 		DAOPintura.crear(pi1);
-		Pintura pi2 = DAOPintura.buscar("pin1");
+		Pintura pi2 = DAOPintura.buscar("pin2");
 		pi2.setDimensiones("120x140");
 		DAOPintura.actualizar(pi2);
+		System.out.println( pi2.getAdquisiciones().size() );
 		DAOPintura.borrar(pi1);
 		*/
 		
@@ -99,8 +100,10 @@ public class Principal {
 		//Aquisiciones
 		//Adquisicion a1 = new Adquisicion(DAOPropietario.buscar("id5"), DAOPintura.buscar("pin2"), "2011-09-09", 1, 120, "his");
 		//DAOAdquisicion.crear(a1);
-		//a1.setCondicionAdquisicion(2);
-		//DAOAdquisicion.actualizar(a1);
+		//Adquisicion a2 = new Adquisicion(DAOPropietario.buscar("id5"), DAOPintura.buscar("pin2"), "2011-09-09", 1, 120, "his");
+		//DAOAdquisicion.crear(a2);
+		//a2.setCondicionAdquisicion(2);
+		//DAOAdquisicion.actualizar(a2);
 		//DAOAdquisicion.borrar(a1);
 		
 		//END
