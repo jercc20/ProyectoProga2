@@ -48,6 +48,8 @@ public class PantallaAgregarMaestro extends JFrame {
 		txtidpintor.setBounds(97, 26, 126, 17);
 		contentPane.add(txtidpintor);
 		txtidpintor.setColumns(10);
+		txtidpintor.setText(pidPintor);
+		txtidpintor.setEnabled(false);
 
 		txtIdMaestro = new JTextField();
 		txtIdMaestro.setBounds(97, 64, 126, 17);

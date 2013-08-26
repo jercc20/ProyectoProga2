@@ -19,6 +19,8 @@ import logica.Pintor;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PantallaActualizarPintor extends JFrame {
 
@@ -33,11 +35,12 @@ public class PantallaActualizarPintor extends JFrame {
 	private JLabel lblFechaDeMuerte;
 	private JComboBox<String> cmbTipo;
 	private JTextField txtIdEscuela;
+	private JButton btnAgregarMaestro;
 
 	public PantallaActualizarPintor( Pintor pPintor ) {
 		setResizable(false);
 		setTitle("Actualizar Pintor");
-		setBounds(100, 100, 381, 333);
+		setBounds(100, 100, 381, 370);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -148,7 +151,7 @@ public class PantallaActualizarPintor extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnCancel.setBounds(78, 271, 89, 23);
+		btnCancel.setBounds(78, 307, 89, 23);
 		contentPane.add(btnCancel);
 		
 		JButton btnActualizar = new JButton("Actualizar");
@@ -164,7 +167,7 @@ public class PantallaActualizarPintor extends JFrame {
 				}
 			}
 		});
-		btnActualizar.setBounds(276, 271, 89, 23);
+		btnActualizar.setBounds(276, 307, 89, 23);
 		contentPane.add(btnActualizar);
 		
 		JButton btnBorrar = new JButton("Borrar");
@@ -180,17 +183,17 @@ public class PantallaActualizarPintor extends JFrame {
 				
 			}
 		});
-		btnBorrar.setBounds(177, 271, 89, 23);
+		btnBorrar.setBounds(177, 307, 89, 23);
 		contentPane.add(btnBorrar);
 		
 		JLabel lblIdEscuela = new JLabel("Id Escuela");
 		lblIdEscuela.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblIdEscuela.setBounds(61, 236, 79, 14);
+		lblIdEscuela.setBounds(61, 214, 79, 14);
 		contentPane.add(lblIdEscuela);
 		
 		txtIdEscuela = new JTextField();
 		lblIdEscuela.setLabelFor(txtIdEscuela);
-		txtIdEscuela.setBounds(150, 233, 139, 20);
+		txtIdEscuela.setBounds(150, 211, 139, 20);
 		String escuela = "";
 		if( pPintor.getEscuela() != null ){
 			escuela = Integer.toString( pPintor.getEscuela().getId() );
@@ -201,5 +204,25 @@ public class PantallaActualizarPintor extends JFrame {
 		txtIdEscuela.setText( escuela );
 		contentPane.add(txtIdEscuela);
 		txtIdEscuela.setColumns(10);
+		
+		btnAgregarMaestro = new JButton("Agregar Maestro");
+		btnAgregarMaestro.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				btnAgregarMaestro_mouseClicked(e);
+			}
+		});
+		btnAgregarMaestro.setBounds(113, 257, 149, 23);
+		contentPane.add(btnAgregarMaestro);
+	}
+	
+	public void btnAgregarMaestro_mouseClicked(MouseEvent e) {
+		try {
+			PantallaAgregarMaestro p;
+			p = new PantallaAgregarMaestro(txtId.getText());
+			p.setVisible(true);
+		}
+		catch (Exception ex) {
+			JOptionPane.showMessageDialog(this,"","Error",JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
