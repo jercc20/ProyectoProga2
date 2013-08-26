@@ -47,8 +47,6 @@ public class PantallaCrearPintura extends JFrame {
 	private JButton btnCancel;
 	
 	private Gestor gestor;
-	private JTextField txtIdPropietario;
-	private JLabel lblIdPropietario;
 
 	public PantallaCrearPintura() {
 		
@@ -64,13 +62,13 @@ public class PantallaCrearPintura extends JFrame {
 		JLabel lblCodigo = new JLabel("C\u00F3digo");
 		lblCodigo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCodigo.setDisplayedMnemonic('C');
-		lblCodigo.setBounds(11, 14, 128, 14);
+		lblCodigo.setBounds(11, 42, 128, 14);
 		contentPane.add(lblCodigo);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setDisplayedMnemonic('N');
-		lblNombre.setBounds(93, 39, 46, 14);
+		lblNombre.setBounds(93, 67, 46, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblDimensiones = new JLabel("Dimensiones");
@@ -139,13 +137,13 @@ public class PantallaCrearPintura extends JFrame {
 		
 		txtCodigo = new JTextField();
 		lblCodigo.setLabelFor(txtCodigo);
-		txtCodigo.setBounds(149, 11, 86, 20);
+		txtCodigo.setBounds(149, 39, 86, 20);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		txtNombre = new JTextField();
 		lblNombre.setLabelFor(txtNombre);
-		txtNombre.setBounds(149, 36, 86, 20);
+		txtNombre.setBounds(149, 64, 86, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
@@ -231,17 +229,6 @@ public class PantallaCrearPintura extends JFrame {
 		});
 		btnCancel.setBounds(237, 383, 89, 23);
 		contentPane.add(btnCancel);
-		
-		txtIdPropietario = new JTextField();
-		txtIdPropietario.setColumns(10);
-		txtIdPropietario.setBounds(149, 64, 86, 20);
-		contentPane.add(txtIdPropietario);
-		
-		lblIdPropietario = new JLabel("Id Propietario");
-		lblIdPropietario.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblIdPropietario.setDisplayedMnemonic('N');
-		lblIdPropietario.setBounds(32, 67, 107, 14);
-		contentPane.add(lblIdPropietario);
 	}
 
 }
