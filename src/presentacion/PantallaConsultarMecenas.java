@@ -51,7 +51,7 @@ public class PantallaConsultarMecenas extends JFrame {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Mecenas mecenas = Gestor.consultarMecenas(Integer.parseInt( txtId.getText() ));
+					Mecenas mecenas = Gestor.consultarMecenas( txtId.getText() );
 					PantallaActualizarMecenas pantallaMecenas = new PantallaActualizarMecenas( mecenas );
 					pantallaMecenas.setVisible(true);
 				} catch (Exception e1) {
