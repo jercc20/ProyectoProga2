@@ -270,8 +270,9 @@ public class Gestor {
 	// // Adquisicion //////
 	// ///////////////////////
 	public static void crearAdquisicion(String pcodigoPintura,	String pIdPropietario, String pfechaAdquisicion,int pcondicionAdquisicion, double pcostoAdquisicion)throws Exception {
-
-		DAOAdquisicion.crear(new Adquisicion(pcodigoPintura, pIdPropietario, pfechaAdquisicion, pcondicionAdquisicion, pcondicionAdquisicion));
+		Pintura pintura = DAOPintura.buscar(pcodigoPintura);
+		Propietario propietario = DAOPropietario.buscar(pIdPropietario);
+		DAOAdquisicion.crear(new Adquisicion(pintura, propietario, pcodigoPintura, pIdPropietario, pfechaAdquisicion, pcondicionAdquisicion, pcondicionAdquisicion));
 
 	}
 
@@ -283,15 +284,16 @@ public class Gestor {
 
 	}
 
-	public static void actualizarAdquisicion(String pId, String pNombre, String pDireccion, String pTelefono, String pFechaInicio)
+	public static void actualizarAdquisicion(String pcodigoPintura,String pIdPropietario, String pfechaAdquisicion,int pcondicionAdquisicion, double pcostoAdquisicion)
 			throws Exception {
 
-		Adquisicion adquisicion = DAOAdquisicion.buscar(pId);
+		Adquisicion adquisicion = DAOAdquisicion.buscar(pcodigoPintura);
 
-		adquisicion.setNombre(pNombre);
-		adquisicion.setDireccion(pDireccion);
-		adquisicion.setTelefono(pTelefono);
-		adquisicion.setFechaInicio(Date.valueOf(pFechaInicio));
+		adquisicion.setCodigoPintura(pcodigoPintura);
+		adquisicion.setIdPropietario(pIdPropietario);
+		adquisicion.setFechaAdquisicion(pfechaAdquisicion);
+		adquisicion.setCondicionAdquisicion(pcondicionAdquisicion);
+		adquisicion.setCostoAdquisicion(pcostoAdquisicion);
 
 		DAOAdquisicion.actualizar(adquisicion);
 
