@@ -51,9 +51,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pdireccion: Dirección del propietario.
 .	 * @param ptelefono: Teléfono del propietario.
 	 */	
-	public Propietario(String pnombre, String pid, String pdireccion, String ptelefono){
-		setNombre(pnombre);
+	public Propietario( String pid, String pnombre, String pdireccion, String ptelefono){
 		setId(pid);
+		setNombre(pnombre);		
 		setDireccion(pdireccion);
 		setTelefono(ptelefono);
 	}

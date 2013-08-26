@@ -51,9 +51,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pmetrosCuadrados: Cantidad de metros cuadrados de la galería.
 	 */	
 	
-	public Galeria(String pnombre, String pid, String pdireccion, String ptelefono, String pfechaInaguracion,
+	public Galeria( String pid, String pnombre, String pdireccion, String ptelefono, String pfechaInaguracion,
 			String pencargado, String pmetrosCuadrados) {
-		super(pnombre, pid, pdireccion, ptelefono);
+		super(pid, pnombre, pdireccion, ptelefono);
 		setFechaInaguracion(pfechaInaguracion);
 		setEncargado(pencargado);
 		setMetrosCuadrados(pmetrosCuadrados);

@@ -113,9 +113,6 @@ public class Adquisicion implements Serializable {
 	
 	/**
 	 * Getter
-<<<<<<< HEAD
-	 * @return condicionAdquisicion
-=======
 	 * @return historia
 	 */
 	public String getHistoria() {
@@ -133,7 +130,6 @@ public class Adquisicion implements Serializable {
 	/**
 	 * Getter
 	 * @return codigoPintura
->>>>>>> d327e7ade5b8dc51f89e0281be0c9a17227f0b90
 	 */
 	public int getCondicionAdquisicion() {
 		return condicionAdquisicion;
