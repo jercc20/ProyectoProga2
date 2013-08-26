@@ -99,13 +99,20 @@ public class Principal {
 		*/
 		
 		//Aquisiciones
-		//Adquisicion a1 = new Adquisicion(DAOPropietario.buscar("id5"), DAOPintura.buscar("pin2"), "2011-09-09", 1, 120, "his");
-		//DAOAdquisicion.crear(a1);
-		//Adquisicion a2 = new Adquisicion(DAOPropietario.buscar("id5"), DAOPintura.buscar("pin2"), "2011-09-09", 1, 120, "his");
-		//DAOAdquisicion.crear(a2);
-		//a2.setCondicionAdquisicion(2);
-		//DAOAdquisicion.actualizar(a2);
-		//DAOAdquisicion.borrar(a1);
+		/*
+		Adquisicion a1 = new Adquisicion(DAOPropietario.buscar("id5"), DAOPintura.buscar("pin2"), "2011-09-09", 1, 120, "his");
+		DAOAdquisicion.crear(a1);
+		Adquisicion a2 = new Adquisicion(DAOPropietario.buscar("id5"), DAOPintura.buscar("pin2"), "2011-09-09", 1, 120, "his");
+		DAOAdquisicion.crear(a2);
+		a2.setCondicionAdquisicion(2);
+		DAOAdquisicion.actualizar(a2);
+		DAOAdquisicion.borrar(a1);
+		*/
+		
+		//Exposiciones
+		Exposicion ex1 = new Exposicion("1988-10-10", "1990-10-10", DAOGaleria.buscar("id4"));
+		DAOExposicion.crear(ex1);
+		
 		
 		//END
 		

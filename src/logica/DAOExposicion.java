@@ -9,7 +9,6 @@
 package logica;
 
 import javax.persistence.*;
-import logica.*;
 
 public class DAOExposicion {
 	
@@ -36,13 +35,13 @@ public class DAOExposicion {
 	
 	/**
 	 * Busca una instancia en la tabla de exposiciones usando el id de la galería.
-	 * @param pidGaleria: id de la galería que hará la exposición.
+	 * @param pid: id de la exposición.
 	 */	
-	public static Exposicion buscar(String pidGaleria){
+	public static Exposicion buscar(int pid){
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		Exposicion exposicion = null;
 		try{
-			exposicion = em.find(Exposicion.class, pidGaleria);
+			exposicion = em.find(Exposicion.class, pid);
 		}
 		catch (Exception ex){
 			System.out.println("Error");

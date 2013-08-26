@@ -9,12 +9,13 @@
 package logica;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.util.Set;
+
 import javax.persistence.*;
 
-import java.util.Vector;
-
-//@Entity
-//@Table(name="TExposiciones")
+@Entity
+@Table(name="TExposiciones")
 
 public class Exposicion implements Serializable{
 	
@@ -23,32 +24,34 @@ public class Exposicion implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
+	private int id;
 	
-	@Column(name="fechaInicio")
-	private String fechaInicio;
+	@Column(name="fecha_inicio")
+	private Date fechaInicio;
 	
-	@Column(name="fechaFin")
-	private String fechaFin;
+	@Column(name="fecha_fin")
+	private Date fechaFin;
 	
-	@Column(name="idGaleria")
-	private String	idGaleria;
+	@ManyToOne
+	@JoinColumn(name="id_galeria")
+	private Galeria galeria;
 	
-	/*private Vector			listaPinturas;
-	private Galeria		galeria;*/
+	
+	public Exposicion(){
+		
+	}
 	
 	/**
 	 * Constructor
 	 * @param pfechaInicio: Fecha de inicio de la exposicion.
 	 * @param pfechaFin: Fecha de finalizacion de la exposicion.
-	 * @param pidGaleria: Identificador de la galeria que tendra la exposicion.
+	 * @param pGaleria: Identificador de la galeria que tendra la exposicion.
 	 */
 	
-	public Exposicion(String pfechaInicio, String pfechaFin,  String pidGaleria) {
+	public Exposicion(String pfechaInicio, String pfechaFin, Galeria pGaleria) {
 		setFechaInicio(pfechaInicio);
 		setFechaFin(pfechaFin);
-		setIdGaleria(pidGaleria);
-		/*pintura = null;
-		galeria = null;*/
+		setGaleria(pGaleria);
 	}
 	
 	/**
@@ -56,7 +59,7 @@ public class Exposicion implements Serializable{
 	 * @return fechaInicio
 	 */
 	public String getFechaInicio() {
-		return fechaInicio;
+		return fechaInicio.toString();
 	}
 	
 	/**
@@ -64,6 +67,14 @@ public class Exposicion implements Serializable{
 	 * @param pfechaInicio: Fecha de inicio de la exposicion.
 	 */
 	public void setFechaInicio(String pfechaInicio) {
+		fechaInicio = Date.valueOf(pfechaInicio);
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaInicio: Fecha de inicio de la exposicion.
+	 */
+	public void setFechaInicio(Date pfechaInicio) {
 		fechaInicio = pfechaInicio;
 	}
 	
@@ -72,7 +83,7 @@ public class Exposicion implements Serializable{
 	 * @return fechaFin
 	 */
 	public String getFechaFin() {
-		return fechaFin;
+		return fechaFin.toString();
 	}
 	
 	/**
@@ -80,23 +91,15 @@ public class Exposicion implements Serializable{
 	 * @param pfechaFin: Fecha de finalizacion de la exposicion.
 	 */
 	public void setFechaFin(String pfechaFin) {
-		fechaFin = pfechaFin;
-	}
-	
-	/**
-	 * Getter
-	 * @return idGaleria
-	 */
-	public String getIdGaleria() {
-		return idGaleria;
+		fechaFin = Date.valueOf(pfechaFin);
 	}
 	
 	/**
 	 * Setter
-	 * @param pidGaleria: Identificador de la galeria que tendra la exposicion.
+	 * @param pfechaFin: Fecha de finalizacion de la exposicion.
 	 */
-	public void setIdGaleria(String pidGaleria) {
-		idGaleria = pidGaleria;
+	public void setFechaFin(Date pfechaFin) {
+		fechaFin = pfechaFin;
 	}
 
 	/*public Vector getListaPinturas() throws Exception {
@@ -108,17 +111,14 @@ public class Exposicion implements Serializable{
 
 	public void setListaPinturas(Vector plistaPinturas){
 		listaPinturas = plistaPinturas;
-	}
+	}*/
 	
-	public Galeria getGaleria() throws Exception {
-		if (galeria == null) {
-			setGaleria((new MultiGaleria()).buscarGaleria(idGaleria));
-		}
+	public Galeria getGaleria() {
 		return galeria;
 	}
 
 	public void setGaleria(Galeria pgaleria){
 		galeria = pgaleria;
-	}*/
+	}
 
 }
