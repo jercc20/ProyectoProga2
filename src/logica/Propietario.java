@@ -9,8 +9,9 @@
 
 package logica;
 
-import java.util.Vector;
+import java.util.Set;
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
@@ -35,7 +36,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Column(name="telefono")
 	private String telefono;
 	
-	/*private Vector listaAdquisiciones;*/
+	@OneToOne
+	@JoinColumn(name="id_propietario")
+	private Set<Adquisicion> adquisiciones;
 	
 	/**
 	 * Constructor
@@ -122,15 +125,12 @@ private static final long serialVersionUID = -436540065081698326L;
 		telefono = ptelefono;
 	}
 
-	/*public Vector getListaAdquisiciones() throws Exception {
-		if (listaAdquisiciones== null) {
-			setListaAdquisiciones((new MultiAdquisicion()).buscarAdquisiciones(id));
-		}
-		return listaAdquisiciones;
+	public Set<Adquisicion> getAdquisiciones() {
+		return adquisiciones;
 	}
 
-	public void setAdquisicion(Vector plistaAdquisiciones){
-		listaAdquisiciones = plistaAdquisiciones;
-	}*/
+	public void setAdquisiciones(Set<Adquisicion> pAdquisiciones){
+		adquisiciones = pAdquisiciones;
+	}
 
 }
