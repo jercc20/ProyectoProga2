@@ -1,5 +1,5 @@
 /**
- * Clase Mecenazgo: Representación de una adquisicion de una pintura por parte de un propietario.
+ * Clase Adquisicion: Representación de una adquisicion de una pintura por parte de un propietario.
  * 
  * @author Jerson Chinchilla
  * @author Matthew Bertelsen
@@ -10,40 +10,43 @@
 package logica;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="TAdquisiciones")
+@Entity
+@Table(name="TAdquisiciones")
 
 public class Adquisicion implements Serializable {
 	
 	private static final long serialVersionUID = -436540065081698326L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
+	//Format = yyyy-mm-dd
+	@Column(name="fecha_adquisicion")
+	private Date fechaAdquisicion;
 	
-	@Column(name="fechaAdquisicion")
-	private String fechaAdquisicion;
-	
-	@Column(name="condicionAdquisicion")
+	@Column(name="condicion_adquisicion")
 	private int condicionAdquisicion;
 	
-	@Column(name="costoAdquisicion")
+	@Column(name="costo_adquisicion")
 	private double costoAdquisicion;
 	
 	@Column(name="historia")
 	private String	historia;
 	
-	@Column(name="codigoPintura")
-	private String	codigoPintura;
+	@Id
+	@ManyToOne
+	@JoinColumn(name="id_propietario")
+	private Propietario propietario;
 	
-	@Column(name="idPropietario")
-	private String	idPropietario;
+	@Id
+	@ManyToOne
+	@JoinColumn(name="id_pintura")
+	private Pintura pintura;
 	
-	/*private Propietario propietario;
-	private Pintura pintura;*/
+	public Adquisicion(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -52,13 +55,13 @@ public class Adquisicion implements Serializable {
 	 * @param pcostoAdquisicion: Costo de adquisición de la pintura.
 	 */
 	
-	public Adquisicion(String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
+	public Adquisicion(Propietario pPropietario, Pintura pPintura, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
+		setPropietario(pPropietario);
+		setPintura(pPintura);
 		setFechaAdquisicion(pfechaAdquisicion);
 		setCondicionAdquisicion(pcondicionAdquisicion);
 		setCostoAdquisicion(pcostoAdquisicion);
 		setHistoria( pHistoria );
-		/*pintura = null;
-		propietario = null;*/
 	}
 	
 	/**
@@ -66,7 +69,7 @@ public class Adquisicion implements Serializable {
 	 * @return fechaAdquisicion
 	 */
 	public String getFechaAdquisicion() {
-		return fechaAdquisicion;
+		return fechaAdquisicion.toString();
 	}
 	
 	/**
@@ -74,6 +77,14 @@ public class Adquisicion implements Serializable {
 	 * @param pfechaAdquisicion: Fecha de adquisición de la pintura.
 	 */
 	public void setFechaAdquisicion(String pfechaAdquisicion) {
+		fechaAdquisicion = Date.valueOf(pfechaAdquisicion);
+	}
+	
+	/**
+	 * Setter
+	 * @param pfechaAdquisicion: Fecha de adquisición de la pintura.
+	 */
+	public void setFechaAdquisicion(Date pfechaAdquisicion) {
 		fechaAdquisicion = pfechaAdquisicion;
 	}
 	
@@ -124,43 +135,8 @@ public class Adquisicion implements Serializable {
 	public void setHistoria(String phistoria) {
 		historia = phistoria;
 	}
-	
-	/**
-	 * Getter
-	 * @return codigoPintura
-	 */
-	public String getCodigoPintura() {
-		return codigoPintura;
-	}
-	
-	/**
-	 * Setter
-	 *@param pcodigoPintura: Código de la pintura adquirida.
-	 */
-	public void setCodigoPintura(String pcodigoPintura) {
-		codigoPintura = pcodigoPintura;
-	}
-	
-	/**
-	 * Getter
-	 * @return idPropietario
-	 */
-	public String getIdPropietario() {
-		return idPropietario;
-	}
-	
-	/**
-	 * Setter
-	 * @param pidPropietario: Identificador del propietario de la pintura adquirida.
-	 */
-	public void setIdPropietario(String pidPropietario) {
-		idPropietario = pidPropietario;
-	}
 
-	/*public Pintura getPintura() throws Exception {
-		if (pintura == null) {
-			setPintura((new MultiPintura()).buscarPintura(codigoPintura));
-		}
+	public Pintura getPintura() {
 		return pintura;
 	}
 
@@ -168,15 +144,12 @@ public class Adquisicion implements Serializable {
 		pintura = ppintura;
 	}
 	
-	public Propietario getPropietario() throws Exception {
-		if (propietario == null) {
-			setPropietario((new MultiPropietario()).buscarPropietario(idPropietario));
-		}
+	public Propietario getPropietario() {
 		return propietario;
 	}
 
 	public void setPropietario(Propietario ppropietario){
 		propietario = ppropietario;
-	}*/
+	}
 
 }

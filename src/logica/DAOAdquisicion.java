@@ -9,7 +9,6 @@
 package logica;
 
 import javax.persistence.*;
-import logica.*;
 
 public class DAOAdquisicion {
 	
@@ -32,26 +31,6 @@ public class DAOAdquisicion {
 		finally{
 			em.close();
 		}
-	}
-	
-	/**
-	 * Busca una instancia en la tabla de adquisiciones usando el id del propietario.
-	 * @param pidPropietario: id del propietario de la pintura.
-	 */	
-	public static Adquisicion buscar(String pidPropietario){
-		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-		Adquisicion adquisicion = null;
-		try{
-			adquisicion = em.find(Adquisicion.class, pidPropietario);
-		}
-		catch (Exception ex){
-			System.out.println("Error");
-			ex.printStackTrace();
-		}
-		finally{
-			em.close();
-		}
-		return adquisicion;
 	}
 	
 	/**
