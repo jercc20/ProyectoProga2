@@ -164,7 +164,7 @@ public class PantallaActualizarPintura extends JFrame {
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.actualizarPintura(Integer.parseInt( txtCodigo.getText() ), txtNombre.getText(), txtDimensiones.getText(), txtFechaCreacion.getText(), txtTiempoTardado.getText(), txtTecnica.getText(), cmbCondicionActual.getSelectedIndex(), cmbFamosa.getSelectedIndex(), txtHistoria.getText(), 0, 0);
+					Gestor.actualizarPintura( txtCodigo.getText(), txtNombre.getText(), txtDimensiones.getText(), txtFechaCreacion.getText(), txtTiempoTardado.getText(), txtTecnica.getText(), cmbCondicionActual.getSelectedIndex(), cmbFamosa.getSelectedIndex(), txtHistoria.getText());
 					JOptionPane.showMessageDialog( null, "La pintura ha sido creada exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");

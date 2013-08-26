@@ -70,7 +70,7 @@ public class PantallaCrearMecenazgo extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.crearMecenazgo( txtFechaInicio.getText(), txtFechaFinal.getText(), Integer.parseInt(txtIdPintor.getText()), Integer.parseInt(txtIdMecenas.getText()));
+					Gestor.crearMecenazgo( txtFechaInicio.getText(), txtFechaFinal.getText(), txtIdPintor.getText(), txtIdMecenas.getText());
 					JOptionPane.showMessageDialog( null, "La escuela ha sido creada exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");

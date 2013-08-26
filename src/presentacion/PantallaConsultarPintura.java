@@ -51,7 +51,7 @@ public class PantallaConsultarPintura extends JFrame {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Pintura pintura = Gestor.consultarPintura(Integer.parseInt( txtId.getText() ));
+					Pintura pintura = Gestor.consultarPintura( txtId.getText() );
 					PantallaActualizarPintura pantallaPintura = new PantallaActualizarPintura( pintura );
 					pantallaPintura.setVisible(true);
 				} catch (Exception e1) {
