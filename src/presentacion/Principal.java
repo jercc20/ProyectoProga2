@@ -95,6 +95,7 @@ public class Principal {
 		pr2.setEncargado("Encargado");
 		DAOPropietario.actualizar(pr1);
 		System.out.println( pr2.getAdquisiciones().size() );
+		System.out.println( pr2.getExposiciones().size() );
 		DAOPropietario.borrar(g2);
 		*/
 		

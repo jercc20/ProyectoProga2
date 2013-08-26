@@ -13,6 +13,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import java.sql.Date;
+import java.util.Set;
 import java.util.Vector;
 
 @Entity
@@ -31,7 +32,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	@Column(name="metrosCuadrados")
 	private String metrosCuadrados;
 	
-	/*private Vector	listaExposiciones;*/
+	@OneToOne
+	@JoinColumn(name="id_galeria")
+	private Set<Exposicion> exposiciones;
 	
 	/**
 	 * Constructor
@@ -115,15 +118,12 @@ private static final long serialVersionUID = -436540065081698326L;
 		metrosCuadrados = pmetrosCuadrados;
 	}
 	
-	/*public Vector getListaExposiciones() throws Exception {
-		if (listaExposiciones== null) {
-			setListaExposiciones((new MultiExposicion()).buscarExposiciones(super.getId()));
-		}
-		return listaExposiciones;
+	public Set<Exposicion> getExposiciones() {
+		return exposiciones;
 	}
 
-	public void setListaExposiciones(Vector plistaExposiciones){
-		listaExposiciones = plistaExposiciones;
-	}*/
+	public void setExposiciones(Set<Exposicion> pExposiciones){
+		exposiciones = pExposiciones;
+	}
 
 }
