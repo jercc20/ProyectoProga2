@@ -33,24 +33,19 @@ public class Adquisicion implements Serializable {
 	@Column(name="costoAdquisicion")
 	private double costoAdquisicion;
 	
-<<<<<<< HEAD
-	@ManyToOne
-	@JoinColumn(name="id_pintura")
-	private Pintura pintura;
-=======
 	@Column(name="historia")
 	private String	historia;
 	
 	@Column(name="codigoPintura")
 	private String	codigoPintura;
->>>>>>> d327e7ade5b8dc51f89e0281be0c9a17227f0b90
+	
+	@ManyToOne
+	@JoinColumn(name="id_pintura")
+	private Pintura pintura;
 	
 	@ManyToOne
 	@JoinColumn(name="id_propietario")
 	private Propietario propietario;
-	
-	/*private Propietario propietario;
-	private Pintura pintura;*/
 	
 	/**
 	 * Constructor
@@ -59,19 +54,13 @@ public class Adquisicion implements Serializable {
 	 * @param pcostoAdquisicion: Costo de adquisición de la pintura.
 	 */
 	
-<<<<<<< HEAD
-	public Adquisicion(Pintura ppintura, Propietario ppropietario, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion) {
+	public Adquisicion(Pintura ppintura, Propietario ppropietario, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
 		setPintura(ppintura);
-		setPropietario(ppropietario);
-=======
-	public Adquisicion(String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
->>>>>>> d327e7ade5b8dc51f89e0281be0c9a17227f0b90
+		setPropietario(ppropietario);	
 		setFechaAdquisicion(pfechaAdquisicion);
 		setCondicionAdquisicion(pcondicionAdquisicion);
 		setCostoAdquisicion(pcostoAdquisicion);
 		setHistoria( pHistoria );
-		/*pintura = null;
-		propietario = null;*/
 	}
 	
 	/**
