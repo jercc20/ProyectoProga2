@@ -132,14 +132,14 @@ public class Gestor {
 	/////////////////////////
 	/////// Mecenas /////////
 	/////////////////////////
-	public static void crearMecenas(int pId, String pNombre, String pNacionalidad, String pCiudadNacimiento, String pFechaMuerte) throws Exception{
+	public static void crearMecenas(String pId, String pNombre, String pNacionalidad, String pCiudadNacimiento, String pFechaMuerte) throws Exception{
 	
-		DAOMecenas.crear(pId, pNombre, pNacionalidad, pCiudadNacimiento, pFechaMuerte);
+		DAOMecenas.crear( new Mecenas(pId, pNombre, pNacionalidad, pCiudadNacimiento, pFechaMuerte) );
 		
 	}
 	
 	
-	public static Mecenas consultarMecenas(int pId) throws Exception {
+	public static Mecenas consultarMecenas(String pId) throws Exception {
 	
 		Mecenas mecenas = DAOMecenas.buscar(pId);
 		return mecenas;
@@ -147,18 +147,23 @@ public class Gestor {
 	}
 	
 	
-	public static String actualizarMecenas (int pId, String pNombre, String pNacionalidad, String pCiudadNacimiento, String pFechaMuerte) throws Exception{
-	
-		(new DAOMecenas()).actualizar(pId, pNombre, pNacionalidad, pCiudadNacimiento, pFechaMuerte);
-		return "El mecenas ha sido actualizado.";
+	public static void actualizarMecenas (String pId, String pNombre, String pNacionalidad, String pCiudadNacimiento, String pFechaMuerte) throws Exception{
+		
+		Mecenas mecenas = DAOMecenas.buscar(pId);
+		
+		mecenas.setNombre(pNombre);
+		mecenas.setNacionalidad(pNacionalidad);
+		mecenas.setCiudadNacimiento(pCiudadNacimiento);
+		mecenas.setFechaMuerte( Date.valueOf(pFechaMuerte) );
+		
+		DAOMecenas.actualizar(mecenas);
 		
 	}
 	
 	
-	public static String borrarMecenas(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarMecenas(String pId) throws java.sql.SQLException, Exception {
 	
-		(new DAOMecenas()).borrar(pId);
-		return "Se ha borrado el mecenas.";
+		DAOMecenas.borrar( DAOMecenas.buscar(pId));
 		
 	}
 	
@@ -180,10 +185,9 @@ public class Gestor {
 	}
 	
 	
-	public static String borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
 	
-		(new DAOMecenazgo()).borrar(pId);
-		return "Se ha borrado el mecenazgo.";
+		DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
 		
 	}
 	
