@@ -10,6 +10,7 @@
 package logica;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 //@Entity
@@ -32,6 +33,9 @@ public class Adquisicion implements Serializable {
 	@Column(name="costoAdquisicion")
 	private double costoAdquisicion;
 	
+	@Column(name="historia")
+	private String	historia;
+	
 	@Column(name="codigoPintura")
 	private String	codigoPintura;
 	
@@ -48,10 +52,11 @@ public class Adquisicion implements Serializable {
 	 * @param pcostoAdquisicion: Costo de adquisición de la pintura.
 	 */
 	
-	public Adquisicion(String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion) {
+	public Adquisicion(String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
 		setFechaAdquisicion(pfechaAdquisicion);
 		setCondicionAdquisicion(pcondicionAdquisicion);
 		setCostoAdquisicion(pcostoAdquisicion);
+		setHistoria( pHistoria );
 		/*pintura = null;
 		propietario = null;*/
 	}
@@ -102,6 +107,22 @@ public class Adquisicion implements Serializable {
 	 */
 	public void setCostoAdquisicion(double pcostoAdquisicion) {
 		costoAdquisicion = pcostoAdquisicion;
+	}
+	
+	/**
+	 * Getter
+	 * @return historia
+	 */
+	public String getHistoria() {
+		return historia;
+	}
+	
+	/**
+	 * Setter
+	 * @param phistoria: Breve historia de la pintura si es que la posee.
+	 */
+	public void setHistoria(String phistoria) {
+		historia = phistoria;
 	}
 	
 	/**
