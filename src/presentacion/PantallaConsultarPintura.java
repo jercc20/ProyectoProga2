@@ -21,7 +21,6 @@ import java.awt.event.ActionEvent;
 public class PantallaConsultarPintura extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtNombre;
 	private JTextField txtId;
 
 	public PantallaConsultarPintura() {
@@ -35,18 +34,6 @@ public class PantallaConsultarPintura extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblPorNombre = new JLabel("Por Nombre");
-		lblPorNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPorNombre.setDisplayedMnemonic('N');
-		lblPorNombre.setBounds(10, 11, 102, 14);
-		contentPane.add(lblPorNombre);
-		
-		txtNombre = new JTextField();
-		lblPorNombre.setLabelFor(txtNombre);
-		txtNombre.setBounds(122, 8, 117, 20);
-		txtNombre.setEditable(false);
-		contentPane.add(txtNombre);
-		
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -54,15 +41,16 @@ public class PantallaConsultarPintura extends JFrame {
 					Pintura pintura = Gestor.consultarPintura( txtId.getText() );
 					PantallaActualizarPintura pantallaPintura = new PantallaActualizarPintura( pintura );
 					pantallaPintura.setVisible(true);
+					setVisible(false);
 				} catch (Exception e1) {
-					JOptionPane.showMessageDialog( null, "No se ha podido encontrar por el id indicado");
+					JOptionPane.showMessageDialog( null, "No se ha podido encontrar por el codigo indicado");
 				}
 			}
 		});
 		btnConsultar.setBounds(206, 69, 89, 23);
 		contentPane.add(btnConsultar);
 		
-		JLabel lblPorId = new JLabel("Por Id");
+		JLabel lblPorId = new JLabel("Codigo");
 		lblPorId.setDisplayedMnemonic('I');
 		lblPorId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPorId.setBounds(66, 36, 46, 14);

@@ -16,8 +16,6 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
