@@ -113,7 +113,7 @@ public class PantallaCrearGaleria extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.crearGaleria(Integer.parseInt( txtId.getText() ), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInauguracion.getText(), txtNombreEncargado.getText(), txtArea.getText());
+					Gestor.crearGaleria( txtId.getText(), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtFechaInauguracion.getText(), txtNombreEncargado.getText(), txtArea.getText());
 					JOptionPane.showMessageDialog( null, "La galeria ha sido creada exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");

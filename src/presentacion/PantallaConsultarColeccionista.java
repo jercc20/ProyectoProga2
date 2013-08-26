@@ -52,7 +52,7 @@ public class PantallaConsultarColeccionista extends JFrame {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Coleccionista coleccionista = Gestor.consultarColeccionista(Integer.parseInt( txtId.getText() ));
+					Coleccionista coleccionista = Gestor.consultarColeccionista( txtId.getText() );
 					PantallaActualizarColeccionista pantallaColeccionista = new PantallaActualizarColeccionista( coleccionista );
 					pantallaColeccionista.setVisible(true);
 				} catch (Exception e1) {
