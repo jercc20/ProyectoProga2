@@ -35,22 +35,21 @@ public class PantallaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JRadioButton rdbtnPintura = new JRadioButton("Pintura");
-		rdbtnPintura.addChangeListener(new ChangeListener() {
+		JRadioButton rdbtnEscuela = new JRadioButton("Escuela");
+		rdbtnEscuela.setMnemonic('e');
+		grupoRdBtns.add(rdbtnEscuela);
+		rdbtnEscuela.setBackground(SystemColor.inactiveCaptionBorder);
+		rdbtnEscuela.setBounds(6, 7, 109, 23);
+		rdbtnEscuela.setSelected(true);
+		seleccionado = "Escuela";
+		contentPane.add(rdbtnEscuela);
+		rdbtnEscuela.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (((JRadioButton)e.getSource()).isSelected()){
 					seleccionado = ((JRadioButton)e.getSource()).getText();
 				}
 			}
 		});
-		
-		rdbtnPintura.setMnemonic('P');
-		grupoRdBtns.add(rdbtnPintura);
-		rdbtnPintura.setBackground(SystemColor.inactiveCaptionBorder);
-		rdbtnPintura.setSelected(true);
-		seleccionado = "Pintura";
-		rdbtnPintura.setBounds(6, 7, 109, 23);
-		contentPane.add(rdbtnPintura);
 		
 		JRadioButton rdbtnPintor = new JRadioButton("Pintor");
 		rdbtnPintor.setMnemonic('o');
@@ -66,27 +65,27 @@ public class PantallaPrincipal extends JFrame {
 			}
 		});
 		
-		JRadioButton rdbtnGaleria = new JRadioButton("Galer\u00EDa");
-		rdbtnGaleria.setMnemonic('g');
-		grupoRdBtns.add(rdbtnGaleria);
-		rdbtnGaleria.setBackground(SystemColor.inactiveCaptionBorder);
-		rdbtnGaleria.setBounds(6, 59, 109, 23);
-		contentPane.add(rdbtnGaleria);
-		rdbtnGaleria.addChangeListener(new ChangeListener() {
+		JRadioButton rdbtnPintura = new JRadioButton("Pintura");
+		rdbtnPintura.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (((JRadioButton)e.getSource()).isSelected()){
 					seleccionado = ((JRadioButton)e.getSource()).getText();
 				}
 			}
 		});
+		rdbtnPintura.setMnemonic('P');
+		grupoRdBtns.add(rdbtnPintura);
+		rdbtnPintura.setBackground(SystemColor.inactiveCaptionBorder);
+		rdbtnPintura.setBounds(6, 59, 109, 23);
+		contentPane.add(rdbtnPintura);
 		
-		JRadioButton rdbtnEscuela = new JRadioButton("Escuela");
-		rdbtnEscuela.setMnemonic('e');
-		grupoRdBtns.add(rdbtnEscuela);
-		rdbtnEscuela.setBackground(SystemColor.inactiveCaptionBorder);
-		rdbtnEscuela.setBounds(6, 85, 109, 23);
-		contentPane.add(rdbtnEscuela);
-		rdbtnEscuela.addChangeListener(new ChangeListener() {
+		JRadioButton rdbtnGaleria = new JRadioButton("Galer\u00EDa");
+		rdbtnGaleria.setMnemonic('g');
+		grupoRdBtns.add(rdbtnGaleria);
+		rdbtnGaleria.setBackground(SystemColor.inactiveCaptionBorder);
+		rdbtnGaleria.setBounds(6, 85, 109, 23);
+		contentPane.add(rdbtnGaleria);
+		rdbtnGaleria.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (((JRadioButton)e.getSource()).isSelected()){
 					seleccionado = ((JRadioButton)e.getSource()).getText();
