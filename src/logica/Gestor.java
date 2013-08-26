@@ -275,7 +275,7 @@ public class Gestor {
 	public static void crearAdquisicion(String pcodigoPintura,	String pIdPropietario, String pfechaAdquisicion,double pcostoAdquisicion, int pcondicionAdquisicion, String pHistoria)throws Exception {
 		Pintura pintura = DAOPintura.buscar(pcodigoPintura);
 		Propietario propietario = DAOPropietario.buscar(pIdPropietario);
-		DAOAdquisicion.crear(new Adquisicion(pintura, propietario, pfechaAdquisicion, pcondicionAdquisicion, pcostoAdquisicion, pHistoria));
+		DAOAdquisicion.crear((new Adquisicion(pintura, propietario, pfechaAdquisicion, pcondicionAdquisicion, pcostoAdquisicion, pHistoria)));
 
 	}
 

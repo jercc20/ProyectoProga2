@@ -2,8 +2,6 @@ package presentacion;
 
 import logica.Gestor;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -36,7 +34,6 @@ public class PantallaCrearAdquisicion extends JFrame {
 	private JButton btnCrear;
 	private JButton btnCancel;
 	
-	private Gestor gestor;
 	private JLabel lblCdigoPintura;
 	private JTextField txtCodigoPintura;
 	private JLabel lblIdPropietario_1;
@@ -92,6 +89,7 @@ public class PantallaCrearAdquisicion extends JFrame {
 		txtFechaAdquisicion = new JTextField();
 		lblIdPropietario.setLabelFor(txtFechaAdquisicion);
 		txtFechaAdquisicion.setBounds(148, 67, 86, 20);
+		txtFechaAdquisicion.setText("yyyy-mm-dd");
 		contentPane.add(txtFechaAdquisicion);
 		txtFechaAdquisicion.setColumns(10);
 		
@@ -112,8 +110,9 @@ public class PantallaCrearAdquisicion extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					gestor.crearAdquisicion( txtCodigoPintura.getText() , txtidPropietario.getText(), txtFechaAdquisicion.getText(), Double.parseDouble(txtCosto.getText()), cmbCondicionAdquisicion.getSelectedIndex(), txtHistoria.getText());
+					Gestor.crearAdquisicion( txtCodigoPintura.getText() , txtidPropietario.getText(), txtFechaAdquisicion.getText(), Double.parseDouble(txtCosto.getText()), cmbCondicionAdquisicion.getSelectedIndex(), txtHistoria.getText());
 					JOptionPane.showMessageDialog( null, "La adquisición ha sido creada exitosamente!" );
+					setVisible(false);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
 					e1.printStackTrace();
