@@ -75,7 +75,7 @@ public class PantallaActualizarMecenazgo extends JFrame {
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.actualizarMecenazgo(txtFechaInicio.getText(), txtFechaFinal.getText(), Integer.parseInt(mecenazgo.getMecenas().getId()), Integer.parseInt(txtIdPintor.getText()));
+					Gestor.actualizarMecenazgo(txtFechaInicio.getText(), txtFechaFinal.getText(), mecenazgo.getMecenas().getId(), txtIdPintor.getText());
 					JOptionPane.showMessageDialog( null, "El mecenazgo ha sido actualizo exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
