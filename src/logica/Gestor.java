@@ -313,5 +313,14 @@ public class Gestor {
 
 	}
 	
+public static void agregarMaestro (String pIdPintor, String pidMaestro) throws Exception{
+		
+		Pintor pintor = DAOPintor.buscar(pIdPintor);
+		Pintor maestro  = DAOPintor.buscar(pidMaestro);
+		pintor.setMaestro( maestro );
+		DAOPintor.actualizar( pintor );
+		
+	}
+	
 
 }
