@@ -57,7 +57,8 @@ public class Escuela implements Serializable {
 	 * @param pfecha: Fecha cuando apareció la escuela.
 	 * @param pcaracteristicas: Descripción de la escuela.
 	 */	
-	public Escuela(String pnombre, String ppais, String pfecha, String pcaracteristicas) {
+	public Escuela(int pid, String pnombre, String ppais, String pfecha, String pcaracteristicas) {
+		setId(pid);
 		setNombre(pnombre);
 		setPaisOrigen(ppais);
 		setFechaOrigen(pfecha);

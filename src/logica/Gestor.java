@@ -1,6 +1,10 @@
 package logica;
 
+import java.sql.Date;
+
 public class Gestor {
+	
+	private static DAOEscuela daoEscuela;
 	
 	public static Pintor crearPintor(int pId, String pNombre, String pNombreArtistico, String pCiudadNacimiento, String pPaisNacimiento, String pFechaNacimiento, String pFechaMuerte, String pTipo, int pIdMaestro, int pIdEscuela) throws Exception{
 		Pintor pintor = (new DAOPintor()).crear(pId, pNombre, pNombreArtistico, pCiudadNacimiento, pPaisNacimiento, pFechaNacimiento, pFechaMuerte, pTipo, pIdMaestro, pIdEscuela);
@@ -122,8 +126,11 @@ public class Gestor {
 	
 	
 	public static Escuela crearEscuela(int pId, String pNombre, String pPais, String pFecha, String pCaracteristicas) throws Exception {
-		Escuela escuela = (new DAOEscuela()).crear(pId, pNombre, pPais, pFecha, pCaracteristicas);
-		return escuela;
+		System.out.println(pCaracteristicas);
+		Escuela objEscuela = new Escuela(pId, pNombre, pPais, pFecha, pCaracteristicas);
+		daoEscuela = new DAOEscuela();
+		daoEscuela.crear(objEscuela);
+		return objEscuela;
 	}
 	
 	public static Escuela consultarEscuela(int pId) throws Exception {

@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import logica.Gestor;
 
 import java.awt.SystemColor;
+import java.sql.Date;
 
 public class PantallaCrearEscuela extends JFrame {
 
@@ -78,10 +79,11 @@ public class PantallaCrearEscuela extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.crearEscuela(Integer.parseInt( txtId.getText() ), txtNombre.getText(), txtPais.getText(), txtFecha.getText(), txtCaracteristicas.getText());
+					Gestor.crearEscuela(Integer.parseInt(txtId.getText() ), txtNombre.getText(), txtPais.getText(), txtFecha.getText(), txtCaracteristicas.getText());
 					JOptionPane.showMessageDialog( null, "La escuela ha sido creada exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
+					e1.printStackTrace();
 				}
 			}
 		});
