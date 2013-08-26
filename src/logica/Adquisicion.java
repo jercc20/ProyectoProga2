@@ -1,5 +1,5 @@
 /**
- * Clase Mecenazgo: Representación de una adquisicion de una pintura por parte de un propietario.
+ * Clase Adquisicion: Representación de una adquisicion de una pintura por parte de un propietario.
  * 
  * @author Jerson Chinchilla
  * @author Matthew Bertelsen
@@ -10,42 +10,43 @@
 package logica;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="TAdquisiciones")
+@Entity
+@Table(name="TAdquisiciones")
 
 public class Adquisicion implements Serializable {
 	
 	private static final long serialVersionUID = -436540065081698326L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
+	//Format = yyyy-mm-dd
+	@Column(name="fecha_adquisicion")
+	private Date fechaAdquisicion;
 	
-	@Column(name="fechaAdquisicion")
-	private String fechaAdquisicion;
-	
-	@Column(name="condicionAdquisicion")
+	@Column(name="condicion_adquisicion")
 	private int condicionAdquisicion;
 	
-	@Column(name="costoAdquisicion")
+	@Column(name="costo_adquisicion")
 	private double costoAdquisicion;
 	
 	@Column(name="historia")
 	private String	historia;
 	
-	@Column(name="codigoPintura")
-	private String	codigoPintura;
+	@Id
+	@ManyToOne
+	@JoinColumn(name="id_propietario")
+	private Propietario propietario;
 	
+	@Id
 	@ManyToOne
 	@JoinColumn(name="id_pintura")
 	private Pintura pintura;
 	
-	@ManyToOne
-	@JoinColumn(name="id_propietario")
-	private Propietario propietario;
+	public Adquisicion(){
+		
+	}
 	
 	/**
 	 * Constructor
@@ -54,9 +55,9 @@ public class Adquisicion implements Serializable {
 	 * @param pcostoAdquisicion: Costo de adquisición de la pintura.
 	 */
 	
-	public Adquisicion(Pintura ppintura, Propietario ppropietario, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
-		setPintura(ppintura);
-		setPropietario(ppropietario);	
+	public Adquisicion(Propietario pPropietario, Pintura pPintura, String pfechaAdquisicion, int pcondicionAdquisicion, double pcostoAdquisicion, String pHistoria) {
+		setPropietario(pPropietario);
+		setPintura(pPintura);
 		setFechaAdquisicion(pfechaAdquisicion);
 		setCondicionAdquisicion(pcondicionAdquisicion);
 		setCostoAdquisicion(pcostoAdquisicion);
@@ -65,42 +66,10 @@ public class Adquisicion implements Serializable {
 	
 	/**
 	 * Getter
-	 * @return pintura
-	 */
-	public Pintura getPintura() {
-		return pintura;
-	}
-	
-	/**
-	 * Setter
-	 * Pintura
-	 */
-	public void setPintura(Pintura ppintura) {
-		pintura = ppintura;
-	}
-	
-	/**
-	 * Getter
-	 * @return propietario
-	 */
-	public Propietario getPropietario() {
-		return propietario;
-	}
-	
-	/**
-	 * Setter
-	 * pPintor:Pintor que elaboró la pintura.
-	 */
-	public void setPropietario(Propietario ppropietario) {
-		propietario = ppropietario;
-	}
-	
-	/**
-	 * Getter
 	 * @return fechaAdquisicion
 	 */
 	public String getFechaAdquisicion() {
-		return fechaAdquisicion;
+		return fechaAdquisicion.toString();
 	}
 	
 	/**
@@ -108,6 +77,7 @@ public class Adquisicion implements Serializable {
 	 * @param pfechaAdquisicion: Fecha de adquisición de la pintura.
 	 */
 	public void setFechaAdquisicion(String pfechaAdquisicion) {
+<<<<<<< HEAD
 		fechaAdquisicion = pfechaAdquisicion;
 	}
 	
@@ -117,19 +87,26 @@ public class Adquisicion implements Serializable {
 	 */
 	public String getHistoria() {
 		return historia;
+=======
+		fechaAdquisicion = Date.valueOf(pfechaAdquisicion);
+>>>>>>> b75e7aa0781c4889b2e9260098a68601954f3cb8
 	}
 	
 	/**
 	 * Setter
-	 * @param phistoria: Breve historia de la pintura si es que la posee.
+	 * @param pfechaAdquisicion: Fecha de adquisición de la pintura.
 	 */
-	public void setHistoria(String phistoria) {
-		historia = phistoria;
+	public void setFechaAdquisicion(Date pfechaAdquisicion) {
+		fechaAdquisicion = pfechaAdquisicion;
 	}
 	
 	/**
 	 * Getter
+<<<<<<< HEAD
 	 * @return codigoPintura
+=======
+	 * @return condicionAdquisicion
+>>>>>>> b75e7aa0781c4889b2e9260098a68601954f3cb8
 	 */
 	public int getCondicionAdquisicion() {
 		return condicionAdquisicion;
@@ -159,10 +136,23 @@ public class Adquisicion implements Serializable {
 		costoAdquisicion = pcostoAdquisicion;
 	}
 	
-	/*public Pintura getPintura() throws Exception {
-		if (pintura == null) {
-			setPintura((new MultiPintura()).buscarPintura(codigoPintura));
-		}
+	/**
+	 * Getter
+	 * @return historia
+	 */
+	public String getHistoria() {
+		return historia;
+	}
+	
+	/**
+	 * Setter
+	 * @param phistoria: Breve historia de la pintura si es que la posee.
+	 */
+	public void setHistoria(String phistoria) {
+		historia = phistoria;
+	}
+
+	public Pintura getPintura() {
 		return pintura;
 	}
 
@@ -170,15 +160,12 @@ public class Adquisicion implements Serializable {
 		pintura = ppintura;
 	}
 	
-	public Propietario getPropietario() throws Exception {
-		if (propietario == null) {
-			setPropietario((new MultiPropietario()).buscarPropietario(idPropietario));
-		}
+	public Propietario getPropietario() {
 		return propietario;
 	}
 
 	public void setPropietario(Propietario ppropietario){
 		propietario = ppropietario;
-	}*/
+	}
 
 }

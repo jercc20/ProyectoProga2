@@ -11,6 +11,7 @@
 package logica;
 
 import java.sql.Date;
+import java.util.Set;
 import java.io.Serializable;
 
 import javax.persistence.*;
@@ -53,8 +54,11 @@ private static final long serialVersionUID = -436540065081698326L;
 	@JoinColumn(name="id_pintor")
 	private Pintor pintor;
 	
-	/*private Vector	listaAdquisiciones;
-	private Exposicion exposicion;*/
+	@OneToOne
+	@JoinColumn(name="id_pintura")
+	private Set<Adquisicion> adquisiciones;
+	
+	/*private Exposicion exposicion;*/
 	
 	/**
 	 * Constructor
@@ -240,17 +244,15 @@ private static final long serialVersionUID = -436540065081698326L;
 		pintor = pPintor;
 	}
 	
-	/*public Vector getListaAdquisiciones() throws Exception {
-		if (listaAdquisiciones == null) {
-			setListaAdquisiciones((new MultiAdquisiciones()).buscarPintura(codigo));
-		}
-		return listaAdquisiciones;
+	public Set<Adquisicion> getAdquisiciones() {
+		return adquisiciones;
 	}
 
-	public void setListaAdquisiciones(Vector plistaAdquisiciones){
-		listaAdquisiciones = plistaAdquisiciones;
+	public void setAdquisiciones(Set<Adquisicion> pAdquisiciones){
+		adquisiciones = pAdquisiciones;
 	}
 	
+	/*
 	public Exposicion getExposicion() throws Exception {
 		if (exposicion == null) {
 			setExposicion((new MultiExposicion()).buscarExposicion(idPintor));
