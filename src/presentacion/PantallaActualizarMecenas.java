@@ -2,6 +2,7 @@ package presentacion;
 
 import logica.Gestor;
 import logica.Mecenas;
+import logica.Mecenazgo;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -33,10 +34,13 @@ public class PantallaActualizarMecenas extends JFrame {
 	private JButton btnCrearMecenazgo;
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
+		
+		
+		
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
 		setResizable(false);
-		setBounds(100, 100, 407, 220);
+		setBounds(100, 100, 407, 358);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -110,7 +114,7 @@ public class PantallaActualizarMecenas extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnCancel.setBounds(21, 154, 89, 23);
+		btnCancel.setBounds(104, 295, 89, 23);
 		contentPane.add(btnCancel);
 		
 		btnBorrar = new JButton("Borrar");
@@ -125,7 +129,7 @@ public class PantallaActualizarMecenas extends JFrame {
 				}
 			}
 		});
-		btnBorrar.setBounds(120, 154, 89, 23);
+		btnBorrar.setBounds(203, 295, 89, 23);
 		contentPane.add(btnBorrar);
 		
 		btnActualizar = new JButton("Actualizar");
@@ -139,7 +143,7 @@ public class PantallaActualizarMecenas extends JFrame {
 				}
 			}
 		});
-		btnActualizar.setBounds(219, 154, 89, 23);
+		btnActualizar.setBounds(302, 295, 89, 23);
 		contentPane.add(btnActualizar);
 		
 		btnCrearMecenazgo = new JButton("Crear Mecenazgo");
@@ -150,6 +154,18 @@ public class PantallaActualizarMecenas extends JFrame {
 		});
 		btnCrearMecenazgo.setBounds(258, 54, 121, 23);
 		contentPane.add(btnCrearMecenazgo);
+		
+		JLabel lblMecenazgos = new JLabel("");
+		lblMecenazgos.setBounds(10, 135, 381, 149);
+		contentPane.add(lblMecenazgos);
+		
+		String infoMecenazgos = "";
+		for ( Mecenazgo m : pMecenas.getMecenazgos() ){
+			infoMecenazgos += m.toString();
+		}
+		
+		lblMecenazgos.setText(infoMecenazgos);
+		
 	}
 	
 	
@@ -163,6 +179,4 @@ public class PantallaActualizarMecenas extends JFrame {
 			JOptionPane.showMessageDialog(this,"Error","Error",JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
-
 }

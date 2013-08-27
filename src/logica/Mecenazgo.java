@@ -33,7 +33,7 @@ private static final long serialVersionUID = -436540065081698326L;
 	@ManyToOne
 	@JoinColumn(name="id_pintor")
 	private Pintor pintor;
-	
+
 	@Id
 	@ManyToOne
 	@JoinColumn(name="id_mecenas")
@@ -124,4 +124,12 @@ private static final long serialVersionUID = -436540065081698326L;
 		mecenas = pmecenas;
 	}
 
+	
+	@Override
+	public String toString() {
+		return "Mecenazgo [fechaInicio=" + fechaInicio + ", fechaFin="
+				+ fechaFin + ", pintor=" + pintor.getId() + ", mecenas=" + mecenas.getId()
+				+ "]";
+	}
+	
 }
