@@ -19,6 +19,8 @@ import java.awt.SystemColor;
 import java.sql.SQLException;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 
 public class PantallaActualizarMecenas extends JFrame {
 
@@ -32,6 +34,8 @@ public class PantallaActualizarMecenas extends JFrame {
 	private JButton btnActualizar;
 	private Mecenas mecenas;
 	private JButton btnCrearMecenazgo;
+	private JTextArea txtMecenazgos;
+	private JScrollPane scrollPane;
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
 		
@@ -155,16 +159,20 @@ public class PantallaActualizarMecenas extends JFrame {
 		btnCrearMecenazgo.setBounds(258, 54, 121, 23);
 		contentPane.add(btnCrearMecenazgo);
 		
-		JLabel lblMecenazgos = new JLabel("");
-		lblMecenazgos.setBounds(10, 135, 381, 149);
-		contentPane.add(lblMecenazgos);
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 131, 369, 153);
+		contentPane.add(scrollPane);
+		
+		txtMecenazgos = new JTextArea();
+		txtMecenazgos.setEditable(false);
+		scrollPane.setViewportView(txtMecenazgos);
 		
 		String infoMecenazgos = "";
 		for ( Mecenazgo m : pMecenas.getMecenazgos() ){
-			infoMecenazgos += m.toString();
+			infoMecenazgos += m.toString() + "\n";
 		}
 		
-		lblMecenazgos.setText(infoMecenazgos);
+		txtMecenazgos.setText(infoMecenazgos);
 		
 	}
 	
