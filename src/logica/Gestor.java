@@ -185,7 +185,7 @@ public class Gestor {
 	}
 	
 	
-	public static void borrarMecenazgo() throws java.sql.SQLException, Exception {
+	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
 	
 		//DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
 		
