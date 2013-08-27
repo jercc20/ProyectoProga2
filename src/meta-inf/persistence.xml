@@ -19,7 +19,6 @@ value="COMMIT" />
 	<property name="eclipselink.jdbc.connections.max" value="64" />
 
 	<property name="eclipselink.cache.size.default" value="1000" />
-
 	<property name="eclipselink.ddl-generation" value="create-tables" />
 
 	<property name="eclipselink.logging.level" value="FINE" />
