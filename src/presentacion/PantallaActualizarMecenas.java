@@ -17,10 +17,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.TreeMap;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import javax.swing.JList;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.JOptionPane;
+import java.util.TreeMap;
+import java.util.Vector;
 
 public class PantallaActualizarMecenas extends JFrame {
 
@@ -34,12 +43,11 @@ public class PantallaActualizarMecenas extends JFrame {
 	private JButton btnActualizar;
 	private Mecenas mecenas;
 	private JButton btnCrearMecenazgo;
-	private JTextArea txtMecenazgos;
-	private JScrollPane scrollPane;
+	private List listMecenazgos;
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
 		
-		
+		Vector datosMecenazgos;
 		
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
@@ -159,20 +167,22 @@ public class PantallaActualizarMecenas extends JFrame {
 		btnCrearMecenazgo.setBounds(258, 54, 121, 23);
 		contentPane.add(btnCrearMecenazgo);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 131, 369, 153);
-		contentPane.add(scrollPane);
+		listMecenazgos = new List();
+		listMecenazgos.setBounds(22, 139, 369, 145);
+		contentPane.add(listMecenazgos);
 		
-		txtMecenazgos = new JTextArea();
-		txtMecenazgos.setEditable(false);
-		scrollPane.setViewportView(txtMecenazgos);
-		
-		String infoMecenazgos = "";
-		for ( Mecenazgo m : pMecenas.getMecenazgos() ){
-			infoMecenazgos += m.toString() + "\n";
+		TreeMap datosMecenazgo;
+		try {
+			datosMecenazgos = (Vector)pMecenas.getMecenazgos();
+			for (int i=0; i<datosMecenazgos.size(); i++) {
+				datosMecenazgo = ((TreeMap) datosMecenazgos.get(i));
+				listMecenazgos.add(""+datosMecenazgo.get("id")+" - "+datosMecenazgo.get("nombre"));
+			}
 		}
-		
-		txtMecenazgos.setText(infoMecenazgos);
+		catch (Exception ex) {
+			JOptionPane.showMessageDialog(this,(String) ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);	
+			listMecenazgos.removeAll();
+		}
 		
 	}
 	
