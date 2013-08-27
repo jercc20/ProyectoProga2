@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.sql.SQLException;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PantallaActualizarGaleria extends JFrame {
 
@@ -32,6 +34,7 @@ public class PantallaActualizarGaleria extends JFrame {
 	private JButton btnBorrar;
 	
 	private Galeria galeria;
+	private JButton btnCrearExposicin;
 
 	public PantallaActualizarGaleria( Galeria pGaleria ) {
 		
@@ -39,7 +42,7 @@ public class PantallaActualizarGaleria extends JFrame {
 		
 		setResizable(false);
 		setTitle("Actualizar Galer\u00EDa");
-		setBounds(100, 100, 339, 265);
+		setBounds(100, 100, 412, 265);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -123,7 +126,7 @@ public class PantallaActualizarGaleria extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnCancel.setBounds(36, 203, 89, 23);
+		btnCancel.setBounds(34, 203, 89, 23);
 		contentPane.add(btnCancel);
 		
 		btnActualizar = new JButton("Actualizar");
@@ -137,7 +140,7 @@ public class PantallaActualizarGaleria extends JFrame {
 				}
 			}
 		});
-		btnActualizar.setBounds(234, 203, 89, 23);
+		btnActualizar.setBounds(280, 203, 89, 23);
 		contentPane.add(btnActualizar);
 		
 		btnBorrar = new JButton("Borrar");
@@ -152,8 +155,28 @@ public class PantallaActualizarGaleria extends JFrame {
 				}
 			}
 		});
-		btnBorrar.setBounds(135, 203, 89, 23);
+		btnBorrar.setBounds(157, 203, 89, 23);
 		contentPane.add(btnBorrar);
+		
+		btnCrearExposicin = new JButton("Crear Exposici\u00F3n");
+		btnCrearExposicin.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				btnCrearExposicin_mouseClicked(e);
+			}
+		});
+		btnCrearExposicin.setBounds(243, 82, 153, 23);
+		contentPane.add(btnCrearExposicin);
+	}
+	
+	public void btnCrearExposicin_mouseClicked(MouseEvent e) {
+		try {
+			PantallaCrearExposicion p;
+			p = new PantallaCrearExposicion(txtId.getText());
+			p.setVisible(true);
+		}
+		catch (Exception ex) {
+			JOptionPane.showMessageDialog(this,"","Error",JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 }
