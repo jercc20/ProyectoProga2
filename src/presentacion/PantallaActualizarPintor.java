@@ -40,10 +40,15 @@ public class PantallaActualizarPintor extends JFrame {
 	private JTextField txtIdEscuela;
 	private JButton btnAgregarMaestro;
 	private List listPinturas;
-	private JLabel lblListaDeMaestros;
 	private List listMaestros;
+	private JButton btnBuscarPinturas;
+	private JButton btnBuscarMaestros;
+	private Pintor pintor;
 
 	public PantallaActualizarPintor( Pintor pPintor ) {
+		
+		pintor = pPintor;
+		
 		setResizable(false);
 		setTitle("Actualizar Pintor");
 		setBounds(100, 100, 455, 519);
@@ -217,26 +222,42 @@ public class PantallaActualizarPintor extends JFrame {
 				btnAgregarMaestro_mouseClicked(e);
 			}
 		});
-		btnAgregarMaestro.setBounds(320, 251, 120, 23);
+		btnAgregarMaestro.setBounds(20, 296, 120, 23);
 		contentPane.add(btnAgregarMaestro);
 		
-		JLabel lblListaPinturas = new JLabel("Lista de Pinturas");
-		lblListaPinturas.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblListaPinturas.setBounds(39, 337, 101, 14);
-		contentPane.add(lblListaPinturas);
-		
 		listPinturas = new List();
-		listPinturas.setBounds(150, 337, 164, 108);
+		listPinturas.setBounds(150, 337, 250, 108);
 		contentPane.add(listPinturas);
 		
-		lblListaDeMaestros = new JLabel("Lista de Maestros");
-		lblListaDeMaestros.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblListaDeMaestros.setBounds(39, 239, 101, 14);
-		contentPane.add(lblListaDeMaestros);
-		
 		listMaestros = new List();
-		listMaestros.setBounds(150, 237, 164, 50);
+		listMaestros.setBounds(150, 237, 250, 94);
 		contentPane.add(listMaestros);
+		
+		btnBuscarPinturas = new JButton("Buscar Pinturas");
+		btnBuscarPinturas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if( pintor.getMaestros().size() >0) {
+					for ( Pintor p : pintor.getMaestros() ) {
+						listMaestros.add( "Maestro: " + p.getNombre() );
+					}
+				}				
+			}
+		});
+		btnBuscarPinturas.setBounds(20, 380, 120, 23);
+		contentPane.add(btnBuscarPinturas);
+		
+		btnBuscarMaestros = new JButton("Buscar Maestros");
+		btnBuscarMaestros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if( pintor.getMaestros().size() >0) {
+					for ( Pintor p : pintor.getMaestros() ) {
+						listMaestros.add( "Maestro: " + p.getNombre() );
+					}
+				}
+			}
+		});
+		btnBuscarMaestros.setBounds(20, 250, 120, 23);
+		contentPane.add(btnBuscarMaestros);
 		
 		if( pPintor.getPinturas().size() >0) {
 			for ( Pintura p : pPintor.getPinturas() ) {
