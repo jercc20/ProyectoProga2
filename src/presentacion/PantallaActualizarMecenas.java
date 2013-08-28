@@ -47,7 +47,7 @@ public class PantallaActualizarMecenas extends JFrame {
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
 		
-		Set datosMecenazgos;
+		Vector datosMecenazgos;
 		
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
