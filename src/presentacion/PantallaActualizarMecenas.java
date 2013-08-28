@@ -43,6 +43,7 @@ public class PantallaActualizarMecenas extends JFrame {
 	private JButton btnActualizar;
 	private Mecenas mecenas;
 	private JButton btnCrearMecenazgo;
+	private JButton btnEditarMecenazgo;
 	private List listMecenazgos;
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
@@ -167,21 +168,23 @@ public class PantallaActualizarMecenas extends JFrame {
 		btnCrearMecenazgo.setBounds(258, 54, 121, 23);
 		contentPane.add(btnCrearMecenazgo);
 		
+		btnEditarMecenazgo = new JButton("Editar Mecenazgo");
+		btnEditarMecenazgo.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				btnEditarMecenazgo_mouseClicked(e);
+			}
+		});
+		btnEditarMecenazgo.setBounds(258, 84, 121, 23);
+		contentPane.add(btnEditarMecenazgo);
+		
 		listMecenazgos = new List();
 		listMecenazgos.setBounds(141, 152, 250, 121);
 		contentPane.add(listMecenazgos);
 		
-		TreeMap datosMecenazgo;
-		try {
-			datosMecenazgos = pMecenas.getMecenazgos();
-			for (int i=0; i<datosMecenazgos.size(); i++) {
-				datosMecenazgo = ((TreeMap) datosMecenazgos.get(i));
-				listMecenazgos.add(""+datosMecenazgo.get("id")+" - "+datosMecenazgo.get("nombre"));
+		if( pMecenas.getMecenazgos().size() > 0 ) {
+			for ( Mecenazgo m : pMecenas.getMecenazgos().toArray( new Mecenazgo[0] ) ) {
+				listMecenazgos.add( "Pintor: " + m.getPintor().getId() );
 			}
-		}
-		catch (Exception ex) {
-			JOptionPane.showMessageDialog(this,(String) ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);	
-			listMecenazgos.removeAll();
 		}
 		
 	}
@@ -196,5 +199,9 @@ public class PantallaActualizarMecenas extends JFrame {
 		catch (Exception ex) {
 			JOptionPane.showMessageDialog(this,"Error","Error",JOptionPane.ERROR_MESSAGE);
 		}
+	}
+	
+	public void btnEditarMecenazgo_mouseClicked(MouseEvent e) {
+		JOptionPane.showMessageDialog(null,"seleccionado: "+ listMecenazgos.getSelectedIndex() );
 	}
 }
