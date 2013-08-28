@@ -54,10 +54,9 @@ private static final long serialVersionUID = -436540065081698326L;
 	 * @param pidMecenas: Identificador del mecenas que brindó el mecenazgo.
 	 */	
 	public Mecenazgo(String pfechaInicio, String pfechaFin, Pintor pPintor, Mecenas pMecenas){
+		this( pPintor, pMecenas );
 		setFechaInicio(pfechaInicio);
 		setFechaFin(pfechaFin);
-		setPintor(pPintor);
-		setMecenas(pMecenas);
 	}
 	
 	public Mecenazgo(Pintor pPintor, Mecenas pMecenas){
