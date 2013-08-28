@@ -58,16 +58,21 @@ public class PantallaActualizarMecenazgo extends JFrame {
 		
 		txtFechaFinal = new JTextField();
 		txtFechaFinal.setBounds(160, 36, 109, 20);
+		txtFechaFinal.setText(mecenazgo.getFechaFin());
 		contentPane.add(txtFechaFinal);
 		txtFechaFinal.setColumns(10);
 		
 		txtIdPintor = new JTextField();
 		txtIdPintor.setBounds(160, 61, 109, 20);
+		txtIdPintor.setText(mecenazgo.getPintor().getId());
+		txtIdPintor.setEditable(false);
 		contentPane.add(txtIdPintor);
 		txtIdPintor.setColumns(10);
 		
 		txtIdMecenas = new JTextField();
 		txtIdMecenas.setBounds(160, 86, 109, 20);
+		txtIdMecenas.setText(mecenazgo.getMecenas().getId());
+		txtIdMecenas.setEditable(false);
 		contentPane.add(txtIdMecenas);
 		txtIdMecenas.setColumns(10);
 		
@@ -96,6 +101,7 @@ public class PantallaActualizarMecenazgo extends JFrame {
 		
 		txtFechaInicio = new JTextField();
 		txtFechaInicio.setBounds(160, 11, 109, 20);
+		txtFechaInicio.setText(mecenazgo.getFechaInicio());
 		contentPane.add(txtFechaInicio);
 		txtFechaInicio.setColumns(10);
 		

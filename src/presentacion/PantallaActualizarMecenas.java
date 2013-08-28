@@ -20,11 +20,13 @@ import java.sql.SQLException;
 import java.util.TreeMap;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.JOptionPane;
 
 import java.util.Set;
@@ -47,8 +49,6 @@ public class PantallaActualizarMecenas extends JFrame {
 	private List listMecenazgos;
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
-		
-		Vector datosMecenazgos;
 		
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
@@ -182,8 +182,8 @@ public class PantallaActualizarMecenas extends JFrame {
 		contentPane.add(listMecenazgos);
 		
 		if( pMecenas.getMecenazgos().size() > 0 ) {
-			for ( Mecenazgo m : pMecenas.getMecenazgos().toArray( new Mecenazgo[0] ) ) {
-				listMecenazgos.add( "Pintor: " + m.getPintor().getId() );
+			for ( Mecenazgo m : pMecenas.getMecenazgos() ) {
+				listMecenazgos.add( "Pintor: " + m.getPintor().getId() + ", " + m.getFechaInicio() + " - " + m.getFechaFin() );
 			}
 		}
 		
@@ -202,6 +202,17 @@ public class PantallaActualizarMecenas extends JFrame {
 	}
 	
 	public void btnEditarMecenazgo_mouseClicked(MouseEvent e) {
-		JOptionPane.showMessageDialog(null,"seleccionado: "+ listMecenazgos.getSelectedIndex() );
+		if( listMecenazgos.getSelectedIndex() == -1 ){
+			JOptionPane.showMessageDialog(null,"Debe seleccionar un item de la lista para editarlo." );
+		}
+		else {
+			try {
+				Mecenazgo mecenazgo = Gestor.consultarMecenazgo( mecenas.getMecenazgos(), listMecenazgos.getSelectedIndex() );
+				PantallaActualizarMecenazgo pantallaMecenazgo = new PantallaActualizarMecenazgo( mecenazgo );
+				pantallaMecenazgo.setVisible(true);
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog( null, "No se ha podido encontrar por el id indicado");
+			}
+		}
 	}
 }

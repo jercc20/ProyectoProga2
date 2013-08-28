@@ -1,6 +1,7 @@
 package logica;
 
 import java.sql.Date;
+import java.util.Set;
 
 public class Gestor {
 	
@@ -174,6 +175,13 @@ public class Gestor {
 	public static void crearMecenazgo(String pFechaInicio, String pFechaFin, String pIdPintor, String pIdMecenas) throws Exception{
 	
 		DAOMecenazgo.crear( new Mecenazgo(pFechaInicio, pFechaFin, ( DAOPintor.buscar(pIdPintor) ), ( DAOMecenas.buscar(pIdMecenas) ) ) );
+		
+	}
+	
+	public static Mecenazgo consultarMecenazgo(Set<Mecenazgo> lista, int pIndMecenazgo) throws Exception {
+		
+		Mecenazgo mecenazgo = ( lista.toArray( new Mecenazgo[0] ) )[pIndMecenazgo];
+		return mecenazgo;
 		
 	}
 	
