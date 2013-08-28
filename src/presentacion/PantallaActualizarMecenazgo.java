@@ -80,7 +80,7 @@ public class PantallaActualizarMecenazgo extends JFrame {
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.actualizarMecenazgo(txtFechaInicio.getText(), txtFechaFinal.getText(), mecenazgo.getMecenas().getId(), txtIdPintor.getText());
+					Gestor.actualizarMecenazgo(txtIdMecenas.getText(), txtIdPintor.getText(), txtFechaInicio.getText(), txtFechaFinal.getText());
 					JOptionPane.showMessageDialog( null, "El mecenazgo ha sido actualizo exitosamente!" );
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog( null, "Hubo un error\nPor favor revise los datos ingresados");
@@ -114,7 +114,7 @@ public class PantallaActualizarMecenazgo extends JFrame {
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.borrarMecenazgo(Integer.parseInt(mecenazgo.getMecenas().getId()));
+					Gestor.borrarMecenazgo( txtIdMecenas.getText(), txtIdPintor.getText() );
 					JOptionPane.showMessageDialog( null, "El mecenazgo ha sido eliminado exitosamente.");
 					setVisible(false);
 				} catch (Exception e1) {

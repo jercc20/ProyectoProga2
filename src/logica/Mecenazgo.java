@@ -60,6 +60,11 @@ private static final long serialVersionUID = -436540065081698326L;
 		setMecenas(pMecenas);
 	}
 	
+	public Mecenazgo(Pintor pPintor, Mecenas pMecenas){
+		setPintor(pPintor);
+		setMecenas(pMecenas);
+	}
+	
 	/**
 	 * Getter
 	 * @return fechaInicio

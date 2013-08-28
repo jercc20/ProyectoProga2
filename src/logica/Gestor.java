@@ -186,16 +186,16 @@ public class Gestor {
 	}
 	
 	
-	public static void actualizarMecenazgo (String pFechaInicio, String pFechaFin, String pIdMecenas, String pIdPintor) throws Exception{
+	public static void actualizarMecenazgo ( String pIdMecenas, String pIdPintor, String pFechaInicio, String pFechaFin ) throws Exception{
 	
-		//DAOMecenazgo.actualizar( new Mecenazgo(pFechaInicio, pFechaFin, ( DAOPintor.buscar(pIdPintor) ), ( DAOMecenas.buscar(pIdMecenas) ) ) );
+		DAOMecenazgo.actualizar( new Mecenazgo(pFechaInicio, pFechaFin, ( DAOPintor.buscar(pIdPintor) ), ( DAOMecenas.buscar(pIdMecenas) ) ) );
 		
 	}
 	
 	
-	public static void borrarMecenazgo(int pId) throws java.sql.SQLException, Exception {
+	public static void borrarMecenazgo( String pIdMecenas, String pIdPintor ) throws java.sql.SQLException, Exception {
 	
-		//DAOMecenazgo.borrar( DAOMecenazgo.buscar(pId) );
+		DAOMecenazgo.borrar( new Mecenazgo( ( DAOPintor.buscar(pIdPintor) ), ( DAOMecenas.buscar(pIdMecenas) ) ) );
 		
 	}
 	
