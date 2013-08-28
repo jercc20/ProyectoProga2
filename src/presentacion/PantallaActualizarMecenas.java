@@ -48,7 +48,6 @@ public class PantallaActualizarMecenas extends JFrame {
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
 		
-		Vector datosMecenazgos;
 		
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
@@ -63,13 +62,13 @@ public class PantallaActualizarMecenas extends JFrame {
 		JLabel lblId = new JLabel("Id");
 		lblId.setDisplayedMnemonic('I');
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblId.setBounds(10, 10, 121, 14);
+		lblId.setBounds(72, 10, 121, 14);
 		contentPane.add(lblId);
 		
 		txtId = new JTextField();
 		lblId.setLabelFor(txtId);
 		txtId.setEditable( false );
-		txtId.setBounds(141, 5, 86, 20);
+		txtId.setBounds(203, 5, 86, 20);
 		txtId.setText( String.valueOf( mecenas.getId() ) );
 		contentPane.add(txtId);
 		
@@ -77,47 +76,47 @@ public class PantallaActualizarMecenas extends JFrame {
 		lblNombre.setDisplayedMnemonic('N');
 		lblNombre.setLabelFor(lblNombre);
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombre.setBounds(85, 34, 46, 14);
+		lblNombre.setBounds(147, 34, 46, 14);
 		contentPane.add(lblNombre);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(141, 30, 86, 20);
+		txtNombre.setBounds(203, 30, 86, 20);
 		txtNombre.setText( mecenas.getNombre() );
 		contentPane.add(txtNombre);
 		
 		JLabel lblPaisNacimiento = new JLabel("Pa\u00EDs de nacimiento");
 		lblPaisNacimiento.setDisplayedMnemonic('P');
 		lblPaisNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPaisNacimiento.setBounds(10, 58, 121, 14);
+		lblPaisNacimiento.setBounds(72, 58, 121, 14);
 		contentPane.add(lblPaisNacimiento);
 		
 		txtPaisNacimiento = new JTextField();
 		lblPaisNacimiento.setLabelFor(txtPaisNacimiento);
-		txtPaisNacimiento.setBounds(141, 55, 86, 20);
+		txtPaisNacimiento.setBounds(203, 55, 86, 20);
 		txtPaisNacimiento.setText( mecenas.getNacionalidad() );
 		contentPane.add(txtPaisNacimiento);
 		
 		JLabel lblCiudadNacimiento = new JLabel("Ciudad de nacimiento");
 		lblCiudadNacimiento.setDisplayedMnemonic('P');
 		lblCiudadNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCiudadNacimiento.setBounds(10, 82, 121, 14);
+		lblCiudadNacimiento.setBounds(72, 82, 121, 14);
 		contentPane.add(lblCiudadNacimiento);
 		
 		txtCiudadNacimiento = new JTextField();
 		lblCiudadNacimiento.setLabelFor(txtCiudadNacimiento);
-		txtCiudadNacimiento.setBounds(141, 80, 86, 20);
+		txtCiudadNacimiento.setBounds(203, 80, 86, 20);
 		txtCiudadNacimiento.setText( mecenas.getCiudadNacimiento() );
 		contentPane.add(txtCiudadNacimiento);
 		
 		JLabel lblFechaMuerte = new JLabel("Fecha de muerte");
 		lblFechaMuerte.setDisplayedMnemonic('F');
 		lblFechaMuerte.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaMuerte.setBounds(34, 106, 97, 14);
+		lblFechaMuerte.setBounds(96, 106, 97, 14);
 		contentPane.add(lblFechaMuerte);
 		
 		txtFechaMuerte = new JTextField();
 		lblFechaMuerte.setLabelFor(txtFechaMuerte);
-		txtFechaMuerte.setBounds(141, 105, 86, 20);
+		txtFechaMuerte.setBounds(203, 105, 86, 20);
 		txtFechaMuerte.setText( mecenas.getFechaMuerte() );
 		contentPane.add(txtFechaMuerte);
 		
@@ -165,7 +164,7 @@ public class PantallaActualizarMecenas extends JFrame {
 				btnCrearMecenazgo_mouseClicked(e);
 			}
 		});
-		btnCrearMecenazgo.setBounds(258, 54, 121, 23);
+		btnCrearMecenazgo.setBounds(10, 168, 121, 23);
 		contentPane.add(btnCrearMecenazgo);
 		
 		btnEditarMecenazgo = new JButton("Editar Mecenazgo");
@@ -174,12 +173,17 @@ public class PantallaActualizarMecenas extends JFrame {
 				btnEditarMecenazgo_mouseClicked(e);
 			}
 		});
-		btnEditarMecenazgo.setBounds(258, 84, 121, 23);
+		btnEditarMecenazgo.setBounds(10, 229, 121, 23);
 		contentPane.add(btnEditarMecenazgo);
 		
 		listMecenazgos = new List();
-		listMecenazgos.setBounds(141, 152, 250, 121);
+		listMecenazgos.setBounds(141, 131, 250, 146);
 		contentPane.add(listMecenazgos);
+		
+		JLabel lblListaDeMecenazgos = new JLabel("Lista de Mecenazgos");
+		lblListaDeMecenazgos.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblListaDeMecenazgos.setBounds(10, 131, 121, 14);
+		contentPane.add(lblListaDeMecenazgos);
 		
 		if( pMecenas.getMecenazgos().size() > 0 ) {
 			for ( Mecenazgo m : pMecenas.getMecenazgos().toArray( new Mecenazgo[0] ) ) {
