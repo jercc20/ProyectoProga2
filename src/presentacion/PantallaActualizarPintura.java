@@ -211,15 +211,21 @@ public class PantallaActualizarPintura extends JFrame {
 				btnCrearAdquisicion_mouseClicked(e);
 			}
 		});
-		btnCrearAdquisicion.setBounds(4, 320, 134, 23);
+		btnCrearAdquisicion.setBounds(4, 330, 134, 23);
 		contentPane.add(btnCrearAdquisicion);
 		
 		listAdquisiciones = new List();
-		listAdquisiciones.setBounds(148, 242, 266, 134);
+		listAdquisiciones.setBounds(148, 256, 266, 120);
 		contentPane.add(listAdquisiciones);
 		
 		JButton btnBuscarAdquisiciones = new JButton("Buscar Adquisiciones");
-		btnBuscarAdquisiciones.setBounds(4, 257, 134, 23);
+		btnBuscarAdquisiciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		btnBuscarAdquisiciones.setBounds(4, 286, 134, 23);
 		contentPane.add(btnBuscarAdquisiciones);
 	}
 	

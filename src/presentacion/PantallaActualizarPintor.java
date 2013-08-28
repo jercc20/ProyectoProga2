@@ -236,11 +236,12 @@ public class PantallaActualizarPintor extends JFrame {
 		btnBuscarPinturas = new JButton("Buscar Pinturas");
 		btnBuscarPinturas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if( pintor.getMaestros().size() >0) {
-					for ( Pintor p : pintor.getMaestros() ) {
-						listMaestros.add( "Maestro: " + p.getNombre() );
+				listPinturas.removeAll();
+				if( pintor.getPinturas().size() >0) {
+					for ( Pintura p : pintor.getPinturas() ) {
+						listPinturas.add( "Pintura: " + p.getNombre() );
 					}
-				}				
+				}
 			}
 		});
 		btnBuscarPinturas.setBounds(20, 380, 120, 23);
@@ -249,6 +250,7 @@ public class PantallaActualizarPintor extends JFrame {
 		btnBuscarMaestros = new JButton("Buscar Maestros");
 		btnBuscarMaestros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				listMaestros.removeAll();
 				if( pintor.getMaestros().size() >0) {
 					for ( Pintor p : pintor.getMaestros() ) {
 						listMaestros.add( "Maestro: " + p.getNombre() );
@@ -259,17 +261,6 @@ public class PantallaActualizarPintor extends JFrame {
 		btnBuscarMaestros.setBounds(20, 250, 120, 23);
 		contentPane.add(btnBuscarMaestros);
 		
-		if( pPintor.getPinturas().size() >0) {
-			for ( Pintura p : pPintor.getPinturas() ) {
-				listPinturas.add( "Pintura: " + p.getNombre() );
-			}
-		}
-		
-		if( pPintor.getMaestros().size() >0) {
-			for ( Pintor p : pPintor.getMaestros() ) {
-				listMaestros.add( "Maestro: " + p.getNombre() );
-			}
-		}
 	}
 	
 	public void btnAgregarMaestro_mouseClicked(MouseEvent e) {
