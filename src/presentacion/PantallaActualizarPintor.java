@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import java.awt.List;
 import java.awt.SystemColor;
 
 import javax.swing.JLabel;
@@ -16,11 +17,13 @@ import javax.swing.JButton;
 
 import logica.Gestor;
 import logica.Pintor;
+import logica.Pintura;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JList;
 
 public class PantallaActualizarPintor extends JFrame {
 
@@ -36,11 +39,14 @@ public class PantallaActualizarPintor extends JFrame {
 	private JComboBox<String> cmbTipo;
 	private JTextField txtIdEscuela;
 	private JButton btnAgregarMaestro;
+	private List listPinturas;
+	private JLabel lblListaDeMaestros;
+	private List listMaestros;
 
 	public PantallaActualizarPintor( Pintor pPintor ) {
 		setResizable(false);
 		setTitle("Actualizar Pintor");
-		setBounds(100, 100, 381, 370);
+		setBounds(100, 100, 455, 519);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -151,7 +157,7 @@ public class PantallaActualizarPintor extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnCancel.setBounds(78, 307, 89, 23);
+		btnCancel.setBounds(79, 456, 89, 23);
 		contentPane.add(btnCancel);
 		
 		JButton btnActualizar = new JButton("Actualizar");
@@ -167,7 +173,7 @@ public class PantallaActualizarPintor extends JFrame {
 				}
 			}
 		});
-		btnActualizar.setBounds(276, 307, 89, 23);
+		btnActualizar.setBounds(277, 456, 89, 23);
 		contentPane.add(btnActualizar);
 		
 		JButton btnBorrar = new JButton("Borrar");
@@ -183,7 +189,7 @@ public class PantallaActualizarPintor extends JFrame {
 				
 			}
 		});
-		btnBorrar.setBounds(177, 307, 89, 23);
+		btnBorrar.setBounds(178, 456, 89, 23);
 		contentPane.add(btnBorrar);
 		
 		JLabel lblIdEscuela = new JLabel("Id Escuela");
@@ -211,8 +217,38 @@ public class PantallaActualizarPintor extends JFrame {
 				btnAgregarMaestro_mouseClicked(e);
 			}
 		});
-		btnAgregarMaestro.setBounds(113, 257, 149, 23);
+		btnAgregarMaestro.setBounds(320, 251, 120, 23);
 		contentPane.add(btnAgregarMaestro);
+		
+		JLabel lblListaPinturas = new JLabel("Lista de Pinturas");
+		lblListaPinturas.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblListaPinturas.setBounds(39, 337, 101, 14);
+		contentPane.add(lblListaPinturas);
+		
+		listPinturas = new List();
+		listPinturas.setBounds(150, 337, 164, 108);
+		contentPane.add(listPinturas);
+		
+		lblListaDeMaestros = new JLabel("Lista de Maestros");
+		lblListaDeMaestros.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblListaDeMaestros.setBounds(39, 239, 101, 14);
+		contentPane.add(lblListaDeMaestros);
+		
+		listMaestros = new List();
+		listMaestros.setBounds(150, 237, 164, 50);
+		contentPane.add(listMaestros);
+		
+		if( pPintor.getPinturas().size() >0) {
+			for ( Pintura p : pPintor.getPinturas() ) {
+				listPinturas.add( "Pintura: " + p.getNombre() );
+			}
+		}
+		
+		if( pPintor.getMaestros().size() >0) {
+			for ( Pintor p : pPintor.getMaestros() ) {
+				listMaestros.add( "Maestro: " + p.getNombre() );
+			}
+		}
 	}
 	
 	public void btnAgregarMaestro_mouseClicked(MouseEvent e) {

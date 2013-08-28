@@ -65,12 +65,12 @@ public class PantallaAgregarMaestro extends JFrame {
 		btnCancel.setBounds(21, 106, 89, 23);
 		contentPane.add(btnCancel);
 
-		JButton btnCrear = new JButton("Crear");
+		JButton btnCrear = new JButton("Agregar");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Gestor.agregarMaestro(txtidpintor.getText(), txtIdMaestro.getText());
-					JOptionPane.showMessageDialog(null, "El maestro ha sido creado exitosamente!");
+					JOptionPane.showMessageDialog(null, "El maestro ha sido agregado exitosamente!");
 				} catch (Exception e1) {
 					JOptionPane
 							.showMessageDialog(null, 	"Hubo un error\nPor favor revise los datos ingresados");
