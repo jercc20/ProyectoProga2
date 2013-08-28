@@ -17,17 +17,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.TreeMap;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
-import javax.swing.JList;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
+
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
 
@@ -47,7 +47,7 @@ public class PantallaActualizarMecenas extends JFrame {
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
 		
-		Vector datosMecenazgos;
+		Set datosMecenazgos;
 		
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
@@ -168,12 +168,12 @@ public class PantallaActualizarMecenas extends JFrame {
 		contentPane.add(btnCrearMecenazgo);
 		
 		listMecenazgos = new List();
-		listMecenazgos.setBounds(22, 139, 369, 145);
+		listMecenazgos.setBounds(141, 152, 250, 121);
 		contentPane.add(listMecenazgos);
 		
 		TreeMap datosMecenazgo;
 		try {
-			datosMecenazgos = (Vector)pMecenas.getMecenazgos();
+			datosMecenazgos = pMecenas.getMecenazgos();
 			for (int i=0; i<datosMecenazgos.size(); i++) {
 				datosMecenazgo = ((TreeMap) datosMecenazgos.get(i));
 				listMecenazgos.add(""+datosMecenazgo.get("id")+" - "+datosMecenazgo.get("nombre"));
