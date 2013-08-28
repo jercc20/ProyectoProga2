@@ -50,10 +50,6 @@ public class PantallaActualizarMecenas extends JFrame {
 
 	public PantallaActualizarMecenas( Mecenas pMecenas ) {
 		
-<<<<<<< HEAD
-=======
-		
->>>>>>> 84504b69a38e809031b7ea36951dd840714390bd
 		mecenas = pMecenas;
 		setTitle("Actualizar Mecenas");
 		setResizable(false);
