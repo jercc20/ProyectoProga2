@@ -12,12 +12,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import logica.Adquisicion;
 import logica.DAOGaleria;
+import logica.DAOPintura;
 import logica.Galeria;
+import logica.Gestor;
+import logica.Pintura;
+
 import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class PantallaCrearExposicion extends JFrame {
 
@@ -32,13 +38,17 @@ public class PantallaCrearExposicion extends JFrame {
 	private JButton btnCancel;
 	private JButton btnCrear;
 	private JButton btnRemover;
+	private Galeria galeria;
+	private ArrayList<Pintura> listaPinturas;
+	private ArrayList<Pintura> listaPorExponer;
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public PantallaCrearExposicion(String pidGaleria) {
+	public PantallaCrearExposicion(Galeria pGaleria) {
 		
-		Galeria galeria = DAOGaleria.buscar(pidGaleria);
+		galeria =pGaleria;
 		
 		setTitle("Crear Exposici\u00F3n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -98,12 +108,19 @@ public class PantallaCrearExposicion extends JFrame {
 		listPorExponer.setBounds(116, 179, 235, 100);
 		contentPane.add(listPorExponer);
 		
+		if( galeria.getAdquisiciones().size() > 0) {
+			for ( Adquisicion a : galeria.getAdquisiciones()) {
+				listPinturas.add( "Pintura: " + a.getPintura().getNombre() );
+				listaPinturas.add(DAOPintura.buscar(a.getPintura().getCodigo()));
+			}
+		}
+		
 		btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				
+				int seleccion = listPinturas.getSelectedIndex();
+				listPorExponer.add(listaPinturas.get(seleccion).getNombre());
+				listaPorExponer.add(listaPinturas.get(seleccion));
 			}
 		});
 		btnAgregar.setBounds(20, 115, 89, 23);
@@ -112,7 +129,7 @@ public class PantallaCrearExposicion extends JFrame {
 		btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnCancel.setBounds(216, 319, 89, 23);
@@ -122,7 +139,7 @@ public class PantallaCrearExposicion extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Gestor.crearExposicion( txtIdGaleria.getText(), txtFechaInicio.getText(), txtFechaFinal.getText()/*aca faltaria la lista de pinturas*/);
+					Gestor.crearExposicion( galeria , txtFechaInicio.getText(), txtFechaFinal.getText(), listaPorExponer);
 					JOptionPane.showMessageDialog( null, "El mecenazgo ha sido creado exitosamente!" );
 					setVisible(false);
 				} catch (Exception e1) {
@@ -144,5 +161,6 @@ public class PantallaCrearExposicion extends JFrame {
 		});
 		btnRemover.setBounds(17, 215, 89, 23);
 		contentPane.add(btnRemover);
+		
 	}
 }

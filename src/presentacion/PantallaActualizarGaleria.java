@@ -171,7 +171,7 @@ public class PantallaActualizarGaleria extends JFrame {
 	public void btnCrearExposicin_mouseClicked(MouseEvent e) {
 		try {
 			PantallaCrearExposicion p;
-			p = new PantallaCrearExposicion(txtId.getText());
+			p = new PantallaCrearExposicion(galeria);
 			p.setVisible(true);
 		}
 		catch (Exception ex) {

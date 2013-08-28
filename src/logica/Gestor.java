@@ -1,6 +1,7 @@
 package logica;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class Gestor {
@@ -328,6 +329,12 @@ public static void agregarMaestro (String pIdPintor, String pidMaestro) throws E
 		DAOPintor.actualizar( pintor );
 		
 	}
+
+public static void crearExposicion (Galeria pGaleria, String pFechaInicio, String pFechaFinal, ArrayList<Pintura> pListaPinturas) throws Exception{
+	DAOExposicion.crear( new Exposicion(pGaleria, pFechaInicio, pFechaFinal, pListaPinturas));
+}
+
+
 	
 
 }

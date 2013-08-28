@@ -10,6 +10,7 @@ package logica;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -53,11 +54,20 @@ public class Exposicion implements Serializable{
 	 * @param pGaleria: Identificador de la galeria que tendra la exposicion.
 	 */
 	
-	public Exposicion(String pfechaInicio, String pfechaFin, Galeria pGaleria) {
+	public Exposicion(Galeria pGaleria, String pfechaInicio, String pfechaFin, ArrayList<Pintura> pListaPinturas ) {
+		setGaleria(pGaleria);
 		setFechaInicio(pfechaInicio);
 		setFechaFin(pfechaFin);
-		setGaleria(pGaleria);
+		setPinturas(pListaPinturas);
 	}
+	public Galeria getGaleria() {
+		return galeria;
+	}
+
+	public void setGaleria(Galeria pgaleria){
+		galeria = pgaleria;
+	}
+	
 	
 	/**
 	 * Getter
@@ -107,20 +117,12 @@ public class Exposicion implements Serializable{
 		fechaFin = pfechaFin;
 	}
 	
-	public Galeria getGaleria() {
-		return galeria;
-	}
-
-	public void setGaleria(Galeria pgaleria){
-		galeria = pgaleria;
-	}
-	
 	public Set<Pintura> getPinturas() {
 		return pinturas;
 	}
 
-	public void setPinturas(Set<Pintura> pPinturas){
-		pinturas = pPinturas;
+	public void setPinturas(ArrayList<Pintura> pPinturas){
+		pinturas = (Set) pPinturas;
 	}
 	public void setPintura(Pintura pPintura){
 		pinturas.add(pPintura);
